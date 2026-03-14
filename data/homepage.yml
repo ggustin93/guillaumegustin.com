@@ -127,6 +127,11 @@ experience:
     URL: "https://www.canva.com/design/DAEqu630WFc/JXZzm8oDu6iWHbwo8gDidQ/view?utm_content=DAEqu630WFc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha66b906dcd"
 
   items:
+    - title: "Software Engineer (Clinical Research Project "Ghostly")"
+      company: "Vrije Universiteit Brussel"
+      duration: "2025 - 2026"
+      icon: "icon-flask"
+      highlight: true
     - title: "Founder & Web Designer"
       company: "Pwablo | Sustainable Web Agency"
       duration: "Jan 2022 - Current"
