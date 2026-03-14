@@ -520,10 +520,7 @@ select:focus-visible {
 
 /* Plus d'espace entre la photo et le texte */
 @media (min-width: 768px) {
-    .about__profile-picture {
-        padding-left: 50px;
-    }
-    #about .col-md-6:last-child {
+    #about .col-md-6:first-child {
         padding-right: 50px;
     }
 }
