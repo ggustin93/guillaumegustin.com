@@ -1,6 +1,7 @@
 # guillaumegustin.com
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fguillaumegustin.com&label=guillaumegustin.com)](https://guillaumegustin.com/)
+![Performance](https://img.shields.io/badge/Performance-96-4c1?logo=lighthouse&logoColor=white)
 ![Accessibility](https://img.shields.io/badge/Accessibility-100-4c1?logo=lighthouse&logoColor=white)
 ![Best Practices](https://img.shields.io/badge/Best%20Practices-100-4c1?logo=lighthouse&logoColor=white)
 ![SEO](https://img.shields.io/badge/SEO-100-4c1?logo=lighthouse&logoColor=white)
@@ -32,6 +33,7 @@ Personal portfolio for **Guillaume Gustin** — Full-Stack Developer & Biomedica
 
 | Lighthouse | Score | How |
 |------------|-------|-----|
+| Performance | **96** | Critical CSS inlined, async non-blocking stylesheets, hero images eager-loaded with `fetchpriority="high"`, optimized AVIF/WebP images (resized to display dimensions), fast animation fallbacks (0.8s), FCP 1.0s, LCP 2.8s, CLS 0 |
 | Accessibility | **100** | Semantic HTML, skip links, WCAG AA contrast ratios, `aria-hidden` on decorative elements, underlined in-text links, 44px touch targets, focus outlines |
 | Best Practices | **100** | HTTPS, no deprecated APIs, no console errors, self-hosted fonts and analytics, no mixed content |
 | SEO | **100** | Canonical URLs, hreflang (EN/FR), OpenGraph + Twitter Card meta, JSON-LD structured data (Person + WebSite), sitemap.xml, descriptive alt attributes |
