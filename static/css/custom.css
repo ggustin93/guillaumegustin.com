@@ -215,12 +215,12 @@ select:focus-visible {
     margin-top: 20px;
 }
 
-/* Coin haut gauche style carte publication */
+/* Coin haut gauche style carte publication - aligné avec le container */
 #contact::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    left: 15px;
     width: 60px;
     height: 4px;
     background-color: #000;
@@ -231,7 +231,7 @@ select:focus-visible {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    left: 15px;
     width: 4px;
     height: 60px;
     background-color: #000;
