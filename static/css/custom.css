@@ -521,7 +521,7 @@ select:focus-visible {
 }
 
 .about__profile-picture picture:hover img {
-    filter: grayscale(100%);
+    filter: grayscale(0%);
 }
 
 /* Plus d'espace entre la photo et le texte */
