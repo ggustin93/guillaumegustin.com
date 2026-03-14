@@ -1,10 +1,99 @@
+/* Portfolio image — subtle hover hint, click opens lightbox */
 .img-zoom {
-    transition: all 1s ease;
+    cursor: pointer;
+    transition: filter 0.25s ease;
 }
 
 .img-zoom:hover {
-    transform: scale(1.25);
-    padding: 1em;
+    filter: brightness(0.88);
+}
+
+/* Lightbox expand button overlay */
+.img-zoom-wrapper {
+    position: relative;
+    display: inline-block;
+    outline: none;
+}
+
+.img-zoom-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.55);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+    padding: 0;
+    line-height: 1;
+}
+
+.img-zoom-wrapper:hover .img-zoom-btn,
+.img-zoom-btn:focus-visible {
+    opacity: 1;
+}
+
+/* Fullscreen lightbox overlay */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    cursor: zoom-out;
+}
+
+.lightbox-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    cursor: default;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Screen-reader only class - visually hidden but accessible */
@@ -77,54 +166,355 @@ select:focus-visible {
     border-radius: 2px;
 }
 
-/* Styles pour la section expérience avec logos */
-.experience-with-logo {
+/* ===========================================
+   EXPERIENCE SECTION — header + card grid
+   =========================================== */
+
+/* Header: title full width, then description + subtle actions row, then badges */
+.experience-header {
     display: flex;
-    margin-bottom: 25px;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
 }
 
-.experience-logo {
-    flex: 0 0 100px;  /* Augmenté de 80px à 100px */
-    margin-right: 20px;
+.experience-header__text h2 {
+    margin-bottom: 4px;
+}
+
+/* Description + actions: side by side, actions pushed right */
+.experience-header__body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.experience-header__text p {
+    max-width: 75ch;
+    line-height: 1.7;
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Subtle actions: right-aligned, understated links */
+.experience-header__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+    padding-top: 4px;
+}
+
+.experience-header__actions .btn {
+    white-space: nowrap;
+    text-align: right;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+/* Primary action: compact dark button */
+.experience-header__actions .btn-primary {
+    background: #222;
+    color: #fff;
+    border: 1.5px solid #222;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.experience-header__actions .btn-primary:hover {
+    background: #000;
+    border-color: #000;
+}
+
+/* Secondary action: ghost link */
+.experience-header__actions .btn-frameless {
+    color: #777;
+    font-size: 0.82rem;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+}
+
+.experience-header__actions .btn-frameless:hover {
+    color: #333;
+}
+
+/* Badges: full width, left-aligned, framing before cards */
+.experience-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 4px;
+    justify-content: flex-start;
+    margin-bottom: 28px;
+}
+
+/* Responsive grid: 2 cols desktop with timeline, 1 col mobile */
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 32px 1fr;
+    gap: 14px 0;
+    position: relative;
+    align-items: stretch;
+}
+
+/* Timeline center column — solid vertical line */
+.experience-grid::before {
+    content: '';
+    position: absolute;
+    left: calc(50% - 1px);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e0e0e0;
+    z-index: 0;
+}
+
+/* Timeline dots — placed via nth-child on cards */
+.experience-card {
+    position: relative;
+}
+
+/* Left column cards (odd: 1st, 3rd, 5th) */
+.experience-card:nth-child(odd) {
+    grid-column: 1;
+}
+
+/* Right column cards (even: 2nd, 4th, 6th) */
+.experience-card:nth-child(even) {
+    grid-column: 3;
+}
+
+/* Timeline chevron — shared base */
+.experience-card::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    font-size: 14px;
+    font-weight: 700;
+    color: #e05d44;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    line-height: 1;
+}
+
+/* --- Odd rows (1,3,5…): flow LEFT → RIGHT --- */
+/* Left card: › pointing right */
+.experience-card:nth-child(4n+1)::after {
+    content: '›';
+    right: -27px;
+    padding-left: 1px;
+}
+/* Right card: ‹ (came from left) */
+.experience-card:nth-child(4n+2)::after {
+    content: '‹';
+    left: -27px;
+    padding-right: 1px;
+}
+
+/* --- Even rows (2,4,6…): flow RIGHT → LEFT --- */
+/* Left card: ‹ (came from right) */
+.experience-card:nth-child(4n+3)::after {
+    content: '‹';
+    right: -27px;
+    padding-right: 1px;
+}
+/* Right card: › pointing left-ward (starts this row) */
+.experience-card:nth-child(4n+4)::after {
+    content: '›';
+    left: -27px;
+    padding-left: 1px;
+}
+
+/* First card — filled accent to mark "start here" */
+.experience-card:first-child::after {
+    background: #e05d44;
+    color: #fff;
+    border-color: #e05d44;
+}
+
+/* Card */
+.experience-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 10px;
+    background: #fafafa;
+    border: 1px solid #e8e8e8;
+}
+
+
+/* Logo in card */
+.experience-card__logo {
+    flex: 0 0 76px;
 }
 
 .company-logo {
-    width: 100px;  /* Augmenté de 80px à 100px */
-    height: 100px;  /* Augmenté de 80px à 100px */
+    width: 76px;
+    height: 76px;
     object-fit: contain;
-    border-radius: 8px;
-    background-color: #ffffff;
-    padding: 4px;  /* Réduit de 8px à 4px */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 4px;
 }
 
-.company-logo:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-.experience-content {
+/* Info */
+.experience-card__info {
     flex: 1;
+    min-width: 0;
 }
 
-.experience__date {
-    color: #666;
-    font-size: 0.9rem;
+.experience__company {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #991b1b;
+    font-weight: 500;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
     margin-bottom: 4px;
+    background-color: #fef2f2;
+    padding: 2px 8px 2px 6px;
+    border-radius: 9999px;
+    border: 1px solid #fecaca;
+}
+
+.experience__company::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    flex-shrink: 0;
 }
 
 .experience__title {
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 4px;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+    color: #222;
 }
 
-.experience__company {
-    color: #e05d44;  /* Rouge assorti à votre thème */
-    font-weight: 500;
-    margin-bottom: 8px;
+.experience__date {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    color: #999;
+    font-size: 0.72rem;
+    letter-spacing: 0.01em;
+}
+
+/* Tablet & mobile: single column, vertical timeline on left */
+@media (max-width: 991px) {
+    .experience-header {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .experience-header__body {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .experience-header__actions {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+
+    .experience-header__actions .btn {
+        flex: 1;
+        text-align: center;
+    }
+
+    .experience-grid {
+        grid-template-columns: 16px 1fr;
+        gap: 10px 0;
+    }
+
+    .experience-grid::before {
+        left: 7px;
+    }
+
+    .experience-card:nth-child(odd),
+    .experience-card:nth-child(even) {
+        grid-column: 2;
+        margin-left: 12px;
+    }
+
+    /* Mobile: all chevrons on left, pointing right toward card */
+    .experience-card:nth-child(odd)::after,
+    .experience-card:nth-child(even)::after {
+        left: -19px;
+        right: auto;
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+        content: '›';
+        transform: translateY(-50%);
+        padding-left: 1px;
+    }
+
+    /* Mobile: date below company badge, not absolute */
+    .experience__date {
+        position: static;
+        margin-top: 2px;
+    }
+
+    .experience-card {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .experience-card__logo {
+        flex: 0 0 48px;
+    }
+
+    .company-logo {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* Small mobile tweaks */
+@media (max-width: 480px) {
+    .experience-card {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .experience-card__logo {
+        flex: 0 0 40px;
+    }
+
+    .company-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .experience__title {
+        font-size: 0.88rem;
+    }
+
+    .experience__company {
+        font-size: 0.65rem;
+    }
+
+    .experience__date {
+        font-size: 0.7rem;
+    }
 }
 
 /* Styles pour la section tech-stack avec icônes - style moderne sur fond sombre */
@@ -610,6 +1000,15 @@ select:focus-visible {
     margin-bottom: 20px;
 }
 
+.publication-card__desc a {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.publication-card__desc a:hover {
+    color: #003d80;
+}
+
 .publication-card__action {
     margin-top: auto;
     display: flex;
@@ -626,7 +1025,7 @@ select:focus-visible {
 .btn-publication {
     display: inline-flex;
     align-items: center;
-    color: #e05d44;
+    color: #c0392b;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -646,8 +1045,8 @@ select:focus-visible {
 .btn-publication:hover,
 .btn-publication:active,
 .btn-publication:focus {
-    color: #c63c2c;
-    border-bottom: 1px solid #c63c2c;
+    color: #922b21;
+    border-bottom: 1px solid #922b21;
     text-decoration: none;
     outline: none;
 }
@@ -700,7 +1099,7 @@ select:focus-visible {
 
 /* Footer links */
 .footer__copy a {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -843,11 +1242,7 @@ html, body {
 
 /* FIX 4: Font sizes too small on mobile */
 @media (max-width: 768px) {
-    /* All badges (skills, tech tags, etc.) — Bootstrap default is 75% = ~12px */
-    .badge.badge-secondary {
-        font-size: 13px;
-        padding: 5px 8px;
-    }
+    /* Badges — mobile sizing handled in badge section below */
 
     /* Publication card box-shadow overflow fix */
     .publication-card {
@@ -860,58 +1255,83 @@ html, body {
     }
 }
 /* ===========================================
-   BADGES UX/UI IMPROVEMENTS
+   BADGES — Refined pills with dot indicator
    =========================================== */
 
-/* Base badge styling - modern and clean */
+/* Base badge — pill shape, compact, subtle */
 .badge.badge-secondary {
     font-weight: 500;
-    padding: 8px 14px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin: 3px;
-    border: none;
+    font-size: 0.73rem;
+    letter-spacing: 0.015em;
+    padding: 5px 12px 5px 10px;
+    border-radius: 9999px;
+    transition: background-color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 3px 2px;
     cursor: default;
+    box-shadow: none;
+    border: none;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
-/* Red badges (primary skills) */
+/* Dot indicator before each badge */
+.badge.badge-secondary::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Primary — warm rose */
 .badge.badge-secondary.myred {
-    background-color: #e05d44;
-    color: #fff;
-    box-shadow: 0 2px 4px rgba(224, 93, 68, 0.3);
+    background-color: #fef2f2;
+    color: #991b1b;
+}
+
+.badge.badge-secondary.myred::before {
+    background-color: #ef4444;
 }
 
 .badge.badge-secondary.myred:hover {
-    background-color: #c94e3a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(224, 93, 68, 0.4);
+    background-color: #fee2e2;
 }
 
-/* Gray badges (secondary skills) */
+/* Secondary — cool neutral */
 .badge.badge-secondary.random_color {
-    background-color: #6c757d;
-    color: #fff;
-    box-shadow: 0 2px 4px rgba(108, 117, 125, 0.3);
+    background-color: #f4f5f7;
+    color: #4b5563;
+}
+
+.badge.badge-secondary.random_color::before {
+    background-color: #9ca3af;
 }
 
 .badge.badge-secondary.random_color:hover {
-    background-color: #5a6268;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.4);
+    background-color: #e5e7eb;
 }
 
 /* Badge container spacing */
 .experience__badges,
 .experience__description .badge {
-    line-height: 2.2;
+    line-height: 2.1;
 }
 
-/* Mobile adjustments */
+/* Mobile */
 @media (max-width: 768px) {
     .badge.badge-secondary {
-        font-size: 12px;
-        padding: 6px 10px;
-        margin: 2px;
+        font-size: 0.68rem;
+        padding: 4px 10px 4px 8px;
+        gap: 5px;
+        margin: 2px 1px;
+    }
+
+    .badge.badge-secondary::before {
+        width: 5px;
+        height: 5px;
     }
 }

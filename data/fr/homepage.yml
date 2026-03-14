@@ -106,18 +106,21 @@ experience:
   enable: true
   title: "Expérience"
   icon: "icon-briefcase"
-  description: '<p class="lead">
-  Mon expérience couvre le <b>développement logiciel full-stack</b>, la <b>santé numérique</b>, la <b>transformation numérique dans les secteurs public et associatif</b>, et le <b>design web durable</b>. Fort d''une formation en <b>ingénierie biomédicale</b> et en <b>recherche académique</b>, je contribue à des projets numériques avec attention à la qualité technique, à l''utilisabilité et au contexte organisationnel. <br><br>
-  <span class="badge badge-secondary myred"> Développement Full-stack </span>
-  <span class="badge badge-secondary myred"> Transformation Numérique </span>
-  <span class="badge badge-secondary myred"> Secteur Public &amp; Associatif </span>
-  <span class="badge badge-secondary myred"> Design Web Durable </span>
-  <span class="badge badge-secondary random_color"> Formateur Python </span>
-  <span class="badge badge-secondary random_color"> Santé Numérique </span>
-  <span class="badge badge-secondary random_color"> Entrepreneuriat </span>
-  <span class="badge badge-secondary random_color"> Recherche Académique </span>
-  <span class="badge badge-secondary random_color"> Ingénierie Biomédicale </span>
-  </p><br>'
+  description: |
+    <p class="lead" style="margin-bottom: 0;">
+    Mon expérience couvre le <b>développement logiciel full-stack</b>, la <b>santé numérique</b>, la <b>transformation numérique dans les secteurs public et associatif</b>, et le <b>design web durable</b>. Fort d'une formation en <b>ingénierie biomédicale</b> et en <b>recherche académique</b>, je contribue à des projets numériques avec attention à la qualité technique, à l'utilisabilité et au contexte organisationnel.
+    </p>
+  badges:
+    - text: "Développement Full-stack"
+      color: "random_color"
+    - text: "Design Web Durable"
+      color: "random_color"
+    - text: "Santé Numérique"
+      color: "random_color"
+    - text: "Secteur Public & Associatif"
+      color: "random_color"
+    - text: "Ingénierie Biomédicale"
+      color: "random_color"
   button:
     icon: "icon-linkedin-fill"
     btnText: "LinkedIn"
@@ -128,9 +131,14 @@ experience:
     URL: "https://www.canva.com/design/DAEqu630WFc/JXZzm8oDu6iWHbwo8gDidQ/view?utm_content=DAEqu630WFc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha66b906dcd"
 
   items:
+    - title: "Software Engineer"
+      company: "Gate 16"
+      duration: "2026 - Actuel"
+      icon: "icon-code"
+      highlight: true
     - title: "Chargé de Recherche en Ingénierie Logicielle"
       company: "Vrije Universiteit Brussel"
-      duration: "2025 - 2026"
+      duration: "2025"
       icon: "icon-flask"
       highlight: true
     - title: "Fondateur & Web Designer"
@@ -143,10 +151,6 @@ experience:
       duration: "Nov 2022 - Oct 2024"
       icon: "icon-chart-line"
       highlight: true
-    - title: "Développeur Full Stack & Formateur Python"
-      company: "Part-time Freelance"
-      duration: "Jan 2021 - Actuel"
-      icon: "icon-code"
     - title: "Cofondateur & Développeur Principal"
       company: "The Medical Cloud Company"
       duration: "Fév 2019 - Jan 2021"

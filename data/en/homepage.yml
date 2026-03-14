@@ -111,18 +111,20 @@ experience:
   title: "Experience"
   icon: "icon-briefcase"
   description: |
-    <p class="lead">
-    My experience spans <b>full-stack software engineering</b>, <b>digital health</b>, <b>digital transformation in the public and non-profit sectors</b>, and <b>sustainable web design</b>. Drawing on a background in <b>biomedical engineering</b> and <b>academic research</b>, I contribute to digital projects with attention to technical quality, usability, and organizational context. <br><br>
-    <span class="badge badge-secondary myred"> Full-stack Software Engineering </span>
-    <span class="badge badge-secondary myred"> Digital Transformation </span>
-    <span class="badge badge-secondary myred"> Public &amp; Non-profit Sector </span>
-    <span class="badge badge-secondary myred"> Sustainable Web Design </span>
-    <span class="badge badge-secondary random_color"> Python Instructor </span>
-    <span class="badge badge-secondary random_color"> Digital Health </span>
-    <span class="badge badge-secondary random_color"> Entrepreneurship </span>
-    <span class="badge badge-secondary random_color"> Academic Research </span>
-    <span class="badge badge-secondary random_color"> Biomedical Engineering </span>
-    </p><br>
+    <p class="lead" style="margin-bottom: 0;">
+    My experience spans <b>full-stack software engineering</b>, <b>digital health</b>, <b>digital transformation in the public and non-profit sectors</b>, and <b>sustainable web design</b>. Drawing on a background in <b>biomedical engineering</b> and <b>academic research</b>, I contribute to digital projects with attention to technical quality, usability, and organizational context.
+    </p>
+  badges:
+    - text: "Full-stack Software Engineering"
+      color: "random_color"
+    - text: "Sustainable Web Design"
+      color: "random_color"
+    - text: "Digital Health"
+      color: "random_color"
+    - text: "Public & Non-profit Sector"
+      color: "random_color"
+    - text: "Biomedical Engineering"
+      color: "random_color"
   button:
     icon: "icon-linkedin-fill"
     btnText: "Connect on LinkedIn"
@@ -133,9 +135,14 @@ experience:
     URL: "https://www.canva.com/design/DAEqu630WFc/JXZzm8oDu6iWHbwo8gDidQ/view?utm_content=DAEqu630WFc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha66b906dcd"
 
   items:
+    - title: "Software Engineer"
+      company: "Gate 16"
+      duration: "2026 - Current"
+      icon: "icon-code"
+      highlight: true
     - title: "Research Software Engineer"
       company: "Vrije Universiteit Brussel"
-      duration: "2025 - 2026"
+      duration: "2025"
       icon: "icon-flask"
       highlight: true
     - title: "Founder & Web Designer"
@@ -148,10 +155,6 @@ experience:
       duration: "Nov 2022 - Oct 2024"
       icon: "icon-chart-line"
       highlight: true
-    - title: "Full Stack Dev & Python Instructor"
-      company: "Part-time Freelance"
-      duration: "Jan 2021 - Current"
-      icon: "icon-code"
     - title: "Co-founder & Lead developer"
       company: "The Medical Cloud Company"
       duration: "Feb 2019 - Jan 2021"
