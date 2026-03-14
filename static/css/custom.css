@@ -215,14 +215,14 @@ select:focus-visible {
     margin-top: 20px;
 }
 
-/* Coin haut gauche style carte publication - aligné avec le contenu */
+/* Coin haut gauche style carte publication - plus court et épais */
 #contact::before {
     content: '';
     position: absolute;
     top: 0;
     left: max(15px, calc((100vw - 1140px) / 2 + 15px));
-    width: 80px;
-    height: 4px;
+    width: 50px;
+    height: 6px;
     background-color: #000;
     box-shadow: 4px 4px 0 #e05d44;
 }
@@ -232,8 +232,8 @@ select:focus-visible {
     position: absolute;
     top: 0;
     left: max(15px, calc((100vw - 1140px) / 2 + 15px));
-    width: 4px;
-    height: 80px;
+    width: 6px;
+    height: 50px;
     background-color: #000;
     box-shadow: 4px 4px 0 #e05d44;
 }
@@ -452,7 +452,27 @@ select:focus-visible {
         font-size: 1rem;
         margin-bottom: 1.5rem;
     }
+    /* Réduire l'espace entre les inputs sur mobile */
+    #contact .row.pt-2 {
+        padding-top: 0 !important;
+    }
     
+    #contact .row > .col-12 {
+        margin-bottom: 8px;
+    }
+    
+    #contact .row > .col-12:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Espacement réduit entre les champs du formulaire */
+    #contact form .row {
+        margin-bottom: 0;
+    }
+    
+    #contact form .row > [class*="col-"] {
+        padding-bottom: 8px;
+    }
     /* Formulaire plus compact sur mobile */
     #contact input[type="text"],
     #contact input[type="email"],
