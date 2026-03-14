@@ -2,6 +2,7 @@ baseURL = "https://guillaumegustin.com/"
 theme = "raditian-free-hugo-theme"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
+disableKinds = ["taxonomy", "term"]
 
 # Configuration pour le traitement des images
 [imaging]
@@ -29,10 +30,6 @@ defaultContentLanguageInSubdir = false
   # CSS Plugins
   [[params.plugins.css]]
   URL = "css/main.css"
-  [[params.plugins.css]]
-  URL = "css/rad-icons.css"
-  [[params.plugins.css]]
-  URL = "css/custom.css"
 
   # JS Plugins - loaded via base-foot.html partial
 
@@ -50,32 +47,24 @@ defaultContentLanguageInSubdir = false
       og_image = "img/who-am-i/avatar_mini.webp"
 
     [languages.en.params.footer]
-      copyright = "© Guillaume Gustin. All rights reserved."
+      copyright = "© Guillaume Gustin."
 
     [[languages.en.menu.header]]
       name = "About"
       URL = "#about"
       weight = 2
     [[languages.en.menu.header]]
-      name = "Education"
-      URL = "#education"
-      weight = 3
-    [[languages.en.menu.header]]
       name = "Experience"
       URL = "#experience"
-      weight = 4
-    [[languages.en.menu.header]]
-      name = "Publications"
-      URL = "#publications"
-      weight = 5
+      weight = 3
     [[languages.en.menu.header]]
       name = "Portfolio"
       URL = "#portfolio"
-      weight = 6
+      weight = 4
     [[languages.en.menu.header]]
       name = "Contact"
       URL = "#contact"
-      weight = 7
+      weight = 5
 
     [[languages.en.menu.footer]]
       name = "About"
@@ -97,37 +86,29 @@ defaultContentLanguageInSubdir = false
     title = "Guillaume Gustin - Développeur Full-Stack & Ingénieur Biomédical | Bruxelles"
 
     [languages.fr.params.seo]
-      description = "Développeur Full-Stack et Ingénieur Biomédical basé en Belgique. J'accompagne les organisations à impact dans la création de solutions numériques efficaces et durables — des plateformes de santé aux applications web."
+      description = "Développeur full-stack et ingénieur biomédical basé en Belgique. Je conçois des solutions numériques au service de la santé, des associations et de la transformation numérique."
       author = "Guillaume Gustin"
       og_image = "img/who-am-i/avatar_mini.webp"
 
     [languages.fr.params.footer]
-      copyright = "© Guillaume Gustin. Tous droits réservés."
+      copyright = "© Guillaume Gustin."
 
     [[languages.fr.menu.header]]
       name = "À propos"
       URL = "#about"
       weight = 2
     [[languages.fr.menu.header]]
-      name = "Formation"
-      URL = "#education"
-      weight = 3
-    [[languages.fr.menu.header]]
       name = "Expérience"
       URL = "#experience"
-      weight = 4
-    [[languages.fr.menu.header]]
-      name = "Publications"
-      URL = "#publications"
-      weight = 5
+      weight = 3
     [[languages.fr.menu.header]]
       name = "Portfolio"
       URL = "#portfolio"
-      weight = 6
+      weight = 4
     [[languages.fr.menu.header]]
       name = "Contact"
       URL = "#contact"
-      weight = 7
+      weight = 5
 
     [[languages.fr.menu.footer]]
       name = "À propos"
@@ -144,7 +125,7 @@ defaultContentLanguageInSubdir = false
 
 [params]
 
-  sections = ["showcase", "about", "tech-stack", "education", "experience", "publications", "client-and-work", "testimonial", "blog", "contact", "newsletter"]
+  sections = ["showcase", "about", "tech-stack", "education", "experience", "publications", "client-and-work", "contact"]
 
   googleTagManagerID = "" # Google Analytics works with Google Tag Manager
 
@@ -154,11 +135,6 @@ defaultContentLanguageInSubdir = false
   [params.logo]
     text1 = "Guillaume"
     text2 = "Gustin"
-
-  [params.footer.radity_logo]
-    x = "img/general/design-and-code-radity.png"
-    _2x = "img/general/design-and-code-radity@2x.png"
-    alt = "Design & Code - Radity"
 
 # Activation du sitemap
 [sitemap]
