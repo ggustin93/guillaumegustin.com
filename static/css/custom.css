@@ -209,7 +209,29 @@ select:focus-visible {
 }
 
 /* Styles améliorés pour la section contact */
-.contact-title {
+#contact {
+    position: relative;
+    padding-top: 80px;
+    margin-top: 40px;
+}
+
+/* Bordure top décorative */
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #e05d44, transparent);
+    border-radius: 2px;
+}
+
+/* Fond subtil pour la section */
+#contact.section--contact {
+    background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+}
     font-size: 2.4rem;
     font-weight: 600;
     margin-bottom: 1rem;
