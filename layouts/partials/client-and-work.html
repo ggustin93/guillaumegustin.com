@@ -1,13 +1,14 @@
-{{ if .Site.Data.homepage.client_and_work.enable }}
+{{ $d := (index .Site.Data .Site.Language.Lang).homepage }}
+{{ if $d.client_and_work.enable }}
 <section id="portfolio" class="section section--border-bottom" aria-labelledby="portfolio-heading">
   <div class="container">
     <h2 id="portfolio-heading" class="rad-animation-group rad-fade-down">
-      {{ .Site.Data.homepage.client_and_work.title }}
+      {{ $d.client_and_work.title }}
     </h2>
     <div class="row row--padded rad-animation-group rad-fade-down">
       <div class="col-12">
         <div class="clients">
-          {{ range .Site.Data.homepage.client_and_work.clients }}
+          {{ range $d.client_and_work.clients }}
           <div class="clients__item">
             {{ partial "responsive-image.html" (dict 
               "src" .logo.original
@@ -21,7 +22,7 @@
         </div>
       </div>
     </div>
-    {{ range $index, $element := .Site.Data.homepage.client_and_work.works }}
+    {{ range $index, $element := $d.client_and_work.works }}
     <div
       class="row row--padded rad-animation-group rad-fade-down {{ if .is_even }}flex-column-reverse flex-md-row{{ end }}"
     >

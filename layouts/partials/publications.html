@@ -1,11 +1,12 @@
-{{ if .Site.Data.homepage.publications.enable }}
+{{ $d := (index .Site.Data .Site.Language.Lang).homepage }}
+{{ if $d.publications.enable }}
 <section id="publications" class="section section--border-bottom" aria-labelledby="publications-heading">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 id="publications-heading"><i class="icon-award" aria-hidden="true"></i> {{ .Site.Data.homepage.publications.title }}</h2>
+                <h2 id="publications-heading"><i class="icon-award" aria-hidden="true"></i> {{ $d.publications.title }}</h2>
                 <div class="row publications-grid pt-3 pt-md-4">
-                    {{ range .Site.Data.homepage.publications.items }}
+                    {{ range $d.publications.items }}
                     <div class="col-12 col-md-6 mb-4">
                         <div class="publication-card">
                             <div class="publication-card__year">
@@ -26,7 +27,7 @@
                                     {{ .link_text }} <i class="icon-arrow-right" aria-hidden="true"></i>
                                 </a>
 
-                                {{ if eq .title "Scientific Publication" }}
+                                {{ if or (eq .title "Scientific Publication") (eq .title "Publication scientifique") }}
                                 <span class="mx-2" aria-hidden="true">|</span>
                                 <a href="https://scholar.google.fr/citations?view_op=view_citation&hl=fr&user=PaToxwcAAAAJ&citation_for_view=PaToxwcAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer" class="btn-publication">
                                     Google Scholar <i class="icon-book" aria-hidden="true"></i>

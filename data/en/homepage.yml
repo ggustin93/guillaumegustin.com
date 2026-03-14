@@ -57,6 +57,10 @@ about:
     original: "img/who-am-i/avatar_mini.webp"
     avif: "img/who-am-i/avatar_mini.webp"
 
+# tech-stack
+tech_stack:
+  description: "Here are the technologies I use to build these solutions:"
+
 # education
 education:
   enable: true
@@ -387,6 +391,8 @@ contact:
   title: "Let's connect"
   subtitle: "Ready to collaborate on your next project? Schedule a call or contact me directly."
   icon: "icon-mail-fill"
+  contact_title: "Contact"
+  schedule_call: "Schedule a call"
   form:
     # FORMSPREE Project :-)
     action: "https://formspree.io/f/mknpykzy"

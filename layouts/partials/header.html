@@ -29,6 +29,16 @@
             >
           </li>
           {{ end }}
+          <!-- Language switcher -->
+          {{ if gt (len .Site.Languages) 1 }}
+          <li class="nav-item lang-switcher" role="none">
+            {{ if eq .Site.Language.Lang "en" }}
+            <a class="nav-link" href="{{ .Site.BaseURL }}fr/" role="menuitem" aria-label="Passer en français">FR</a>
+            {{ else }}
+            <a class="nav-link" href="{{ .Site.BaseURL }}" role="menuitem" aria-label="Switch to English">EN</a>
+            {{ end }}
+          </li>
+          {{ end }}
         </ul>
       </div>
     </nav>
