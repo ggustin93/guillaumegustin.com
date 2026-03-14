@@ -46,21 +46,27 @@
         {{ end }}
       </div>
       <div class="col-12 col-md-7 pl-md-0 text-right">
-        {{ partial "responsive-image.html" (dict 
-          "src" .image.original
-          "alt" .title
-          "class" (printf "lozad img-responsive img-zoom %s" (cond (eq ( mod $index 4) 0) "img-clip-left-backward" "img-clip-left-forward"))
-          "lazy" true
-        ) }}
+        <div class="img-zoom-wrapper" role="button" tabindex="0" aria-label="{{ .title }} — click to enlarge">
+          {{ partial "responsive-image.html" (dict
+            "src" .image.original
+            "alt" .title
+            "class" (printf "lozad img-responsive img-zoom %s" (cond (eq ( mod $index 4) 0) "img-clip-left-backward" "img-clip-left-forward"))
+            "lazy" true
+          ) }}
+          <button class="img-zoom-btn" aria-label="View fullscreen" type="button">&#x26F6;</button>
+        </div>
       </div>
       {{ else }}
       <div class="col-12 col-md-7 pl-md-0 text-right">
-        {{ partial "responsive-image.html" (dict 
-          "src" .image.original
-          "alt" .title
-          "class" (printf "lozad img-responsive img-zoom %s" (cond (eq ( mod $index 4) 1) "img-clip-right-backward" "img-clip-right-forward"))
-          "lazy" true
-        ) }}
+        <div class="img-zoom-wrapper" role="button" tabindex="0" aria-label="{{ .title }} — click to enlarge">
+          {{ partial "responsive-image.html" (dict
+            "src" .image.original
+            "alt" .title
+            "class" (printf "lozad img-responsive img-zoom %s" (cond (eq ( mod $index 4) 1) "img-clip-right-backward" "img-clip-right-forward"))
+            "lazy" true
+          ) }}
+          <button class="img-zoom-btn" aria-label="View fullscreen" type="button">&#x26F6;</button>
+        </div>
       </div>
       <div class="col-12 col-md-5 mt-4 mt-md-0 my-md-auto">
         <h3>{{ .title | safeHTML }}</h3>
@@ -91,4 +97,52 @@
     {{ end }}
   </div>
 </section>
-{{ end }} 
+<!-- Lightbox overlay -->
+<div class="lightbox-overlay" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+  <button class="lightbox-close" aria-label="Close preview" type="button">&times;</button>
+  <img src="" alt="">
+</div>
+
+<script>
+(function () {
+  var overlay = document.getElementById('lightbox');
+  if (!overlay) return;
+  var overlayImg = overlay.querySelector('img');
+  var closeBtn = overlay.querySelector('.lightbox-close');
+
+  function openLightbox(src, alt) {
+    overlayImg.src = src;
+    overlayImg.alt = alt || '';
+    overlay.classList.add('is-active');
+    overlay.setAttribute('aria-hidden', 'false');
+    closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('is-active');
+    overlay.setAttribute('aria-hidden', 'true');
+    overlayImg.src = '';
+  }
+
+  document.querySelectorAll('.img-zoom-wrapper').forEach(function (wrapper) {
+    var img = wrapper.querySelector('img');
+    if (!img) return;
+
+    function open() { openLightbox(img.src, img.alt); }
+
+    wrapper.addEventListener('click', open);
+    wrapper.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-active')) closeLightbox();
+  });
+})();
+</script>
+{{ end }}

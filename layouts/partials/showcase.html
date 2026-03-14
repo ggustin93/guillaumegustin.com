@@ -1,13 +1,15 @@
 {{ $d := (index .Site.Data .Site.Language.Lang).homepage }}
 {{ if $d.showcase.enable }}
-<section class="rad-showcase rad-showcase--index rad-animation-group rad-fade-down" aria-label="Introduction">
+<section class="rad-showcase rad-showcase--index rad-animation-group" aria-label="Introduction">
   <div class="rad-showcase__bg" aria-hidden="true">
     <img
-      class="lozad img-responsive"
-      src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
-      data-src="{{ $d.showcase.image.x | absURL }}"
-      data-srcset="{{ $d.showcase.image.x | absURL }} 1x, {{ $d.showcase.image._2x | absURL }} 2x"
+      class="img-responsive"
+      src="{{ $d.showcase.image.x | absURL }}"
+      srcset="{{ $d.showcase.image.x | absURL }} 1x, {{ $d.showcase.image._2x | absURL }} 2x"
+      width="790"
+      height="768"
       alt=""
+      fetchpriority="high"
     />
   </div>
   <div class="container">
@@ -42,10 +44,12 @@
   </div>
   <div class="rad-showcase__bg rad-showcase__bg--mobile" aria-hidden="true">
     <img
-      class="lozad img-responsive"
-      src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
-      data-src="{{ $d.showcase.imageMobile.x | absURL }}"
+      class="img-responsive"
+      src="{{ $d.showcase.imageMobile.x | absURL }}"
+      width="691"
+      height="752"
       alt=""
+      fetchpriority="high"
     />
   </div>
 </section>

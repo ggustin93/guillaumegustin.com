@@ -301,6 +301,5 @@
 {{ end }}
 
 <!-- Custom CSS overrides -->
-<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}?v={{ now.Unix }}"/>
-<!-- Devicon for tech stack icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+{{ $hash := (readFile "static/css/custom.css" | md5 ) | truncate 8 "" }}
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}?v={{ $hash }}"/>
