@@ -215,32 +215,27 @@ select:focus-visible {
     margin-top: 20px;
 }
 
-/* Séparateur style carte - bordure épaisse avec ombre rouge */
+/* Coin haut gauche style carte publication */
 #contact::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
+    left: 0;
+    width: 60px;
     height: 4px;
     background-color: #000;
-    border: 2px solid #000;
     box-shadow: 4px 4px 0 #e05d44;
-    border-radius: 0;
 }
 
-/* Ligne de continuation subtile */
 #contact::after {
     content: '';
     position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 160px;
-    height: 2px;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 60px;
     background-color: #000;
-    box-shadow: 4px 4px 0 rgba(224, 93, 68, 0.6);
+    box-shadow: 4px 4px 0 #e05d44;
 }
 
 /* Fond subtil pour la section */
