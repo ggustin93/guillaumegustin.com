@@ -41,7 +41,7 @@
   "image": "{{ .Site.Params.seo.og_image | absURL }}",
   "jobTitle": {{ if eq .Site.Language.Lang "fr" }}"Développeur Full-Stack"{{ else }}"Full-Stack Developer"{{ end }},
   "description": "{{ .Site.Params.seo.description }}",
-  "email": "guillaume.gustin.9@gmail.com",
+  "email": "hello@pwablo.be",
   "telephone": "+32456617260",
   "sameAs": [
     "https://www.linkedin.com/in/guillaume-gustin/",
@@ -299,3 +299,8 @@
 {{ range .Site.Params.plugins.css }}
 <link rel="stylesheet" href="{{ .URL | absURL }}"/>
 {{ end }}
+
+<!-- Custom CSS overrides -->
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}"/>
+<!-- Devicon for tech stack icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
