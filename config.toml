@@ -101,7 +101,12 @@ theme = "raditian-free-hugo-theme"
 
   googleTagManagerID = "" # Google Analytics works with Google Tag Manager
 
-  [params.meta_img] 
+  [params.seo]
+    description = "Guillaume Gustin - Full-Stack Developer & Biomedical Engineer. I build practical digital solutions for mission-driven organizations, specializing in healthcare technology, sustainable web design, and digital transformation."
+    author = "Guillaume Gustin"
+    og_image = "img/who-am-i/avatar_mini.webp"
+
+  [params.meta_img]
     URL = "img/who-am-i/avatar_mini.webp"
 
   [params.logo]

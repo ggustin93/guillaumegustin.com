@@ -1,7 +1,7 @@
 {{ if .Site.Data.homepage.client_and_work.enable }}
-<section id="portfolio" class="section section--border-bottom">
+<section id="portfolio" class="section section--border-bottom" aria-labelledby="portfolio-heading">
   <div class="container">
-    <h2 class=" rad-animation-group rad-fade-down">
+    <h2 id="portfolio-heading" class="rad-animation-group rad-fade-down">
       {{ .Site.Data.homepage.client_and_work.title }}
     </h2>
     <div class="row row--padded rad-animation-group rad-fade-down">
@@ -39,7 +39,7 @@
         {{ end }}
         </p>
         {{ if .button.enabled }}
-        <a href="{{ .button.URL | absURL }}" class="btn btn-primary" rel="noopener"
+        <a href="{{ .button.URL | absURL }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer"
           >{{ .button.btnText }}<i class="{{ .button.icon }}"></i
         ></a>
         {{ end }}
@@ -75,12 +75,12 @@
         </p>
         {{ if isset .button "enabled" }}
           {{ if .button.enabled }}
-          <a href="{{ .button.URL | absURL }}" class="btn btn-primary" target="_blank" rel="noopener"
+          <a href="{{ .button.URL | absURL }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer"
             >{{ .button.btnText }}<i class="{{ .button.icon }}"></i
           ></a>
           {{ end }}
         {{ else }}
-          <a href="{{ .button.URL | absURL }}" class="btn btn-primary" target="_blank" rel="noopener"
+          <a href="{{ .button.URL | absURL }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer"
             >{{ .button.btnText }}<i class="{{ .button.icon }}"></i
           ></a>
         {{ end }}
