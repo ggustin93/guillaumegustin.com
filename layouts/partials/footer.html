@@ -2,7 +2,7 @@
   <div class="container">
     <div class="footer__left">
       <div class="footer__copy">
-        {{ .Site.Params.footer.copyright }}
+        {{ .Site.Params.footer.copyright }} <span class="footer__theme">· Theme by <a href="https://github.com/radity/raditian-free-hugo-theme" target="_blank" rel="noopener">Raditian</a></span>
       </div>
     </div>
     <div class="footer__links">
@@ -20,13 +20,9 @@
       </nav>
     </div>
     <div class="footer__right">
-      <a href="https://radity.com/" target="_blank" rel="noopener noreferrer" aria-label="Design and Code by Radity"
-        ><img
-          src="{{ .Site.Params.footer.radity_logo.x | absURL }}"
-          srcset="{{ .Site.Params.footer.radity_logo.x | absURL }} 1x, {{ .Site.Params.footer.radity_logo._2x | absURL }} 2x"
-          alt="{{ .Site.Params.footer.radity_logo.alt }}"
-          loading="lazy"
-      /></a>
+      <a href="https://www.websitecarbon.com/website/guillaumegustin-com/" target="_blank" rel="noopener noreferrer" aria-label="Website Carbon score" class="footer__carbon">
+        🌱 Site écoresponsable
+      </a>
     </div>
   </div>
 </footer>

@@ -1,46 +1,11 @@
-/*img {
-    transition: -webkit-transform 0.25s ease;
-    transition: transform 0.25s ease;
+.img-zoom {
+    transition: all 1s ease;
 }
 
-img:hover {
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
-}*/
-
-.img-zoom {
-    /* La transition s'applique à la fois sur la largeur et la hauteur, avec une durée d'une seconde. */
-    -webkit-transition: all 1s ease; /* Safari et Chrome */
-    -moz-transition: all 1s ease; /* Firefox */
-    -ms-transition: all 1s ease; /* Internet Explorer 9 */
-    -o-transition: all 1s ease; /* Opera */
-    transition: all 1s ease;
-    }
-    
-    .img-zoom:hover  {
-    /* L'image est grossie de 25% */
-    -webkit-transform:scale(1.25); /* Safari et Chrome */
-    -moz-transform:scale(1.25); /* Firefox */
-    -ms-transform:scale(1.25); /* Internet Explorer 9 */
-    -o-transform:scale(1.25); /* Opera */
-    transform:scale(1.25);
+.img-zoom:hover {
+    transform: scale(1.25);
     padding: 1em;
-    }
-  
-    .random_color:nth-child(odd)
-    {
-        /* Customize ? */
-    }
-    .random_color:nth-child(even)
-    { 
-       
-          /* Customize ? */
-  
-    }
-
-    .myred{
-        background-color:rgb(233, 63, 51) !important;
-    }
+}
 
 /* Screen-reader only class - visually hidden but accessible */
 .sr-only {
@@ -160,19 +125,6 @@ select:focus-visible {
     color: #e05d44;  /* Rouge assorti à votre thème */
     font-weight: 500;
     margin-bottom: 8px;
-}
-
-/* Style de repli pour les logos manquants */
-.company-logo-placeholder {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    background-color: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 24px;
 }
 
 /* Styles pour la section tech-stack avec icônes - style moderne sur fond sombre */
@@ -337,16 +289,54 @@ select:focus-visible {
 }
 
 /* Style élégant pour la photo de profil dans la section about */
-.about__profile-picture img {
-    border: 3px solid #000;
+.about__profile-picture picture {
+    display: inline-block;
     box-shadow: 6px 6px 0 #e05d44;
     border-radius: 4px;
+    overflow: hidden;
     transition: all 0.3s ease;
+    padding: 15px;
+    background-color: #fff;
+    margin: 20px;
 }
 
-.about__profile-picture img:hover {
+.about__profile-picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.about__profile-picture picture:hover {
     transform: translate(-3px, -3px);
     box-shadow: 9px 9px 0 #e05d44;
+}
+
+.about__profile-picture picture:hover img {
+    filter: grayscale(0%);
+}
+
+/* Plus d'espace entre la photo et le texte */
+@media (min-width: 768px) {
+    .about__profile-picture {
+        padding-left: 30px;
+    }
+    #about .col-md-6:last-child {
+        padding-right: 30px;
+    }
+}
+
+/* Client logos: color by default */
+.clients__item img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.clients__item img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
 }
 
 /* Ajuster l'affichage des logos clients sur mobile */
@@ -354,76 +344,6 @@ select:focus-visible {
     .clients {
         display: none !important;
     }
-}
-
-.publications {
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #f8f9fa;
-    border-left: 3px solid #e6e6e6;
-    margin-bottom: 5px;
-    height: 100%;
-}
-
-.publications__header {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
-
-.publication-date {
-    color: #858585;
-    font-size: 14px;
-    margin-bottom: 3px;
-}
-
-.publication-title {
-    color: #333;
-    font-weight: 500;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.publication-title i {
-    color: #e05d44;
-}
-
-.publication-organization {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.publications__description {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.4;
-}
-
-.publications-container {
-    margin-top: 15px;
-}
-
-.publication-item {
-    padding: 15px;
-    background-color: #f8f9fa;
-    border-left: 3px solid #e6e6e6;
-    border-radius: 4px;
-}
-
-.publication-header {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    margin-bottom: 5px;
-}
-
-.publication-description {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.4;
 }
 
 /* Styles améliorés pour la section Publications */
@@ -434,7 +354,6 @@ select:focus-visible {
 .publication-card {
     background-color: #fff;
     border-radius: 0;
-    box-shadow: none;
     padding: 25px;
     height: 100%;
     transition: all 0.3s ease;
@@ -557,11 +476,11 @@ select:focus-visible {
     .publication-card {
         padding: 20px;
     }
-    
+
     .publication-card__header h3 {
         font-size: 18px;
     }
-    
+
     .publication-card__year {
         top: 15px;
         right: 15px;
@@ -579,4 +498,167 @@ select:focus-visible {
 }
 .lang-switcher .nav-link:hover {
     opacity: 1;
+}
+
+/* Footer links */
+.footer__copy a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer__copy a:hover {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+/* Footer carbon link */
+.footer__carbon {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer__carbon:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Footer theme attribution */
+.footer__theme {
+    font-size: 0.75em;
+    opacity: 0.7;
+}
+
+/* ===========================================
+   LOGO IMAGE (replaces text-based logo)
+   =========================================== */
+.navbar-brand-logo {
+    height: 50px;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand-logo {
+        height: 40px;
+    }
+}
+
+/* ===========================================
+   MOBILE RESPONSIVENESS FIXES
+   =========================================== */
+
+/* FIX 1: Mobile hamburger menu — add opaque background */
+@media (max-width: 991.98px) {
+    .navbar-collapse.show {
+        background-color: #fff;
+        padding: 20px 15px;
+        margin-top: 10px;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-collapse.show .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-collapse.show .nav-link {
+        padding: 12px 0;
+        font-size: 1rem;
+    }
+
+    /* Remove border-left from language switcher in mobile */
+    .navbar-collapse.show .lang-switcher .nav-link {
+        border-left: none;
+        padding-left: 0 !important;
+        margin-left: 0;
+    }
+}
+
+/* FIX 2: Horizontal overflow — profile picture box-shadow causing overflow */
+@media (max-width: 768px) {
+    .about__profile-picture {
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+    .about__profile-picture picture {
+        box-shadow: 4px 4px 0 #e05d44;
+        max-width: calc(100% - 8px);
+    }
+
+    .about__profile-picture picture:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 #e05d44;
+    }
+}
+
+/* Prevent horizontal scroll on the entire page */
+html, body {
+    overflow-x: hidden;
+}
+
+/* FIX 3: Touch targets — minimum 44x44px for WCAG compliance */
+@media (max-width: 991.98px) {
+    /* Contact links */
+    .contact-link {
+        min-height: 44px;
+        padding: 10px 0;
+    }
+
+    /* Publication action links */
+    .btn-publication {
+        min-height: 44px;
+        padding: 8px 4px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Navbar toggler button */
+    .navbar-toggler {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px;
+    }
+
+    /* Footer links */
+    .footer__nav .nav-link,
+    .footer__copy a,
+    .footer__carbon {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 4px;
+    }
+
+    /* Inline text links in content (thesis, scholar, etc.) */
+    .education__content a,
+    .publication-card__desc a,
+    .publication-card__action a,
+    .education a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 2px;
+    }
+}
+
+/* FIX 4: Font sizes too small on mobile */
+@media (max-width: 768px) {
+    /* All badges (skills, tech tags, etc.) — Bootstrap default is 75% = ~12px */
+    .badge.badge-secondary {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+
+    /* Publication card box-shadow overflow fix */
+    .publication-card {
+        box-shadow: 5px 5px 0 #e05d44;
+    }
+
+    .publication-card:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 #e05d44;
+    }
 }
