@@ -211,21 +211,19 @@ select:focus-visible {
 /* Styles améliorés pour la section contact */
 #contact {
     position: relative;
-    padding-top: 80px;
-    margin-top: 40px;
+    padding-top: 40px;
+    margin-top: 20px;
 }
 
-/* Bordure top décorative */
+/* Bordure top fine et élégante */
 #contact::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #e05d44, transparent);
-    border-radius: 2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(224, 93, 68, 0.3), transparent);
 }
 
 /* Fond subtil pour la section */
@@ -634,10 +632,9 @@ select:focus-visible {
     text-decoration: none;
 }
 
-/* Footer theme attribution */
+/* Footer theme attribution - police normale */
 .footer__theme {
-    font-size: 0.75em;
-    opacity: 0.7;
+    font-weight: 400;
 }
 
 /* ===========================================
