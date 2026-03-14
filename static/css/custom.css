@@ -304,7 +304,13 @@ select:focus-visible {
     padding-top: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-self: flex-start;
+}
+
+/* Alignement des colonnes sur la même ligne */
+#contact .row {
+    align-items: flex-start;
 }
 
 /* Structure de la liste de contacts - alignement vertical */
