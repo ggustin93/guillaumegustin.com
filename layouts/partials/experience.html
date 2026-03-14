@@ -39,9 +39,16 @@
                                   "lazy" true
                               ) }}
                           {{ else if eq $companyName "catholic university of louvain" }}
-                              {{ partial "responsive-image.html" (dict 
+                              {{ partial "responsive-image.html" (dict
                                   "src" "/img/companies/logo_uclouvain.png"
                                   "alt" "UCLouvain Logo"
+                                  "class" "company-logo"
+                                  "lazy" true
+                              ) }}
+                          {{ else if eq $companyName "vrije universiteit brussel" }}
+                              {{ partial "responsive-image.html" (dict
+                                  "src" "/img/companies/vub_logo.svg"
+                                  "alt" "VUB Logo"
                                   "class" "company-logo"
                                   "lazy" true
                               ) }}
