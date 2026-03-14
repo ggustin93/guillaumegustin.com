@@ -568,3 +568,15 @@ select:focus-visible {
         font-size: 14px;
     }
 }
+
+/* Language switcher */
+.lang-switcher .nav-link {
+    font-weight: 600;
+    opacity: 0.7;
+    border-left: 1px solid rgba(255,255,255,0.3);
+    padding-left: 15px !important;
+    margin-left: 5px;
+}
+.lang-switcher .nav-link:hover {
+    opacity: 1;
+}

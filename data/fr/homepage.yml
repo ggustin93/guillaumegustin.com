@@ -1,0 +1,370 @@
+head:
+  title: "Guillaume Gustin - Développeur Full-Stack"
+
+# showcase
+showcase:
+  enable: true
+  title: "Bonjour, je suis Guillaume"
+  subtitle: "Ingénieur Logiciel"
+  description: "Je conçois et développe des solutions numériques pour des organisations à impact — en alliant rigueur technique et attention portée à l'utilisabilité. Mon travail couvre les technologies de santé, le design web durable et la transformation numérique."
+  image:
+    x: "img/showcase/showcase.webp"
+    _2x: "img/showcase/showcase@2x.webp"
+    original: "img/showcase/showcase.png"
+    original_2x: "img/showcase/showcase@2x.png"
+    avif: "img/showcase/showcase.avif"
+    avif_2x: "img/showcase/showcase@2x.avif"
+  imageMobile:
+    x: "img/showcase/showcase-mobile.webp"
+    original: "img/showcase/showcase-mobile.jpg"
+    avif: "img/showcase/showcase-mobile.avif"
+
+  button:
+    icon: "icon-user-fill"
+    btnText: "En savoir plus"
+    URL: "#about"
+
+  button2:
+    icon: "icon-mail-fill"
+    btnText: "Contact"
+
+  socialLinks:
+    - icon: "whatsapp"
+      URL: "https://api.whatsapp.com/send/?phone=32456617260&text&type=phone_number&app_absent=0"
+
+# about
+about:
+  enable: true
+  title: "Qui suis-je ?"
+  icon: "icon-user-fill"
+  content: |
+    <p class="lead">
+    Fort d'une formation en ingénierie biomédicale (UCLouvain, 2016), j'applique une approche analytique au développement web et logiciel. Je m'efforce de traduire des exigences complexes en applications accessibles et conviviales, qui équilibrent besoins techniques et design intuitif, avec un intérêt particulier pour les technologies de santé.
+    </p>
+    <p class="lead">
+    Mon parcours inclut des travaux sur des plateformes de santé numérique dans le cadre de recherches à l'UCLouvain, la cofondation de la startup medtech MedC2 (acquise par la suite par Comunicare) axée sur l'autonomisation des patients, et l'accompagnement d'organisations à but non lucratif dans leur transformation numérique chez Bruxeo. En parallèle, à travers mon agence web Pwablo, j'explore et partage des approches durables des pratiques numériques.
+    </p>
+    <p class="lead">
+    Je suis particulièrement attiré par les projets à l'intersection de la technologie et de l'impact social, où une ingénierie réfléchie peut améliorer de manière significative les résultats pour les utilisateurs et les organisations.
+    </p>
+  button:
+    icon: "icon-smile-fill"
+    btnText: "Voir mes projets"
+    URL: "#client_and_work"
+  image:
+    x: "img/who-am-i/avatar_mini.webp"
+    _2x: "img/who-am-i/avatar_mini.webp"
+    original: "img/who-am-i/avatar_mini.webp"
+    avif: "img/who-am-i/avatar_mini.webp"
+
+# education
+education:
+  enable: true
+  title: "Formation"
+  icon: "icon-graduation-cap"
+  items:
+    - university: "MIT Global Startup Labs"
+      year: "2018"
+      degree: "Certificat en Entrepreneuriat et Innovation"
+      icon: "icon-briefcase"
+    - university: "Catholic University of Louvain"
+      year: "2017"
+      degree: "Développement de Projets Innovants et Transmédias"
+      icon: "icon-lightbulb"
+    - university: "Louvain School of Engineering"
+      year: "2014-2016"
+      degree: "Master en Ingénierie Biomédicale > Bio-informatique <span class='badge badge-secondary myred'> Cum Laude</span><br>Mémoire de master : \"<i>Gestion du diabète par intelligence artificielle et gamification : Modèles de prédiction de la glycémie et considérations de conception mHealth.</i>\" <a href=\"https://dial.uclouvain.be/memoire/ucl/fr/object/thesis:8111\" target=\"_blank\">(Lire le mémoire)</a>"
+      icon: "icon-award"
+    - university: "Louvain School of Engineering"
+      year: "2010-2014"
+      degree: "Bachelier en Ingénierie - Sciences Biomédicales et Informatiques"
+      icon: "icon-code"
+
+# publications
+publications:
+  enable: true
+  title: "Contributions Notables"
+  icon: "icon-file-text"
+  items:
+    - title: "Publication scientifique"
+      company: "UCLouvain & SIPAIM Conference"
+      duration: "2017"
+      icon: "icon-book"
+      description: "Premier auteur de <i>\"Empowerment of diabetic patients through mHealth technologies and education: Development of a pilot self-management application\"</i> présenté à la 13e Conférence Internationale sur le Traitement et l'Analyse de l'Information Médicale. A également contribué au développement de la plateforme de suivi du diabète décrite dans la recherche. (Cité 9 fois)"
+      link: "https://dial.uclouvain.be/pr/boreal/object/boreal%3A192456/datastream/PDF_01/view"
+      link_text: "Lire l'article"
+    - title: "Contribution à un Financement Européen"
+      company: "DRAGON Project Consortium"
+      duration: "2020"
+      icon: "icon-award"
+      description: "En tant que cofondateur de MedC2 (acquise par la suite par <a href='https://www.comunicare.be' target='_blank'>Comunicare</a>), a contribué à la rédaction de la demande de subvention européenne DRAGON axée sur les applications d'IA pour la COVID-19. La candidature a permis d'obtenir 860 000 € de financement de la Commission européenne pour MedC2."
+      link: "https://www.prnewswire.com/nl/persberichten/the-belgian-start-up-the-medical-cloud-company-medc2-supported-by-860-000-euros-from-the-european-commission-to-develop-tools-supporting-decision-making-for-citizens-and-doctors-in-the-covid-19-crisis-884780042.html"
+      link_text: "Communiqué de presse"
+
+# experience
+experience:
+  enable: true
+  title: "Expérience"
+  icon: "icon-briefcase"
+  description: '<p class="lead">
+  Mon travail se situe à l''intersection de l''<b>ingénierie logicielle</b>, de la <b>santé numérique</b> et du <b>design durable</b> — avec un accent sur la livraison de solutions à la fois techniquement solides et significatives sur le plan organisationnel. <br><br>
+  <span class="badge badge-secondary myred"> Développement Full-stack </span>
+  <span class="badge badge-secondary myred"> Transformation Numérique </span>
+  <span class="badge badge-secondary myred"> Design Web Durable </span>
+  <span class="badge badge-secondary random_color"> Formateur Python </span>
+  <span class="badge badge-secondary random_color"> Santé Numérique </span>
+  <span class="badge badge-secondary random_color"> Entrepreneuriat </span>
+  <span class="badge badge-secondary random_color"> Recherche Académique </span>
+  <span class="badge badge-secondary random_color"> Ingénierie Biomédicale </span>
+  </p><br>'
+  button:
+    icon: "icon-linkedin-fill"
+    btnText: "Se connecter sur LinkedIn"
+    URL: "https://www.linkedin.com/in/guillaume-gustin/"
+  button2:
+    icon: "icon-profile-fill"
+    btnText: "Télécharger le CV"
+    URL: "https://www.canva.com/design/DAEqu630WFc/JXZzm8oDu6iWHbwo8gDidQ/view?utm_content=DAEqu630WFc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha66b906dcd"
+
+  items:
+    - title: "Ingénieur Logiciel (Projet de Recherche Clinique \"Ghostly\")"
+      company: "Vrije Universiteit Brussel"
+      duration: "2025 - 2026"
+      icon: "icon-flask"
+      highlight: true
+    - title: "Fondateur & Web Designer"
+      company: "Pwablo | Sustainable Web Agency"
+      duration: "Jan 2022 - Actuel"
+      icon: "icon-globe"
+      highlight: true
+    - title: "Conseiller en Transformation Numérique"
+      company: "BRUXEO"
+      duration: "Nov 2022 - Oct 2024"
+      icon: "icon-chart-line"
+      highlight: true
+    - title: "Développeur Full Stack & Formateur Python"
+      company: "Part-time Freelance"
+      duration: "Jan 2021 - Actuel"
+      icon: "icon-code"
+    - title: "Cofondateur & Développeur Principal"
+      company: "The Medical Cloud Company"
+      duration: "Fév 2019 - Jan 2021"
+      icon: "icon-cloud"
+    - title: "Assistant de Recherche & d'Enseignement"
+      company: "Catholic University of Louvain"
+      duration: "Jan 2017 - Jan 2019"
+      icon: "icon-book-open"
+
+# Client & Work
+client_and_work:
+  title: "Réalisations"
+  icon: "icon-briefcase"
+  enable: true
+  clients_title: "Clients & Partenaires"
+  clients:
+    - logo:
+        x: "img/clients/bruxeo.webp"
+        _2x: "img/clients/bruxeo.webp"
+        original: "img/clients/bruxeo.png"
+        avif: "img/clients/bruxeo.avif"
+      alt: "BRUXEO"
+
+    - logo:
+        x: "img/clients/decide_logo.webp"
+        _2x: "img/clients/decide_logo.webp"
+        original: "img/clients/decide_logo.png"
+        avif: "img/clients/decide_logo.avif"
+      alt: "DEC!DE"
+
+    - logo:
+        x: "img/clients/medC2.webp"
+        _2x: "img/clients/medC2.webp"
+        original: "img/clients/medC2.webp"
+        avif: "img/clients/medC2.avif"
+      alt: "MedC2"
+
+    - logo:
+        x: "img/clients/logo_dlab.webp"
+        _2x: "img/clients/logo_dlab.webp"
+        original: "img/clients/logo_dlab.png"
+        avif: "img/clients/logo_dlab.avif"
+      alt: "Digital Lab"
+
+    - logo:
+        x: "img/clients/ucl.webp"
+        _2x: "img/clients/ucl.webp"
+        original: "img/clients/ucl.png"
+        avif: "img/clients/ucl.avif"
+      alt: "UCL"
+
+    - logo:
+        x: "img/clients/CUSL.webp"
+        _2x: "img/clients/CUSL.webp"
+        original: "img/clients/CUSL.png"
+        avif: "img/clients/CUSL.avif"
+      alt: "CUSL"
+
+  works:
+    - title: "Plateforme de Collecte ePRO"
+      stack:
+        - name: "Progressive Web App"
+        - name: "Ionic 4"
+        - name: "Angular 8"
+        - name: "GCP Authentication"
+        - name: "Firestore"
+        - name: "Cloud Functions"
+        - name: "Cloud Messaging"
+        - name: "Cloud Storage"
+      description: "Plateforme de résultats rapportés par les patients (ePRO) développée pour l'essai clinique ImmunoSABR. Cette PWA mobile-first comprend une interface patient avec notifications push, un tableau de bord clinique et une génération sécurisée de rapports PDF, conçue pour répondre aux normes de conformité du secteur de la santé."
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Guide Utilisateur"
+        URL: "https://docdro.id/GjujVEE"
+      image:
+        x: "img/works/immuno_mock.webp"
+        _2x: "img/works/immuno_mock.webp"
+        original: "img/works/immuno_mock.png"
+        avif: "img/works/immuno_mock.avif"
+      is_even: true
+      featured: true
+    - title: "Aides à la Décision Patient"
+      stack:
+        - name: "Progressive Web App"
+        - name: "Ionic 4"
+        - name: "Angular 8"
+        - name: "Firestore"
+        - name: "Cloud Functions"
+        - name: "Cloud Storage"
+      description: "Application d'aide à la décision conçue pour accompagner les patients atteints de cancer dans leurs choix de traitement. La plateforme fournit des informations médicales personnalisées via des modules interactifs et des questions de réflexion guidées, générant des rapports PDF pour faciliter les échanges médecin-patient."
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Essai Clinique"
+        URL: "https://clinicaltrials.gov/ct2/show/NCT04375566"
+      image:
+        x: "img/works/ipda_mock.webp"
+        _2x: "img/works/ipda_mock.webp"
+        original: "img/works/ipda_mock.png"
+        avif: "img/works/ipda_mock.avif"
+      is_even: false
+      featured: true
+    - title: "DEC!DE Design"
+      stack:
+        - name: "Figma"
+      description: "Contribution bénévole en UX/UI pour l'association DEC!DE (2021), explorant comment les outils numériques et l'engagement culturel pourraient rendre les concepts écologiques plus accessibles. Le projet est resté au stade conceptuel, bien qu'il ait illustré le potentiel d'un design réfléchi dans l'éducation environnementale."
+      button:
+        icon: "icon-arrow-right"
+        btnText: "Présentation"
+        URL: "https://docs.google.com/presentation/d/1Op95pkfVlUjElU0VGjlVz5bk4xikbmNrjFCbzP92Ce8/edit?usp=sharing"
+      image:
+        x: "img/works/decide_mock.webp"
+        _2x: "img/works/decide_mock.webp"
+        original: "img/works/decide_mock.png"
+        avif: "img/works/decide_mock.avif"
+      is_even: true
+      featured: false
+    - title: "Pwablo"
+      stack:
+        - name: "Sustainable Web Design"
+        - name: "Webflow"
+        - name: "Figma"
+        - name: "Jamstack"
+        - name: "Custom JS/HTML5/CSS3"
+      button:
+        enabled: true
+        icon: ""
+        btnText: "Visiter Pwablo"
+        URL: "https://www.pwablo.be/"
+      image:
+        x: "img/works/pwablo.webp"
+        _2x: "img/works/pwablo.webp"
+        original: "img/works/pwablo.png"
+        avif: "img/works/pwablo.avif"
+      is_even: false
+      featured: true
+      description: "Pwablo est une agence web durable spécialisée dans la création d'expériences numériques légères et performantes pour les organisations à impact. L'activité combine les principes du design web durable avec des ateliers sur l'empreinte environnementale du numérique, accompagnant les organisations dans la réduction de leur impact numérique."
+
+    - title: "MyPatientCheck"
+      stack:
+        - name: "Progressive Web App"
+        - name: "Angular 9"
+        - name: "Ionic 5"
+        - name: "Ionic Storage"
+        - name: "Cloud Functions"
+      description: "Premier prototype développé pendant la pandémie de COVID-19 pour accompagner les professionnels de santé dans le triage des patients symptomatiques. L'application fournit des outils d'évaluation des risques et des simulations de modèles prédictifs pour aider à la prise de décision clinique dans des contextes à ressources limitées."
+      button:
+        enabled: false
+        icon: ""
+        btnText: ""
+        URL: ""
+      image:
+        x: "img/works/MyPC_finalB.webp"
+        _2x: "img/works/MyPC_finalB.webp"
+        original: "img/works/MyPC_finalB.png"
+        avif: "img/works/MyPC_finalB.avif"
+      is_even: true
+      featured: false
+
+    - title: "Wadaff"
+      stack:
+        - name: "Google Maps API"
+        - name: "Angular 8"
+        - name: "Ionic 4"
+        - name: "Firestore"
+        - name: "Progressive Web App"
+        - name: "Gitlab CD/CI"
+        - name: "Facebook API"
+      description: "Prototype développé en collaboration avec B. Vander Stappen, conçu pour aider les passionnés de musique à découvrir des événements locaux grâce à la cartographie, aux évaluations en temps réel et aux fonctionnalités de filtrage. Le concept explorait les outils de promotion numérique pour les organisateurs d'événements et les salles de concert."
+      button:
+        enabled: false
+        icon: ""
+        btnText: ""
+        URL: ""
+      image:
+        x: "img/works/wadaff.webp"
+        _2x: "img/works/wadaff.webp"
+        original: "img/works/wadaff.png"
+        avif: "img/works/wadaff.avif"
+      is_even: false
+      featured: false
+
+# tech_stack
+tech_stack:
+  description: "Voici les technologies que j'utilise pour construire ces solutions :"
+
+# blog
+blog:
+  enable: false
+
+# testimonial
+testimonial:
+  enable: false
+
+# contact
+contact:
+  enable: true
+  contact_title: "Contact"
+  schedule_call: "Planifier un appel"
+  title: "Restons en contact"
+  subtitle: "Prêt à collaborer sur votre prochain projet ? Planifiez un appel ou contactez-moi directement."
+  icon: "icon-mail-fill"
+  form:
+    # FORMSPREE Project :-)
+    action: "https://formspree.io/f/mknpykzy"
+    method: "POST"
+    full_name: "Votre Nom"
+    email: "Votre Email"
+    message: "Parlez-moi de votre projet..."
+  email:
+    title: "Email"
+    email: '<a href="mailto:guillaume.gustin.9@gmail.com">guillaume.gustin.9@gmail.com</a>'
+  phone:
+    title: "Contact"
+    number: '<a href="https://cal.com/pwablo/30min" target="_blank"><img src="https://cdn.simpleicons.org/googlecalendar/444444/20" alt="Calendar" style="vertical-align: middle; margin-right: 5px; width: 20px;"> Planifier un appel</a> ou <a href="https://api.whatsapp.com/send/?phone=32456617260&text&type=phone_number&app_absent=0" target="_blank"><img src="https://cdn.simpleicons.org/whatsapp/25D366/20" alt="WhatsApp" style="vertical-align: middle; margin-right: 5px; width: 20px;"> WhatsApp</a> (+32 456 617 260)'
+  button:
+    icon: "icon-mail-fill"
+    btnText: "Envoyer le message"
+    class: "btn-primary"
+
+# newsletter
+newsletter:
+  enable: false

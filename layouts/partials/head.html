@@ -1,27 +1,33 @@
+{{ $d := (index .Site.Data .Site.Language.Lang).homepage }}
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
 <!-- Primary Meta Tags -->
-<title>{{ .Site.Data.homepage.head.title }}</title>
-<meta name="title" content="{{ .Site.Data.homepage.head.title }}"/>
+<title>{{ $d.head.title }}</title>
+<meta name="title" content="{{ $d.head.title }}"/>
 <meta name="description" content="{{ .Site.Params.seo.description }}"/>
 <meta name="author" content="{{ .Site.Params.seo.author }}"/>
-<link rel="canonical" href="{{ .Site.BaseURL }}"/>
+<link rel="canonical" href="{{ .Permalink }}"/>
+
+<!-- Hreflang for multilingual SEO -->
+<link rel="alternate" hreflang="en" href="{{ .Site.BaseURL }}"/>
+<link rel="alternate" hreflang="fr" href="{{ .Site.BaseURL }}fr/"/>
+<link rel="alternate" hreflang="x-default" href="{{ .Site.BaseURL }}"/>
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="{{ .Site.BaseURL }}"/>
-<meta property="og:title" content="{{ .Site.Data.homepage.head.title }}"/>
+<meta property="og:url" content="{{ .Permalink }}"/>
+<meta property="og:title" content="{{ $d.head.title }}"/>
 <meta property="og:description" content="{{ .Site.Params.seo.description }}"/>
 <meta property="og:image" content="{{ .Site.Params.seo.og_image | absURL }}"/>
-<meta property="og:locale" content="en_US"/>
+<meta property="og:locale" content="{{ if eq .Site.Language.Lang "fr" }}fr_BE{{ else }}en_US{{ end }}"/>
 <meta property="og:site_name" content="{{ .Site.Params.seo.author }}"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="{{ .Site.BaseURL }}"/>
-<meta name="twitter:title" content="{{ .Site.Data.homepage.head.title }}"/>
+<meta name="twitter:url" content="{{ .Permalink }}"/>
+<meta name="twitter:title" content="{{ $d.head.title }}"/>
 <meta name="twitter:description" content="{{ .Site.Params.seo.description }}"/>
 <meta name="twitter:image" content="{{ .Site.Params.seo.og_image | absURL }}"/>
 
@@ -33,7 +39,7 @@
   "name": "Guillaume Gustin",
   "url": "{{ .Site.BaseURL }}",
   "image": "{{ .Site.Params.seo.og_image | absURL }}",
-  "jobTitle": "Full-Stack Developer",
+  "jobTitle": {{ if eq .Site.Language.Lang "fr" }}"Développeur Full-Stack"{{ else }}"Full-Stack Developer"{{ end }},
   "description": "{{ .Site.Params.seo.description }}",
   "email": "guillaume.gustin.9@gmail.com",
   "telephone": "+32456617260",
@@ -65,9 +71,10 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "{{ .Site.Data.homepage.head.title }}",
+  "name": "{{ $d.head.title }}",
   "url": "{{ .Site.BaseURL }}",
-  "description": "{{ .Site.Params.seo.description }}"
+  "description": "{{ .Site.Params.seo.description }}",
+  "inLanguage": ["en", "fr"]
 }
 </script>
 
