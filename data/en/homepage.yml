@@ -20,7 +20,7 @@ showcase:
     avif: "img/showcase/showcase-mobile.avif"
 
   button:
-    icon: "icon-user-fill"
+    icon: "icon-arrow-down"
     btnText: "Learn More"
     URL: "#about"
     

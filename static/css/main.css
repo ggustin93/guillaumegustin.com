@@ -361,6 +361,12 @@ textarea:focus-visible {
     filter: brightness(0) saturate(100%) invert(37%) sepia(74%) saturate(1217%) hue-rotate(330deg) brightness(91%) contrast(92%);
 }
 
+/* Icône flèche vers le bas */
+.icon-arrow-down:before {
+    content: "\2193";
+    display: inline-block;
+}
+
 /* Correction pour l'icône de téléphone */
 .icon-phone-line:before {
     content: "\260E"; /* Unicode pour téléphone ☎ */
@@ -381,20 +387,31 @@ textarea:focus-visible {
 /* Style élégant pour la photo de profil dans la section about */
 .about__profile-picture img {
     border: 3px solid #000;
-    box-shadow: 6px 6px 0 #e05d44;
-    border-radius: 4px;
+    box-shadow: 8px 8px 0 #e05d44;
+    border-radius: 0;
     transition: all 0.3s ease;
 }
 
 .about__profile-picture img:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 9px 9px 0 #e05d44;
+    box-shadow: 11px 11px 0 #e05d44;
 }
 
 /* Ajuster l'affichage des logos clients sur mobile */
 @media (max-width: 768px) {
     .clients {
         display: none !important;
+    }
+
+    .about__profile-picture {
+        padding: 10px 15px;
+        overflow: visible;
+    }
+
+    .about__profile-picture img {
+        max-width: 280px !important;
+        display: block;
+        margin: 0 auto !important;
     }
 }
 
