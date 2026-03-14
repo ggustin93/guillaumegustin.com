@@ -212,9 +212,73 @@ select:focus-visible {
 .contact-title {
     font-size: 2.4rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
 }
 
+/* Sous-titre de la section contact */
+#contact .lead {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* Formulaire de contact - inputs harmonisés */
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 14px 18px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+#contact input[type="text"]:focus,
+#contact input[type="email"]:focus,
+#contact textarea:focus {
+    outline: none;
+    border-color: #e05d44;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(224, 93, 68, 0.1);
+}
+
+#contact input[type="text"]::placeholder,
+#contact input[type="email"]::placeholder,
+#contact textarea::placeholder {
+    color: #888;
+    font-weight: 400;
+}
+
+/* Bouton d'envoi */
+#contact button[type="submit"] {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#contact button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(224, 93, 68, 0.3);
+}
+
+/* Titre de la colonne contact info */
+.contact__info h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
 /* Structure de la liste de contacts */
 .contact-list {
     display: flex;
@@ -233,17 +297,20 @@ select:focus-visible {
 .contact-link {
     color: #333;
     text-decoration: none;
-    border-bottom: none; /* Suppression du border-bottom */
-    padding-bottom: 2px;
+    border-bottom: none;
+    padding: 10px 12px;
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
     font-weight: 500;
+    font-size: 1.05rem;
     width: 100%;
+    border-radius: 6px;
 }
 
 .contact-link:hover {
     color: #e05d44;
+    background-color: rgba(224, 93, 68, 0.05);
 }
 
 /* Ajout d'un style pour souligner uniquement le texte au hover */
@@ -253,14 +320,23 @@ select:focus-visible {
 
 /* Style unifié pour les icônes de contact */
 .contact-icon {
-    margin-right: 12px;
+    margin-right: 14px;
     font-size: 18px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 22px;
+    width: 40px;
+    height: 40px;
     color: #e05d44;
+    background-color: rgba(224, 93, 68, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover .contact-icon {
+    background-color: #e05d44;
+    color: #fff;
+    transform: scale(1.1);
 }
 
 /* Style pour les images d'icônes */
