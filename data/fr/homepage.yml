@@ -4,9 +4,9 @@ head:
 # showcase
 showcase:
   enable: true
-  title: "Bonjour, je suis Guillaume"
-  subtitle: "Ingénieur Logiciel"
-  description: "Je conçois et développe des solutions numériques pour des organisations à impact — en alliant rigueur technique et attention portée à l'utilisabilité. Mon travail couvre les technologies de santé, le design web durable et la transformation numérique."
+  title: "Développeur Full-Stack"
+  subtitle: "& Ingénieur Biomédical"
+  description: "Je conçois et développe des solutions numériques pour des organisations à mission — alliant rigueur d'ingénieur et attention à l'expérience utilisateur. Mon travail couvre la technologie pour la santé, l'écoconception web et la transformation numérique."
   image:
     x: "img/showcase/showcase.webp"
     _2x: "img/showcase/showcase@2x.webp"
@@ -39,23 +39,23 @@ about:
   icon: "icon-user-fill"
   content: |
     <p class="lead">
-    Fort d'une formation en ingénierie biomédicale (UCLouvain, 2016), j'applique une approche analytique au développement web et logiciel. Je m'efforce de traduire des exigences complexes en applications accessibles et conviviales, qui équilibrent besoins techniques et design intuitif, avec un intérêt particulier pour les technologies de santé.
+    Ingénieur biomédical de formation (UCLouvain, 2016), j'applique une approche analytique au développement web et logiciel. Je m'efforce de traduire des exigences complexes en applications accessibles et intuitives, en équilibrant les besoins techniques avec une conception centrée sur l'utilisateur, avec un intérêt particulier pour la technologie en santé.
     </p>
     <p class="lead">
-    Mon parcours inclut des travaux sur des plateformes de santé numérique dans le cadre de recherches à l'UCLouvain, la cofondation de la startup medtech MedC2 (acquise par la suite par Comunicare) axée sur l'autonomisation des patients, et l'accompagnement d'organisations à but non lucratif dans leur transformation numérique chez Bruxeo. En parallèle, à travers mon agence web Pwablo, j'explore et partage des approches durables des pratiques numériques.
+    Mon parcours comprend le développement de plateformes de santé numérique lors de recherches à l'UCLouvain, la cofondation de la startup medtech MedC2 (acquise par Comunicare) axée sur l'autonomisation des patients, et l'accompagnement de la transformation numérique d'organisations à but non lucratif chez Bruxeo. En parallèle, à travers mon agence web Pwablo, j'explore et partage des approches durables du numérique.
     </p>
     <p class="lead">
-    Je suis particulièrement attiré par les projets à l'intersection de la technologie et de l'impact social, où une ingénierie réfléchie peut améliorer de manière significative les résultats pour les utilisateurs et les organisations.
+    Je suis particulièrement attiré par les projets à l'intersection de la technologie et de l'impact social, où une ingénierie réfléchie peut améliorer concrètement les résultats pour les utilisateurs et les organisations.
     </p>
   button:
     icon: "icon-smile-fill"
     btnText: "Voir mes projets"
     URL: "#client_and_work"
   image:
-    x: "img/who-am-i/avatar_mini.webp"
-    _2x: "img/who-am-i/avatar_mini.webp"
-    original: "img/who-am-i/avatar_mini.webp"
-    avif: "img/who-am-i/avatar_mini.webp"
+    x: "img/who-am-i/gustin-profile.avif"
+    _2x: "img/who-am-i/gustin-profile.avif"
+    original: "img/who-am-i/gustin-profile.jpeg"
+    avif: "img/who-am-i/gustin-profile.avif"
 
 # education
 education:
@@ -107,9 +107,10 @@ experience:
   title: "Expérience"
   icon: "icon-briefcase"
   description: '<p class="lead">
-  Mon travail se situe à l''intersection de l''<b>ingénierie logicielle</b>, de la <b>santé numérique</b> et du <b>design durable</b> — avec un accent sur la livraison de solutions à la fois techniquement solides et significatives sur le plan organisationnel. <br><br>
+  Mon expérience couvre le <b>développement logiciel full-stack</b>, la <b>santé numérique</b>, la <b>transformation numérique dans les secteurs public et associatif</b>, et le <b>design web durable</b>. Fort d''une formation en <b>ingénierie biomédicale</b> et en <b>recherche académique</b>, je contribue à des projets numériques avec attention à la qualité technique, à l''utilisabilité et au contexte organisationnel. <br><br>
   <span class="badge badge-secondary myred"> Développement Full-stack </span>
   <span class="badge badge-secondary myred"> Transformation Numérique </span>
+  <span class="badge badge-secondary myred"> Secteur Public &amp; Associatif </span>
   <span class="badge badge-secondary myred"> Design Web Durable </span>
   <span class="badge badge-secondary random_color"> Formateur Python </span>
   <span class="badge badge-secondary random_color"> Santé Numérique </span>
@@ -119,15 +120,15 @@ experience:
   </p><br>'
   button:
     icon: "icon-linkedin-fill"
-    btnText: "Se connecter sur LinkedIn"
+    btnText: "LinkedIn"
     URL: "https://www.linkedin.com/in/guillaume-gustin/"
   button2:
     icon: "icon-profile-fill"
-    btnText: "Télécharger le CV"
+    btnText: "CV"
     URL: "https://www.canva.com/design/DAEqu630WFc/JXZzm8oDu6iWHbwo8gDidQ/view?utm_content=DAEqu630WFc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha66b906dcd"
 
   items:
-    - title: "Ingénieur Logiciel (Projet de Recherche Clinique \"Ghostly\")"
+    - title: "Chargé de Recherche en Ingénierie Logicielle"
       company: "Vrije Universiteit Brussel"
       duration: "2025 - 2026"
       icon: "icon-flask"
@@ -157,10 +158,10 @@ experience:
 
 # Client & Work
 client_and_work:
-  title: "Réalisations"
+  title: "Travaux Sélectionnés"
   icon: "icon-briefcase"
   enable: true
-  clients_title: "Clients & Partenaires"
+  clients_title: "Réalisations pour"
   clients:
     - logo:
         x: "img/clients/bruxeo.webp"
@@ -215,7 +216,7 @@ client_and_work:
         - name: "Cloud Functions"
         - name: "Cloud Messaging"
         - name: "Cloud Storage"
-      description: "Plateforme de résultats rapportés par les patients (ePRO) développée pour l'essai clinique ImmunoSABR. Cette PWA mobile-first comprend une interface patient avec notifications push, un tableau de bord clinique et une génération sécurisée de rapports PDF, conçue pour répondre aux normes de conformité du secteur de la santé."
+      description: "Plateforme de résultats rapportés par les patients (ePRO) développée pour l'essai clinique ImmunoSABR. Cette PWA mobile-first comprend une interface patient avec notifications push, un tableau de bord clinique et une génération sécurisée de rapports PDF — conçue pour répondre aux normes de conformité du secteur de la santé."
       button:
         icon: "icon-arrow-right"
         btnText: "Guide Utilisateur"
@@ -250,7 +251,7 @@ client_and_work:
     - title: "DEC!DE Design"
       stack:
         - name: "Figma"
-      description: "Contribution bénévole en UX/UI pour l'association DEC!DE (2021), explorant comment les outils numériques et l'engagement culturel pourraient rendre les concepts écologiques plus accessibles. Le projet est resté au stade conceptuel, bien qu'il ait illustré le potentiel d'un design réfléchi dans l'éducation environnementale."
+      description: "Contribution bénévole en UX/UI pour l'association DEC!DE (2021), explorant comment les outils numériques et l'engagement culturel pourraient rendre les concepts écologiques plus accessibles. Le projet est resté au stade conceptuel, illustrant néanmoins le potentiel d'un design réfléchi dans l'éducation environnementale."
       button:
         icon: "icon-arrow-right"
         btnText: "Présentation"
@@ -281,7 +282,7 @@ client_and_work:
         avif: "img/works/pwablo.avif"
       is_even: false
       featured: true
-      description: "Pwablo est une agence web durable spécialisée dans la création d'expériences numériques légères et performantes pour les organisations à impact. L'activité combine les principes du design web durable avec des ateliers sur l'empreinte environnementale du numérique, accompagnant les organisations dans la réduction de leur impact numérique."
+      description: "Pwablo est une agence web durable spécialisée dans la création d'expériences numériques légères et performantes pour les organisations à impact. L'activité combine les principes du design web durable avec des ateliers sur l'empreinte environnementale du numérique, accompagnant les organisations dans la réduction de leur impact digital."
 
     - title: "MyPatientCheck"
       stack:
@@ -313,7 +314,7 @@ client_and_work:
         - name: "Progressive Web App"
         - name: "Gitlab CD/CI"
         - name: "Facebook API"
-      description: "Prototype développé en collaboration avec B. Vander Stappen, conçu pour aider les passionnés de musique à découvrir des événements locaux grâce à la cartographie, aux évaluations en temps réel et aux fonctionnalités de filtrage. Le concept explorait les outils de promotion numérique pour les organisateurs d'événements et les salles de concert."
+      description: "Prototype développé en collaboration avec B. Vander Stappen, conçu pour aider les passionnés de musique à découvrir des événements locaux grâce à la cartographie, aux évaluations en temps réel et aux fonctionnalités de filtrage. Le concept explorait les outils de promotion numérique pour les organisateurs d'événements et les lieux de spectacle."
       button:
         enabled: false
         icon: ""
@@ -329,7 +330,7 @@ client_and_work:
 
 # tech_stack
 tech_stack:
-  description: "Voici les technologies que j'utilise pour construire ces solutions :"
+  description: "Stack technique"
 
 # blog
 blog:
@@ -344,7 +345,7 @@ contact:
   enable: true
   contact_title: "Contact"
   schedule_call: "Planifier un appel"
-  title: "Restons en contact"
+  title: "Prenons contact"
   subtitle: "Prêt à collaborer sur votre prochain projet ? Planifiez un appel ou contactez-moi directement."
   icon: "icon-mail-fill"
   form:
@@ -356,10 +357,10 @@ contact:
     message: "Parlez-moi de votre projet..."
   email:
     title: "Email"
-    email: '<a href="mailto:guillaume.gustin.9@gmail.com">guillaume.gustin.9@gmail.com</a>'
+    email: '<a href="mailto:hello@pwablo.be">hello@pwablo.be</a>'
   phone:
     title: "Contact"
-    number: '<a href="https://cal.com/pwablo/30min" target="_blank"><img src="https://cdn.simpleicons.org/googlecalendar/444444/20" alt="Calendar" style="vertical-align: middle; margin-right: 5px; width: 20px;"> Planifier un appel</a> ou <a href="https://api.whatsapp.com/send/?phone=32456617260&text&type=phone_number&app_absent=0" target="_blank"><img src="https://cdn.simpleicons.org/whatsapp/25D366/20" alt="WhatsApp" style="vertical-align: middle; margin-right: 5px; width: 20px;"> WhatsApp</a> (+32 456 617 260)'
+    number: '<a href="https://cal.com/pwablo/30min" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#444444" style="vertical-align: middle; margin-right: 5px;"><path d="M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H5.684v5.684h12.632zM5.684 18.316H0V5.684h5.684v12.632zM7.074 9.789h2.35v2.351H7.075V9.789zm0 3.789h2.35v2.351H7.075v-2.351zm3.789-3.789h2.351v2.351h-2.351V9.789zm3.789 0h2.351v2.351h-2.351V9.789zm-3.789 3.789h2.351v2.351h-2.351v-2.351z"/></svg> Planifier un appel</a> ou <a href="https://api.whatsapp.com/send/?phone=32456617260&text&type=phone_number&app_absent=0" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366" style="vertical-align: middle; margin-right: 5px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a> (+32 456 617 260)'
   button:
     icon: "icon-mail-fill"
     btnText: "Envoyer le message"
