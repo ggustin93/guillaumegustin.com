@@ -215,21 +215,27 @@ select:focus-visible {
     margin-top: 20px;
 }
 
-/* Coin haut gauche style carte publication - L shape avec ombre cohérente */
+/* Coin haut gauche style carte publication - deux barres avec ombres */
 #contact::before {
     content: '';
     position: absolute;
     top: 0;
     left: max(15px, calc((100vw - 1140px) / 2 + 15px));
     width: 50px;
-    height: 50px;
-    border-top: 6px solid #000;
-    border-left: 6px solid #000;
+    height: 6px;
+    background-color: #000;
     box-shadow: 4px 4px 0 #e05d44;
 }
 
 #contact::after {
-    display: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: max(15px, calc((100vw - 1140px) / 2 + 15px));
+    width: 6px;
+    height: 50px;
+    background-color: #000;
+    box-shadow: 4px 4px 0 #e05d44;
 }
 
 /* Ajustement pour tablettes */
