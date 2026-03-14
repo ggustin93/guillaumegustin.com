@@ -316,23 +316,23 @@ select:focus-visible {
     justify-content: center;
 }
 
-/* Élément de contact individuel */
+/* Élément de contact individuel - plus compact */
 .contact-item {
     display: flex;
     align-items: center;
 }
 
-/* Liens avec effet de survol élégant - correction du soulignement */
+/* Liens avec effet de survol élégant - version compacte */
 .contact-link {
     color: #333;
     text-decoration: none;
     border-bottom: none;
-    padding: 10px 12px;
+    padding: 8px 10px;
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
     font-weight: 500;
-    font-size: 1.05rem;
+    font-size: 1rem;
     width: 100%;
     border-radius: 6px;
 }
@@ -347,25 +347,26 @@ select:focus-visible {
     border-bottom: 1px solid #e05d44;
 }
 
-/* Style unifié pour les icônes de contact */
+/* Style unifié pour les icônes de contact - plus compact */
 .contact-icon {
-    margin-right: 14px;
-    font-size: 18px;
+    margin-right: 12px;
+    font-size: 16px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     color: #e05d44;
     background-color: rgba(224, 93, 68, 0.1);
     border-radius: 50%;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .contact-link:hover .contact-icon {
     background-color: #e05d44;
     color: #fff;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* SVG icons become white on hover */
@@ -375,8 +376,8 @@ select:focus-visible {
 
 /* Style pour les images d'icônes */
 .contact-icon img {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     vertical-align: middle;
     filter: brightness(0) saturate(100%) invert(37%) sepia(74%) saturate(1217%) hue-rotate(330deg) brightness(91%) contrast(92%);
 }
@@ -385,13 +386,68 @@ select:focus-visible {
 .icon-phone-line:before {
     content: "\260E"; /* Unicode pour téléphone ☎ */
     display: inline-block;
+    font-size: 16px;
 }
 
-/* Adaptation mobile */
+/* Adaptation mobile pour la section contact */
 @media (max-width: 768px) {
     .contact__info {
-        margin-top: 40px;
+        margin-top: 30px;
+        padding: 0 10px;
     }
+    
+    /* Liste de contacts plus compacte sur mobile */
+    .contact-list {
+        gap: 12px;
+    }
+    
+    /* Liens encore plus compacts sur mobile */
+    .contact-link {
+        padding: 6px 8px;
+        font-size: 0.95rem;
+    }
+    
+    /* Icônes plus petites sur mobile */
+    .contact-icon {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+    }
+    
+    .contact-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    /* Titre de section contact plus petit sur mobile */
+    .contact-title {
+        font-size: 1.8rem;
+    }
+    
+    /* Sous-titre plus compact */
+    #contact .lead {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Formulaire plus compact sur mobile */
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact textarea {
+        padding: 12px 14px;
+        font-size: 16px; /* Évite le zoom sur iOS */
+    }
+    
+    #contact textarea {
+        min-height: 120px;
+    }
+    
+    /* Bouton pleine largeur sur mobile */
+    #contact button[type="submit"] {
+        width: 100%;
+        padding: 12px 24px;
+    }
+}
     
     .contact-title {
         font-size: 2rem;
