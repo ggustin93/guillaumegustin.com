@@ -52,10 +52,10 @@ about:
     btnText: "View My Projects"
     URL: "#client_and_work"
   image:
-    x: "img/who-am-i/gustin-profile.avif"
-    _2x: "img/who-am-i/gustin-profile.avif"
-    original: "img/who-am-i/gustin-profile.jpeg"
-    avif: "img/who-am-i/gustin-profile.avif"
+    x: "img/who-am-i/gustin-profile-bw.jpeg"
+    _2x: "img/who-am-i/gustin-profile-bw.jpeg"
+    original: "img/who-am-i/gustin-profile-bw.jpeg"
+    avif: "img/who-am-i/gustin-profile-bw.jpeg"
 
 # tech-stack
 tech_stack:
