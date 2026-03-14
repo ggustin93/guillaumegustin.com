@@ -859,3 +859,59 @@ html, body {
         box-shadow: 7px 7px 0 #e05d44;
     }
 }
+/* ===========================================
+   BADGES UX/UI IMPROVEMENTS
+   =========================================== */
+
+/* Base badge styling - modern and clean */
+.badge.badge-secondary {
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 3px;
+    border: none;
+    cursor: default;
+}
+
+/* Red badges (primary skills) */
+.badge.badge-secondary.myred {
+    background-color: #e05d44;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(224, 93, 68, 0.3);
+}
+
+.badge.badge-secondary.myred:hover {
+    background-color: #c94e3a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(224, 93, 68, 0.4);
+}
+
+/* Gray badges (secondary skills) */
+.badge.badge-secondary.random_color {
+    background-color: #6c757d;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(108, 117, 125, 0.3);
+}
+
+.badge.badge-secondary.random_color:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.4);
+}
+
+/* Badge container spacing */
+.experience__badges,
+.experience__description .badge {
+    line-height: 2.2;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .badge.badge-secondary {
+        font-size: 12px;
+        padding: 6px 10px;
+        margin: 2px;
+    }
+}
