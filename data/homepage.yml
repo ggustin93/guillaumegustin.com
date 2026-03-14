@@ -4,8 +4,8 @@ head:
 # showcase
 showcase:
   enable: true
-  title: "Guillaume Gustin"
-  subtitle: "Full-Stack Developer & Biomedical Engineer"
+  title: "Hello, I'm Guillaume"
+  subtitle: "Software Engineer"
   description: "I design and develop digital solutions for mission-driven organizations — combining engineering rigour with a focus on usability. My work spans healthcare technology, sustainable web design, and digital transformation."
   image:
     x: "img/showcase/showcase.webp"
