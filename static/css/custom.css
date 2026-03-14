@@ -502,9 +502,9 @@ select:focus-visible {
     border-radius: 4px;
     overflow: hidden;
     transition: all 0.3s ease;
-    padding: 15px;
+    padding: 20px;
     background-color: #fff;
-    margin: 20px;
+    margin: 30px;
 }
 
 .about__profile-picture img {
