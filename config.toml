@@ -33,13 +33,7 @@ theme = "raditian-free-hugo-theme"
   [[params.plugins.css]]
   URL = "css/custom.css"
 
-  # JS Plugins
-  [[params.plugins.js]]
-  URL = "js/rad-animations.js"
-  [[params.plugins.js]]
-  URL = "js/sticky-header.js"
-  [[params.plugins.js]]
-  URL = "js/library/fontfaceobserver.js"
+  # JS Plugins - loaded via base-foot.html partial
 
 
 

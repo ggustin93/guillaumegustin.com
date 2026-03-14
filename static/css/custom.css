@@ -222,11 +222,11 @@ select:focus-visible {
 }
 
 /* Style des icônes */
+.tech-item svg,
 .tech-item img {
     width: 48px;
     height: 48px;
     margin-bottom: 15px;
-    filter: brightness(0) invert(1);  /* Rendre les images blanches */
 }
 
 .tech-item span {
@@ -244,6 +244,7 @@ select:focus-visible {
         width: 80px;
     }
     
+    .tech-item svg,
     .tech-item img {
         width: 36px;
         height: 36px;

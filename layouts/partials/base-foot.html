@@ -1,0 +1,38 @@
+<script src='{{ "js/rad-animations.js" | absURL }}'></script>
+<script src='{{ "js/library/lozad.min.js" | absURL }}'></script>
+<script src='{{ "js/library/jquery-3.3.1.slim.min.js" | absURL }}' defer></script>
+<script src='{{ "js/library/bootstrap.min.js" | absURL }}' defer></script>
+<script src='{{ "js/sticky-header.js" | absURL }}'></script>
+<script src='{{ "js/library/smooth-scroll.polyfills.min.js" | absURL }}'></script>
+<script src='{{ "js/library/fontfaceobserver.js" | absURL }}'></script>
+<script>
+  window.addEventListener("load", function() {
+    var observer = window.lozad(".lozad", {
+      rootMargin: window.innerHeight / 2 + "px 0px",
+      threshold: 0.01
+    });
+    observer.observe();
+  });
+  (function(w) {
+    if (w.document.documentElement.className.indexOf("fonts-loaded") > -1) {
+      return;
+    }
+    var fontA = new w.FontFaceObserver("Inter", { weight: 400 });
+    var fontB = new w.FontFaceObserver("Inter", { weight: 600 });
+    w.Promise.all([fontA.load(), fontB.load()]).then(function() {
+      w.document.documentElement.className += " fonts-loaded";
+    });
+  })(this);
+  var scroll = new SmoothScroll('a[href*="#"]');
+  document.addEventListener("DOMContentLoaded", function() {
+    var navLinks = document.querySelectorAll('a.nav-link');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        var navbar = document.querySelector('.navbar-collapse.show');
+        if (navbar) {
+          document.querySelector('.navbar-toggler').click();
+        }
+      });
+    });
+  });
+</script>
