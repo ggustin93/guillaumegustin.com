@@ -87,16 +87,12 @@
     .rad-fade-in {
         will-change: opacity, transform;
         animation-name: rad-fade-in-fallback;
-        animation-duration: 5s;
+        animation-duration: 0.8s;
         animation-fill-mode: both;
     }
 
     @keyframes rad-fade-in-fallback {
         0% {
-            opacity: 0;
-        }
-
-        75% {
             opacity: 0;
         }
 
@@ -130,16 +126,12 @@
     .rad-fade-in-long {
         will-change: opacity, transform;
         animation-name: rad-fade-in-long-fallback;
-        animation-duration: 8s;
+        animation-duration: 1.2s;
         animation-fill-mode: both;
     }
 
     @keyframes rad-fade-in-long-fallback {
         0% {
-            opacity: 0;
-        }
-
-        75% {
             opacity: 0;
         }
 
@@ -177,18 +169,13 @@
     .rad-fade-down {
         will-change: opacity, transform;
         animation-name: rad-fade-down-fallback;
-        animation-duration: 5s;
+        animation-duration: 0.8s;
         animation-fill-mode: both;
         transform: translateY(-30px);
     }
 
     @keyframes rad-fade-down-fallback {
         0% {
-            opacity: 0;
-            transform: translateY(-30px);
-        }
-
-        75% {
             opacity: 0;
             transform: translateY(-30px);
         }
@@ -226,18 +213,13 @@
     .rad-scale-down {
         will-change: opacity, transform;
         animation-name: rad-scale-down-fallback;
-        animation-duration: 5s;
+        animation-duration: 0.8s;
         animation-fill-mode: both;
         transform-origin: 50% 0;
     }
 
     @keyframes rad-scale-down-fallback {
         0% {
-            opacity: 0;
-            transform: scaleY(0.95);
-        }
-
-        75% {
             opacity: 0;
             transform: scaleY(0.95);
         }
