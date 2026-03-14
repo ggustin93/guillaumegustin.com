@@ -4,9 +4,9 @@ head:
 # showcase
 showcase:
   enable: true
-  title: "Hello, I'm Guillaume"
-  subtitle: "Software Engineer"
-  description: " I help mission-driven organizations work toward their goals 🎯 by creating practical digital solutions designed to enhance their visibility and effectiveness. <br><br> Drawing on both technical experience and strategic thinking, I look for opportunities to contribute to meaningful projects and develop thoughtful, user-centered solutions. 🤝 Let's discuss!"
+  title: "Guillaume Gustin"
+  subtitle: "Full-Stack Developer & Biomedical Engineer"
+  description: "I design and develop digital solutions for mission-driven organizations — combining engineering rigour with a focus on usability. My work spans healthcare technology, sustainable web design, and digital transformation."
   image:
     x: "img/showcase/showcase.webp"
     _2x: "img/showcase/showcase@2x.webp"
@@ -45,7 +45,7 @@ about:
     My journey includes work on digital health platforms during research at UCLouvain, cofounding the medtech startup MedC2 (later acquired by Comunicare) focused on patient empowerment, and supporting non-profits with digital transformation at Bruxeo. In parallel, through my web agency Pwablo, I explore and share sustainable approaches to digital practices.
     </p>
     <p class="lead">
-    I aim to create thoughtful software solutions that address real needs and provide value to the organizations and people who use them.
+    I am particularly drawn to projects at the intersection of technology and social impact, where thoughtful engineering can meaningfully improve outcomes for users and organizations alike.
     </p>
   button:
     icon: "icon-smile-fill"
@@ -107,7 +107,7 @@ experience:
   title: "Experience"
   icon: "icon-briefcase"
   description: '<p class="lead">
-  My professional expertise spans <b>digital development</b>, <b>sustainability</b>, and <b>social impact</b> sectors. I offer clients a balanced approach of technical skill and strategic thinking. <br><br>
+  My work sits at the intersection of <b>software engineering</b>, <b>digital health</b>, and <b>sustainable design</b> — with a focus on delivering solutions that are both technically sound and organizationally meaningful. <br><br>
   <span class="badge badge-secondary myred"> Full-stack Development </span>
   <span class="badge badge-secondary myred"> Digital Transformation </span>
   <span class="badge badge-secondary myred"> Sustainable Web Design </span>
@@ -210,7 +210,7 @@ client_and_work:
         - name: "Cloud Functions"
         - name: "Cloud Messaging"
         - name: "Cloud Storage"
-      description: "I developed an electronic patient-reported outcomes (ePRO) collection platform for the ImmunoSABR clinical trial. This mobile-first progressive web app includes a patient interface with task reminders via web push notifications and a clinical dashboard for healthcare professionals. The system generates and stores PDF reports securely, supporting efficient data collection while maintaining healthcare compliance standards. <br> <i> © MedC2 </i>"
+      description: "Electronic patient-reported outcomes (ePRO) platform developed for the ImmunoSABR clinical trial. The mobile-first PWA includes a patient interface with push notifications, a clinical dashboard, and secure PDF report generation — designed to meet healthcare compliance standards."
       button:
         icon: "icon-arrow-right"
         btnText: "User Guide"
@@ -230,7 +230,7 @@ client_and_work:
         - name: "Firestore"
         - name: "Cloud Functions"
         - name: "Cloud Storage"
-      description: "I designed and built a decision aid application to support cancer patients in making informed treatment choices. This web app provides personalized medical information through interactive modules, educational content, and guided reflection questions. The platform generates PDF reports that can be shared to facilitate doctor-patient discussions about treatment options. <br> <i> © MedC2 </i>"
+      description: "Decision aid application designed to support cancer patients in making informed treatment choices. The platform provides personalized medical information through interactive modules and guided reflection questions, generating PDF reports to facilitate doctor-patient discussions."
       button:
         icon: "icon-arrow-right"
         btnText: "Clinical Trial"
@@ -245,7 +245,7 @@ client_and_work:
     - title: "DEC!DE Design"
       stack:
         - name: "Figma"
-      description: "As a volunteer designer/developer for the non-profit organization DEC!DE (2021), I contributed to the UX/UI concept and prototype of digital tools aimed at environmental awareness. The project explored how cultural engagement could make ecological concepts more accessible through interactive interfaces. Though remaining at the conceptual stage, this work demonstrated the potential of thoughtful digital design to transform environmental education."
+      description: "Volunteer UX/UI contribution for the non-profit DEC!DE (2021), exploring how digital tools and cultural engagement could make ecological concepts more accessible. The project remained at the conceptual stage, though it illustrated the potential of thoughtful design in environmental education."
       button:
         icon: "icon-arrow-right"
         btnText: "Presentation"
@@ -276,7 +276,7 @@ client_and_work:
         avif: "img/works/pwablo.avif"
       is_even: false
       featured: true
-      description: "Pwablo is my sustainable web agency creating optimized digital experiences for impact-driven organizations. I develop lightweight, performance-focused websites that align with sustainability principles. Using tools like Ecograder to help assess environmental footprint, I implement efficient web design practices to reduce digital environmental impact. I also offer workshops on sustainable digital practices, helping organizations minimize their digital footprint while delivering excellent user experiences."
+      description: "Pwablo is a sustainable web agency focused on creating lightweight, performance-oriented digital experiences for impact-driven organizations. The practice combines sustainable web design principles with workshops on digital environmental footprint, supporting organizations in reducing their digital impact."
 
     - title: "MyPatientCheck"
       stack:
@@ -285,7 +285,7 @@ client_and_work:
         - name: "Ionic 5"
         - name: "Ionic Storage"
         - name: "Cloud Functions"
-      description: "During the COVID-19 pandemic, I developed the first prototype of MyPatientCheck to provide healthcare professionals with risk assessment tools for symptomatic COVID-19 patients. Based on statistics showing that 80% of confirmed cases could be treated as outpatients while 20% required hospitalization, the application aimed to support efficient patient triage and resource allocation. The app allows simulation of predictive models to support clinical decision-making. <br> <i> © MedC2 </i>"
+      description: "First prototype developed during the COVID-19 pandemic to support healthcare professionals in triaging symptomatic patients. The application provides risk assessment tools and predictive model simulations to assist clinical decision-making in resource-constrained settings."
       button:
         enabled: false
         icon: ""
@@ -308,7 +308,7 @@ client_and_work:
         - name: "Progressive Web App"
         - name: "Gitlab CD/CI"
         - name: "Facebook API"
-      description: "Wadaff (Waar is da feestje?) was a prototype developed with B. Vander Stappen (DJ and developer) before COVID-19. The application was designed to help music enthusiasts find events through features like event mapping, real-time ratings, and filtering options. The concept included potential features for event organizers, venues, and festivals to offer digital promotions. <br> <i> © Wadaff </i>"
+      description: "Prototype developed in collaboration with B. Vander Stappen, designed to help music enthusiasts discover local events through mapping, real-time ratings, and filtering features. The concept explored digital promotion tools for event organizers and venues."
       button:
         enabled: false
         icon: ""
