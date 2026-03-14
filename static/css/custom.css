@@ -256,6 +256,10 @@ select:focus-visible {
     color: #888;
     font-weight: 400;
 }
+#contact textarea {
+    min-height: 200px;
+    resize: vertical;
+}
 
 /* Bouton d'envoi */
 #contact button[type="submit"] {
@@ -279,12 +283,13 @@ select:focus-visible {
     margin-bottom: 1.5rem;
     color: #333;
 }
-/* Structure de la liste de contacts */
+/* Structure de la liste de contacts - alignement vertical */
 .contact-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 30px;
+    gap: 24px;
+    margin-bottom: 0;
+    justify-content: center;
 }
 
 /* Élément de contact individuel */
@@ -337,6 +342,11 @@ select:focus-visible {
     background-color: #e05d44;
     color: #fff;
     transform: scale(1.1);
+}
+
+/* SVG icons become white on hover */
+.contact-link:hover .contact-icon svg {
+    fill: #fff !important;
 }
 
 /* Style pour les images d'icônes */
