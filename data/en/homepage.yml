@@ -4,8 +4,8 @@ head:
 # showcase
 showcase:
   enable: true
-  title: "Hello, I'm Guillaume"
-  subtitle: "Software Engineer"
+  title: "Full-Stack Developer"
+  subtitle: "& Biomedical Engineer"
   description: "I design and develop digital solutions for mission-driven organizations — combining engineering rigour with a focus on usability. My work spans healthcare technology, sustainable web design, and digital transformation."
   image:
     x: "img/showcase/showcase.webp"
@@ -52,14 +52,14 @@ about:
     btnText: "View My Projects"
     URL: "#client_and_work"
   image:
-    x: "img/who-am-i/avatar_mini.webp"
-    _2x: "img/who-am-i/avatar_mini.webp"
-    original: "img/who-am-i/avatar_mini.webp"
-    avif: "img/who-am-i/avatar_mini.webp"
+    x: "img/who-am-i/gustin-profile.avif"
+    _2x: "img/who-am-i/gustin-profile.avif"
+    original: "img/who-am-i/gustin-profile.jpeg"
+    avif: "img/who-am-i/gustin-profile.avif"
 
 # tech-stack
 tech_stack:
-  description: "Here are the technologies I use to build these solutions:"
+  description: "Tech Stack"
 
 # education
 education:
@@ -110,17 +110,19 @@ experience:
   enable: true
   title: "Experience"
   icon: "icon-briefcase"
-  description: '<p class="lead">
-  My work sits at the intersection of <b>software engineering</b>, <b>digital health</b>, and <b>sustainable design</b> — with a focus on delivering solutions that are both technically sound and organizationally meaningful. <br><br>
-  <span class="badge badge-secondary myred"> Full-stack Development </span>
-  <span class="badge badge-secondary myred"> Digital Transformation </span>
-  <span class="badge badge-secondary myred"> Sustainable Web Design </span>
-  <span class="badge badge-secondary random_color"> Python Instructor </span>
-  <span class="badge badge-secondary random_color"> Digital Health </span>
-  <span class="badge badge-secondary random_color"> Entrepreneurship </span>
-  <span class="badge badge-secondary random_color"> Academic Research </span>
-  <span class="badge badge-secondary random_color"> Biomedical Engineering </span>
-  </p><br>'
+  description: |
+    <p class="lead">
+    My experience spans <b>full-stack software engineering</b>, <b>digital health</b>, <b>digital transformation in the public and non-profit sectors</b>, and <b>sustainable web design</b>. Drawing on a background in <b>biomedical engineering</b> and <b>academic research</b>, I contribute to digital projects with attention to technical quality, usability, and organizational context. <br><br>
+    <span class="badge badge-secondary myred"> Full-stack Software Engineering </span>
+    <span class="badge badge-secondary myred"> Digital Transformation </span>
+    <span class="badge badge-secondary myred"> Public &amp; Non-profit Sector </span>
+    <span class="badge badge-secondary myred"> Sustainable Web Design </span>
+    <span class="badge badge-secondary random_color"> Python Instructor </span>
+    <span class="badge badge-secondary random_color"> Digital Health </span>
+    <span class="badge badge-secondary random_color"> Entrepreneurship </span>
+    <span class="badge badge-secondary random_color"> Academic Research </span>
+    <span class="badge badge-secondary random_color"> Biomedical Engineering </span>
+    </p><br>
   button:
     icon: "icon-linkedin-fill"
     btnText: "Connect on LinkedIn"
@@ -131,7 +133,7 @@ experience:
     URL: "https://www.canva.com/design/DAEqu630WFc/JXZzm8oDu6iWHbwo8gDidQ/view?utm_content=DAEqu630WFc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha66b906dcd"
 
   items:
-    - title: "Software Engineer (Clinical Research Project "Ghostly")"
+    - title: "Research Software Engineer"
       company: "Vrije Universiteit Brussel"
       duration: "2025 - 2026"
       icon: "icon-flask"
@@ -402,10 +404,10 @@ contact:
     message: "Tell me about your project..."
   email:
     title: "Email"
-    email: '<a href="mailto:guillaume.gustin.9@gmail.com">guillaume.gustin.9@gmail.com</a>'
+    email: '<a href="mailto:hello@pwablo.be">hello@pwablo.be</a>'
   phone:
     title: "Contact"
-    number: '<a href="https://cal.com/pwablo/30min" target="_blank"><img src="https://cdn.simpleicons.org/googlecalendar/444444/20" alt="Calendar" style="vertical-align: middle; margin-right: 5px; width: 20px;"> Schedule a call</a> or <a href="https://api.whatsapp.com/send/?phone=32456617260&text&type=phone_number&app_absent=0" target="_blank"><img src="https://cdn.simpleicons.org/whatsapp/25D366/20" alt="WhatsApp" style="vertical-align: middle; margin-right: 5px; width: 20px;"> WhatsApp</a> (+32 456 617 260)'
+    number: '<a href="https://cal.com/pwablo/30min" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#444444" style="vertical-align: middle; margin-right: 5px;"><path d="M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H5.684v5.684h12.632zM5.684 18.316H0V5.684h5.684v12.632zM7.074 9.789h2.35v2.351H7.075V9.789zm0 3.789h2.35v2.351H7.075v-2.351zm3.789-3.789h2.351v2.351h-2.351V9.789zm3.789 0h2.351v2.351h-2.351V9.789zm-3.789 3.789h2.351v2.351h-2.351v-2.351z"/></svg> Schedule a call</a> or <a href="https://api.whatsapp.com/send/?phone=32456617260&text&type=phone_number&app_absent=0" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366" style="vertical-align: middle; margin-right: 5px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a> (+32 456 617 260)'
   button:
     icon: "icon-mail-fill"
     btnText: "Send Message"
