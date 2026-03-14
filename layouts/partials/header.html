@@ -2,7 +2,10 @@
   <div class="container rad-fade-in">
     <nav class="navbar navbar-expand-lg navbar-light p-0" aria-label="Main navigation">
       <a class="navbar-brand" href="{{ .Site.BaseURL | absURL }}" aria-label="Guillaume Gustin - Home">
-        <img src="{{ "img/general/logo_ggustin.webp" | relURL }}" alt="Guillaume Gustin" class="navbar-brand-logo" />
+        <picture>
+          <source srcset="{{ `img/general/logo_ggustin.avif` | relURL }}" type="image/avif">
+          <img src="{{ `img/general/logo_ggustin.webp` | relURL }}" alt="Guillaume Gustin" class="navbar-brand-logo" />
+        </picture>
       </a>
       <button
         class="navbar-toggler"
