@@ -1,11 +1,11 @@
 {{ if .Site.Data.homepage.about.enable }}
-<section class="section rad-animation-group pb-0" id="about">
+<section class="section rad-animation-group pb-0" id="about" aria-labelledby="about-heading">
   <div class="container rad-fade-down">
     <div class="row d-flex flex-column-reverse flex-md-row">
       <div class="about__profile-picture col-12 col-md-6 text-center">
         {{ partial "responsive-image.html" (dict 
           "src" .Site.Data.homepage.about.image.original
-          "alt" "Profile Picture"
+          "alt" "Guillaume Gustin - Profile Picture"
           "class" "lozad img-responsive"
           "lazy" true
           "width" "60%"
@@ -13,7 +13,7 @@
         ) }}
       </div>
       <div class="col-12 col-md-6 my-auto my-auto">
-        <h2>{{ .Site.Data.homepage.about.title }}</h2>
+        <h2 id="about-heading">{{ .Site.Data.homepage.about.title }}</h2>
         <p class="lead">
           {{ .Site.Data.homepage.about.content | safeHTML }}
         </p>
