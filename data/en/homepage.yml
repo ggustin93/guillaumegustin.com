@@ -6,7 +6,7 @@ showcase:
   enable: true
   title: "Full-Stack Developer"
   subtitle: "& Biomedical Engineer"
-  description: "I design and develop digital solutions for mission-driven organizations — combining engineering rigour with a focus on usability. My work spans healthcare technology, sustainable web design, and digital transformation."
+  description: "I build web applications at the intersection of healthcare, public services, and social impact — currently working on GIS solutions and AI research at Gate 16."
   image:
     x: "img/showcase/showcase.webp"
     _2x: "img/showcase/showcase@2x.webp"
@@ -39,13 +39,13 @@ about:
   icon: "icon-user-fill"
   content: |
     <p class="lead">
-    With a background in Biomedical Engineering (UCLouvain, 2016), I apply an analytical approach to web and software development. I strive to translate complex requirements into accessible, user-friendly applications that balance technical needs with intuitive design, with particular interest in healthcare technology.
+    Trained as a biomedical engineer (UCLouvain, 2016), I found my way into software development through clinical research — helping build ePRO platforms and decision aids for cancer patients. That experience led me to cofound MedC2, a small medtech startup focused on patient empowerment (later acquired by Comunicare).
     </p>
     <p class="lead">
-    My journey includes work on digital health platforms during research at UCLouvain, cofounding the medtech startup MedC2 (later acquired by Comunicare) focused on patient empowerment, and supporting non-profits with digital transformation at Bruxeo. In parallel, through my web agency Pwablo, I explore and share sustainable approaches to digital practices.
+    After two years supporting non-profits with digital transformation at Bruxeo, I came back to hands-on engineering: building an analytics dashboard for researchers and physiotherapists on the <a href="https://researchportal.vub.be/en/projects/ghostly-targeting-muscle-strength-loss-due-to-hospitalization-in-/" target="_blank">Ghostly rehabilitation study</a> at VUB. Currently at Gate 16, I work on GIS web solutions for Brussels Mobility (construction site and traffic analysis) and explore R&D around RAG systems and agentic AI.
     </p>
     <p class="lead">
-    I am particularly drawn to projects at the intersection of technology and social impact, where thoughtful engineering can meaningfully improve outcomes for users and organizations alike.
+    On the side, through my small web agency Pwablo, I try to promote more sustainable approaches to web design.
     </p>
   button:
     icon: "icon-smile-fill"
@@ -110,10 +110,7 @@ experience:
   enable: true
   title: "Experience"
   icon: "icon-briefcase"
-  description: |
-    <p class="lead" style="margin-bottom: 0;">
-    My experience spans <b>full-stack software engineering</b>, <b>digital health</b>, <b>digital transformation in the public and non-profit sectors</b>, and <b>sustainable web design</b>. Drawing on a background in <b>biomedical engineering</b> and <b>academic research</b>, I contribute to digital projects with attention to technical quality, usability, and organizational context.
-    </p>
+  description: ""
   badges:
     - text: "Full-stack Software Engineering"
       color: "random_color"
@@ -141,7 +138,7 @@ experience:
       icon: "icon-code"
       highlight: true
     - title: "Research Software Engineer"
-      company: "Vrije Universiteit Brussel"
+      company: "Vrije Universiteit Brussel (Ghostly Project)"
       duration: "2025"
       icon: "icon-flask"
       highlight: true
