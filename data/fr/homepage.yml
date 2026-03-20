@@ -6,7 +6,7 @@ showcase:
   enable: true
   title: "Développeur Full-Stack"
   subtitle: "& Ingénieur Biomédical"
-  description: "Je conçois et développe des solutions numériques pour des organisations à mission — alliant rigueur d'ingénieur et attention à l'expérience utilisateur. Mon travail couvre la technologie pour la santé, l'écoconception web et la transformation numérique."
+  description: "Je développe des applications web à la croisée de la santé, des services publics et de l'impact social — actuellement sur des solutions GIS et de la R&D en IA chez Gate 16."
   image:
     x: "img/showcase/showcase.webp"
     _2x: "img/showcase/showcase@2x.webp"
@@ -39,13 +39,13 @@ about:
   icon: "icon-user-fill"
   content: |
     <p class="lead">
-    Ingénieur biomédical de formation (UCLouvain, 2016), j'applique une approche analytique au développement web et logiciel. Je m'efforce de traduire des exigences complexes en applications accessibles et intuitives, en équilibrant les besoins techniques avec une conception centrée sur l'utilisateur, avec un intérêt particulier pour la technologie en santé.
+    Ingénieur biomédical de formation (UCLouvain, 2016), j'ai trouvé ma voie dans le développement logiciel via la recherche clinique — en contribuant à des plateformes ePRO et des outils d'aide à la décision pour des patients atteints de cancer. Cette expérience m'a mené à cofonder MedC2, une petite startup medtech axée sur l'autonomisation des patients (acquise par Comunicare).
     </p>
     <p class="lead">
-    Mon parcours comprend le développement de plateformes de santé numérique lors de recherches à l'UCLouvain, la cofondation de la startup medtech MedC2 (acquise par Comunicare) axée sur l'autonomisation des patients, et l'accompagnement de la transformation numérique d'organisations à but non lucratif chez Bruxeo. En parallèle, à travers mon agence web Pwablo, j'explore et partage des approches durables du numérique.
+    Après deux ans d'accompagnement d'ASBL en transformation numérique chez Bruxeo, je suis revenu à l'ingénierie : développement d'un dashboard d'analyse pour chercheurs et kinés dans le cadre de l'<a href="https://researchportal.vub.be/en/projects/ghostly-targeting-muscle-strength-loss-due-to-hospitalization-in-/" target="_blank">étude de réhabilitation Ghostly</a> à la VUB. Actuellement chez Gate 16, je travaille sur des solutions web GIS pour Bruxelles Mobilité (analyse de chantiers et de trafic) et j'explore la R&D autour des systèmes RAG et de l'IA agentique.
     </p>
     <p class="lead">
-    Je suis particulièrement attiré par les projets à l'intersection de la technologie et de l'impact social, où une ingénierie réfléchie peut améliorer concrètement les résultats pour les utilisateurs et les organisations.
+    En parallèle, à travers ma petite agence web Pwablo, j'essaie de promouvoir des approches plus durables du web.
     </p>
   button:
     icon: "icon-smile-fill"
@@ -106,10 +106,7 @@ experience:
   enable: true
   title: "Expérience"
   icon: "icon-briefcase"
-  description: |
-    <p class="lead" style="margin-bottom: 0;">
-    Mon expérience couvre le <b>développement logiciel full-stack</b>, la <b>santé numérique</b>, la <b>transformation numérique dans les secteurs public et associatif</b>, et le <b>design web durable</b>. Fort d'une formation en <b>ingénierie biomédicale</b> et en <b>recherche académique</b>, je contribue à des projets numériques avec attention à la qualité technique, à l'utilisabilité et au contexte organisationnel.
-    </p>
+  description: ""
   badges:
     - text: "Développement Full-stack"
       color: "random_color"
@@ -137,7 +134,7 @@ experience:
       icon: "icon-code"
       highlight: true
     - title: "Chargé de Recherche en Ingénierie Logicielle"
-      company: "Vrije Universiteit Brussel"
+      company: "Vrije Universiteit Brussel (Projet Ghostly)"
       duration: "2025"
       icon: "icon-flask"
       highlight: true
