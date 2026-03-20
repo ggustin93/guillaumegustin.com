@@ -6,7 +6,7 @@ showcase:
   enable: true
   title: "Développeur Full-Stack"
   subtitle: "& Ingénieur Biomédical"
-  description: "Je développe des applications web à la croisée de la santé, des services publics et de l'impact social — actuellement sur des solutions GIS et de la R&D en IA chez Gate 16."
+  description: "Ingénieur logiciel de formation biomédicale — je développe des applications web pour la santé, la mobilité urbaine et les organisations à impact. Actif à Bruxelles sur des plateformes GIS, de la R&D en IA et du design web durable."
   image:
     x: "img/showcase/showcase.webp"
     _2x: "img/showcase/showcase@2x.webp"
@@ -39,10 +39,10 @@ about:
   icon: "icon-user-fill"
   content: |
     <p class="lead">
-    Ingénieur biomédical de formation (UCLouvain, 2016), j'ai trouvé ma voie dans le développement logiciel via la recherche clinique — en contribuant à des plateformes ePRO et des outils d'aide à la décision pour des patients atteints de cancer. Cette expérience m'a mené à cofonder MedC2, une petite startup medtech axée sur l'autonomisation des patients (acquise par Comunicare).
+    Ingénieur biomédical de formation (UCLouvain, 2016), j'ai débuté ma carrière comme Assistant de Recherche au Laboratoire de Télécommunications de l'UCLouvain — en développant un système pilote de suivi et de gestion à distance du diabète, pour rapprocher patients, professionnels de santé et laboratoires. Ce travail, soutenu par un financement FEDER, a nourri un intérêt durable pour la santé numérique et l'autonomisation des patients.
     </p>
     <p class="lead">
-    Après deux ans d'accompagnement d'ASBL en transformation numérique chez Bruxeo, je suis revenu à l'ingénierie : développement d'un dashboard d'analyse pour chercheurs et kinés dans le cadre de l'<a href="https://researchportal.vub.be/en/projects/ghostly-targeting-muscle-strength-loss-due-to-hospitalization-in-/" target="_blank">étude de réhabilitation Ghostly</a> à la VUB. Actuellement chez Gate 16, je travaille sur des solutions web GIS pour Bruxelles Mobilité (analyse de chantiers et de trafic) et j'explore la R&D autour des systèmes RAG et de l'IA agentique.
+    Cela m'a conduit à cofonder MedC2, une startup medtech où j'ai contribué à des plateformes ePRO et des outils d'aide à la décision pour des patients atteints de cancer — acquise par la suite par Comunicare. Après deux ans d'accompagnement d'ASBL en transformation numérique chez Bruxeo, je suis revenu à l'ingénierie : développement d'un dashboard d'analyse pour l'<a href="https://researchportal.vub.be/en/projects/ghostly-targeting-muscle-strength-loss-due-to-hospitalization-in-/" target="_blank">étude de réhabilitation Ghostly</a> à la VUB. Actuellement chez Gate 16, je travaille sur des solutions GIS pour Bruxelles Mobilité et j'explore la R&amp;D autour des systèmes RAG et de l'IA agentique.
     </p>
     <p class="lead">
     En parallèle, à travers ma petite agence web Pwablo, j'essaie de promouvoir des approches plus durables du web.
@@ -106,7 +106,7 @@ experience:
   enable: true
   title: "Expérience"
   icon: "icon-briefcase"
-  description: ""
+  description: "Un parcours entre santé numérique, services publics et web durable — d'assistant de recherche à ingénieur logiciel."
   badges:
     - text: "Développement Full-stack"
       color: "random_color"

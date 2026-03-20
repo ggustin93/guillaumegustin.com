@@ -6,7 +6,7 @@ showcase:
   enable: true
   title: "Full-Stack Developer"
   subtitle: "& Biomedical Engineer"
-  description: "I build web applications at the intersection of healthcare, public services, and social impact — currently working on GIS solutions and AI research at Gate 16."
+  description: "Software engineer with roots in biomedical research — I develop web applications for healthcare, urban mobility, and impact-driven organisations. Active in Brussels across GIS platforms, AI research, and sustainable web design."
   image:
     x: "img/showcase/showcase.webp"
     _2x: "img/showcase/showcase@2x.webp"
@@ -39,10 +39,10 @@ about:
   icon: "icon-user-fill"
   content: |
     <p class="lead">
-    Trained as a biomedical engineer (UCLouvain, 2016), I found my way into software development through clinical research — helping build ePRO platforms and decision aids for cancer patients. That experience led me to cofound MedC2, a small medtech startup focused on patient empowerment (later acquired by Comunicare).
+    Trained as a biomedical engineer (UCLouvain, 2016), I started my career as a Research Assistant at UCLouvain's Telecommunication Lab — building a pilot Diabetes Remote Monitoring and Management System to bridge the gap between patients, healthcare professionals, and laboratories. That work, supported by a FEDER grant, sparked a lasting interest in digital health and patient empowerment.
     </p>
     <p class="lead">
-    After two years supporting non-profits with digital transformation at Bruxeo, I came back to hands-on engineering: building an analytics dashboard for researchers and physiotherapists on the <a href="https://researchportal.vub.be/en/projects/ghostly-targeting-muscle-strength-loss-due-to-hospitalization-in-/" target="_blank">Ghostly rehabilitation study</a> at VUB. Currently at Gate 16, I work on GIS web solutions for Brussels Mobility (construction site and traffic analysis) and explore R&D around RAG systems and agentic AI.
+    It led me to cofound MedC2, a medtech startup where I helped build ePRO platforms and decision aids for cancer patients — later acquired by Comunicare. After two years supporting non-profits with digital transformation at Bruxeo, I came back to hands-on engineering: building an analytics dashboard for the <a href="https://researchportal.vub.be/en/projects/ghostly-targeting-muscle-strength-loss-due-to-hospitalization-in-/" target="_blank">Ghostly rehabilitation study</a> at VUB. Currently at Gate 16, I work on GIS web solutions for Brussels Mobility and explore R&amp;D around RAG systems and agentic AI.
     </p>
     <p class="lead">
     On the side, through my small web agency Pwablo, I try to promote more sustainable approaches to web design.
@@ -110,7 +110,7 @@ experience:
   enable: true
   title: "Experience"
   icon: "icon-briefcase"
-  description: ""
+  description: "A career built across digital health, public services, and sustainable web — from research assistant to software engineer."
   badges:
     - text: "Full-stack Software Engineering"
       color: "random_color"
