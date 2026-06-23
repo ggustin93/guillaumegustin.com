@@ -1,0 +1,399 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   Design tokens — extracted from the Hugo site (main.css / custom.css)
+   ============================================================ */
+@theme {
+  /* Single editorial accent (consolidates the two former reds #e05d44 / #e93e34).
+     --color-primary is kept as a deprecated alias pointing at the same value so
+     existing references don't break while sections migrate to --color-accent. */
+  --color-accent: #d6452c;
+  --color-primary: #d6452c;
+  --color-accent-strong: #b5371f; /* accent text on white (AA for small text) */
+  --color-accent-tint: #fbeae6; /* tinted backgrounds (replaces #fef2f2 / rgba reds) */
+
+  --color-ink: #000000;
+  --color-body: #212529;
+  --color-muted: #555555;
+  --color-border-section: #e6e6e6; /* finer hairline */
+  --color-card-bg: #fafafa;
+  --color-card-border: #e8e8e8;
+  --color-dark-panel: #343a40;
+
+  --font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Editorial type scale — the typography is the hero */
+  --text-display: clamp(2.75rem, 6vw, 5.5rem);
+  --text-h2: clamp(1.75rem, 3vw, 2.75rem);
+  --text-label: 0.75rem;
+  --tracking-label: 0.18em;
+  --leading-tight: 1.05;
+
+  /* Spacing scale — single source of vertical/horizontal rhythm.
+     Replaces the ad-hoc per-component px margins so spacing reads deliberate. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+}
+
+/* ============================================================
+   Self-hosted Inter (woff2 only)
+   ============================================================ */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/inter/Inter-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter/Inter-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter/Inter-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter/Inter-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter/Inter-Bold.woff2') format('woff2');
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: -0.2px;
+    color: var(--color-ink);
+    background-color: #fff;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: var(--text-h2);
+    margin-bottom: var(--space-4);
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 28px;
+    }
+  }
+}
+
+/* ============================================================
+   Shared components (faithful to the Hugo theme)
+   ============================================================ */
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 1140px;
+    margin-inline: auto;
+    padding-inline: 15px;
+  }
+
+  /* Tighter editorial measure for text-heavy sections */
+  .container-narrow {
+    width: 100%;
+    max-width: 820px;
+    margin-inline: auto;
+    padding-inline: 15px;
+  }
+
+  .section {
+    position: relative;
+    padding-block: clamp(64px, 10vh, 120px);
+  }
+
+  .section--border-bottom::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    max-width: 1140px;
+    background-color: var(--color-border-section);
+    transform: translateX(-50%);
+  }
+
+  /* Editorial section kicker — "01 / ABOUT" (not a heading) */
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6em;
+    margin-bottom: 1.25rem;
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .section-label__index {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-strong);
+  }
+
+  .section-label__index::after {
+    content: ' /';
+    color: var(--color-border-section);
+  }
+
+  .lead {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.78;
+    letter-spacing: -0.2px;
+    color: var(--color-ink);
+  }
+
+  @media (min-width: 768px) {
+    .lead {
+      font-size: 18px;
+    }
+  }
+
+  .lead a {
+    color: var(--color-accent-strong);
+    text-decoration: underline;
+  }
+
+  /* Theme button: black, square, inverts on hover */
+  .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    white-space: nowrap;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 14px 15px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      border-color 0.35s ease,
+      color 0.35s ease,
+      background-color 0.35s ease;
+  }
+
+  .btn-primary {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+  }
+
+  .btn-primary:hover {
+    color: #000;
+    background-color: transparent;
+  }
+
+  /* Pill badge with dot indicator */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 0.73rem;
+    letter-spacing: 0.015em;
+    line-height: 1;
+    padding: 5px 12px 5px 10px;
+    border-radius: 9999px;
+    margin: 3px 2px;
+    white-space: nowrap;
+    cursor: default;
+    transition: background-color 0.15s ease;
+  }
+
+  .badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .badge--neutral {
+    background-color: #f4f5f7;
+    color: #4b5563;
+  }
+  .badge--neutral::before {
+    background-color: #9ca3af;
+  }
+  .badge--neutral:hover {
+    background-color: #e5e7eb;
+  }
+
+  .badge--red {
+    background-color: var(--color-accent-tint);
+    color: var(--color-accent-strong);
+  }
+  .badge--red::before {
+    background-color: var(--color-accent);
+  }
+  .badge--red:hover {
+    background-color: #f7ddd6;
+  }
+
+  @media (max-width: 768px) {
+    .badge {
+      font-size: 0.68rem;
+      padding: 4px 10px 4px 8px;
+      gap: 5px;
+      margin: 2px 1px;
+    }
+    .badge::before {
+      width: 5px;
+      height: 5px;
+    }
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: 12px 24px;
+    background-color: var(--color-accent-strong);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 4px 4px;
+    transition: top 0.2s ease;
+  }
+
+  .skip-link:focus {
+    top: 0;
+    outline: 3px solid #333;
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================================
+   Accessibility: visible focus
+   ============================================================ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Scroll-reveal animations (replaces rad-fade-* + FontFaceObserver)
+   - Hero animates immediately on load (CSS only).
+   - .reveal elements animate when entering the viewport (tiny IO script).
+   - Without JS or with reduced motion, everything stays visible.
+   ============================================================ */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero {
+  animation: fade-in 0.8s both;
+}
+
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+  transition-delay: calc(var(--reveal-index, 0) * 0.15s);
+}
+
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-hero {
+    animation: none;
+  }
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

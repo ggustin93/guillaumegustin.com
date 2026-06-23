@@ -1,0 +1,469 @@
+---
+import { Image, Picture } from 'astro:assets';
+import Icon from './icons/Icon.astro';
+import SectionLabel from './SectionLabel.astro';
+import { clientLogos, workImages } from '../data/images';
+import { ui, type Lang } from '../i18n/ui';
+import type { ClientLogo, WorkItem } from '../data/types';
+
+interface Props {
+  lang: Lang;
+  index: number;
+  label: string;
+  title: string;
+  clients: ClientLogo[];
+  works: WorkItem[];
+}
+
+const { lang, index, label, title, clients, works } = Astro.props;
+const t = ui[lang];
+
+const featured = works.filter((w) => w.featured);
+const more = works.filter((w) => !w.featured);
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<section class="section section--border-bottom" id="portfolio" aria-labelledby="portfolio-heading">
+  <div class="container-site">
+    <div class="reveal">
+      <SectionLabel index={index} label={label} />
+      <h2 id="portfolio-heading">{title}</h2>
+    </div>
+
+    <div class="clients reveal">
+      {
+        clients.map((client) => (
+          <div class="clients__item">
+            <Image src={clientLogos[client.image]} alt={client.alt} height={60} class="clients__logo" />
+          </div>
+        ))
+      }
+    </div>
+
+    {
+      featured.map((work, i) => (
+        <article class:list={['work', 'reveal', { 'work--even': work.isEven }]}>
+          <div class="work__text">
+            <span class="work__index">{pad(i + 1)}</span>
+            <h3>{work.title}</h3>
+            <p class="lead">
+              <Fragment set:html={work.descriptionHtml} />
+            </p>
+            <p class="work__stack">
+              {work.stack.map((tech) => (
+                <span class="badge badge--neutral">{tech}</span>
+              ))}
+            </p>
+            {work.button && (
+              <a href={work.button.url} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                {work.button.text}
+                {work.button.icon && <Icon name={work.button.icon} />}
+              </a>
+            )}
+          </div>
+          <div class="work__image">
+            <div
+              class="img-zoom-wrapper"
+              role="button"
+              tabindex="0"
+              aria-label={`${work.title} — ${t.enlargeLabel}`}
+            >
+              <Picture
+                src={workImages[work.image]}
+                formats={['avif']}
+                fallbackFormat="webp"
+                widths={[480, 800]}
+                sizes="(min-width: 768px) 640px, 100vw"
+                alt={work.title}
+                class="img-zoom"
+              />
+              <span class="img-zoom-btn" aria-hidden="true">&#x26F6;</span>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+
+    {
+      more.length > 0 && (
+        <>
+          <p class="more-label reveal">{t.moreWorksLabel}</p>
+          <div class="more-grid reveal">
+            {more.map((work) => (
+              <article class="more-card">
+                <div
+                  class="more-card__thumb img-zoom-wrapper"
+                  role="button"
+                  tabindex="0"
+                  aria-label={`${work.title} — ${t.enlargeLabel}`}
+                >
+                  <Picture
+                    src={workImages[work.image]}
+                    formats={['avif']}
+                    fallbackFormat="webp"
+                    widths={[320, 600]}
+                    sizes="(min-width: 640px) 360px, 100vw"
+                    alt={work.title}
+                    class="img-zoom"
+                  />
+                  <span class="img-zoom-btn" aria-hidden="true">&#x26F6;</span>
+                </div>
+                <div class="more-card__body">
+                  <h3>{work.title}</h3>
+                  <p class="more-card__desc">
+                    <Fragment set:html={work.descriptionHtml} />
+                  </p>
+                  <button
+                    class="more-card__toggle"
+                    type="button"
+                    aria-expanded="false"
+                    data-more={t.readMore}
+                    data-less={t.readLess}
+                  >
+                    {t.readMore}
+                  </button>
+                  <p class="more-card__stack">
+                    {work.stack.slice(0, 3).map((tech) => (
+                      <span class="badge badge--neutral">{tech}</span>
+                    ))}
+                    {work.stack.length > 3 && (
+                      <span class="badge badge--neutral">+{work.stack.length - 3}</span>
+                    )}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </>
+      )
+    }
+  </div>
+</section>
+
+<!-- Lightbox -->
+<dialog id="lightbox" class="lightbox" aria-label="Image preview">
+  <button class="lightbox-close" aria-label={t.closePreview} type="button">&times;</button>
+  <img src="" alt="" />
+</dialog>
+
+<style>
+  .clients {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .clients {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      margin-bottom: 48px;
+    }
+  }
+
+  .clients__item {
+    opacity: 0.5;
+    transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .clients__item:hover {
+    opacity: 1;
+  }
+
+  .clients__logo {
+    height: 60px;
+    width: auto;
+  }
+
+  /* ---------- Featured rows ---------- */
+  .work {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 24px;
+    margin-top: 48px;
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: 992px) {
+    .work {
+      flex-direction: row;
+      align-items: center;
+      gap: 48px;
+      margin-top: 72px;
+      margin-bottom: 72px;
+    }
+
+    .work--even {
+      flex-direction: row;
+    }
+    .work--even .work__text {
+      order: 1;
+    }
+    .work--even .work__image {
+      order: 2;
+    }
+    .work:not(.work--even) .work__image {
+      order: 1;
+    }
+    .work:not(.work--even) .work__text {
+      order: 2;
+    }
+
+    .work__text {
+      flex: 0 0 calc(41.666667% - 24px);
+    }
+    .work__image {
+      flex: 0 0 calc(58.333333% - 24px);
+    }
+  }
+
+  .work__index {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    letter-spacing: 0.08em;
+    color: var(--color-accent-strong);
+    margin-bottom: var(--space-3);
+  }
+
+  .work__text h3 {
+    margin-bottom: 16px;
+  }
+
+  .work__stack {
+    margin: 12px 0 20px;
+  }
+
+  /* Clean framed image (no slanted clip-path) */
+  .work__image .img-zoom-wrapper {
+    display: block;
+    width: 100%;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .work__image :global(.img-zoom) {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    margin-inline: auto;
+  }
+
+  /* ---------- Compact grid (more projects) ---------- */
+  .more-label {
+    margin-top: var(--space-8);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-border-section);
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+  }
+
+  .more-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+  }
+
+  @media (min-width: 640px) {
+    .more-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  .more-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--color-card-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .more-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .more-card__thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+    padding: var(--space-4);
+    background: var(--color-card-bg);
+    border-bottom: 1px solid var(--color-card-border);
+  }
+
+  .more-card__thumb :global(.img-zoom) {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .more-card__body {
+    padding: var(--space-4) var(--space-5) var(--space-5);
+  }
+
+  .more-card__body h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .more-card__desc {
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    margin-bottom: var(--space-2);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .more-card__desc :global(a) {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .more-card.is-expanded .more-card__desc {
+    -webkit-line-clamp: unset;
+    display: block;
+  }
+
+  .more-card__toggle {
+    align-self: flex-start;
+    margin-bottom: var(--space-4);
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    letter-spacing: 0.04em;
+    color: var(--color-accent-strong);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Hidden by default; JS reveals only when the text actually overflows. */
+  .more-card__toggle:not(.is-shown) {
+    display: none;
+  }
+
+  .more-card__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .more-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  /* ---------- Zoom affordance (shared) ---------- */
+  .img-zoom-wrapper {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .img-zoom-wrapper :global(.img-zoom) {
+    transition: filter 0.25s ease;
+  }
+
+  .img-zoom-wrapper:hover :global(.img-zoom) {
+    filter: brightness(0.94);
+  }
+
+  .img-zoom-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .img-zoom-wrapper:hover .img-zoom-btn,
+  .img-zoom-wrapper:focus-visible .img-zoom-btn {
+    opacity: 1;
+  }
+
+  /* ---------- Fullscreen lightbox via native <dialog> ---------- */
+  .lightbox {
+    border: none;
+    padding: 0;
+    background: transparent;
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+
+  .lightbox[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+    line-height: 1;
+  }
+
+  .lightbox-close:hover,
+  .lightbox-close:focus-visible {
+    background: rgba(255, 255, 255, 0.3);
+  }
+</style>

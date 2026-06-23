@@ -1,0 +1,19 @@
+---
+/**
+ * Editorial section kicker — renders "01 / ABOUT" above a section heading.
+ * This is NOT a heading element; the section's <h2> remains the a11y heading.
+ */
+interface Props {
+  index: number;
+  label: string;
+  class?: string;
+}
+
+const { index, label, class: className } = Astro.props;
+const num = String(index).padStart(2, '0');
+---
+
+<p class:list={['section-label', className]}>
+  <span class="section-label__index">{num}</span>
+  <span>{label}</span>
+</p>

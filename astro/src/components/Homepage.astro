@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Showcase from './Showcase.astro';
+import About from './About.astro';
+import TechStack from './TechStack.astro';
+import Education from './Education.astro';
+import Experience from './Experience.astro';
+import Publications from './Publications.astro';
+import Works from './Works.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import { ui, type Lang } from '../i18n/ui';
+import type { HomepageData } from '../data/types';
+
+interface Props {
+  lang: Lang;
+  data: HomepageData;
+}
+
+const { lang, data } = Astro.props;
+const s = ui[lang].sections;
+---
+
+<BaseLayout lang={lang} title={data.head.title} description={data.head.description}>
+  <Header lang={lang} nav={data.nav} />
+  <main id="main">
+    <Showcase lang={lang} data={data.showcase} />
+    <About index={1} label={s.about} data={data.about} />
+    <Experience index={2} label={s.experience} data={data.experience} />
+    <Works
+      lang={lang}
+      index={3}
+      label={s.work}
+      title={data.portfolio.title}
+      clients={data.portfolio.clients}
+      works={data.portfolio.works}
+    />
+    <Publications index={4} label={s.writing} title={data.publications.title} items={data.publications.items} />
+    <Education index={5} label={s.education} title={data.education.title} items={data.education.items} />
+    <TechStack index={6} label={s.stack} description={data.techStack.description} />
+    <Contact lang={lang} index={7} label={s.contact} data={data.contact} />
+  </main>
+  <Footer lang={lang} copyright={data.footer.copyright} carbonText={data.footer.carbonText} nav={data.footer.nav} />
+</BaseLayout>

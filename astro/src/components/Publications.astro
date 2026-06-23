@@ -1,0 +1,221 @@
+---
+import Icon from './icons/Icon.astro';
+import SectionLabel from './SectionLabel.astro';
+import type { PublicationItem } from '../data/types';
+
+interface Props {
+  index: number;
+  label: string;
+  title: string;
+  items: PublicationItem[];
+}
+
+const { index, label, title, items } = Astro.props;
+---
+
+<section class="section section--border-bottom" id="publications" aria-labelledby="publications-heading">
+  <div class="container-site reveal">
+    <SectionLabel index={index} label={label} />
+    <h2 id="publications-heading" class="publications__title">
+      <Icon name="award" size={28} class="publications__title-icon" />
+      {title}
+    </h2>
+    <div class="publications-grid">
+      {
+        items.map((item) => (
+          <article class="publication-card">
+            <div class="publication-card__year">{item.year}</div>
+            <div class="publication-card__header">
+              <Icon name="book" size={22} class="publication-card__icon" />
+              <h3>{item.title}</h3>
+            </div>
+            <div class="publication-card__org">{item.organization}</div>
+            <div class="publication-card__desc" set:html={item.descriptionHtml} />
+            <div class="publication-card__action">
+              <a href={item.link.url} target="_blank" rel="noopener noreferrer" class="btn-publication">
+                {item.link.text} <Icon name="arrow-right" size={14} />
+              </a>
+              {item.link2 && (
+                <>
+                  <span class="publication-card__sep" aria-hidden="true">
+                    |
+                  </span>
+                  <a href={item.link2.url} target="_blank" rel="noopener noreferrer" class="btn-publication">
+                    {item.link2.text} <Icon name="book" size={14} />
+                  </a>
+                </>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .publications__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .publications__title :global(.publications__title-icon) {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .publications-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .publications-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+  }
+
+  /* Editorial card: clean hairline, accent rail on hover */
+  .publication-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 28px 25px;
+    height: 100%;
+    border: 1px solid var(--color-border-section);
+    border-left: 2px solid var(--color-border-section);
+    transition:
+      border-left-color 0.3s ease,
+      transform 0.3s ease;
+    overflow: hidden;
+  }
+
+  .publication-card:hover {
+    transform: translateY(-3px);
+    border-left-color: var(--color-accent);
+  }
+
+  .publication-card__year {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 15px;
+    color: #888;
+    font-weight: 500;
+  }
+
+  .publication-card__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .publication-card__header :global(.publication-card__icon) {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .publication-card__header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .publication-card__org {
+    font-size: 15px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 15px;
+    border-left: 3px solid #e6e6e6;
+    padding-left: 10px;
+  }
+
+  .publication-card__desc {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .publication-card__desc :global(a) {
+    color: var(--color-accent-strong);
+    text-decoration: underline;
+  }
+
+  .publication-card__desc :global(a:hover) {
+    color: var(--color-accent);
+  }
+
+  .publication-card__action {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .publication-card__sep {
+    margin: 0 8px;
+    color: #999;
+  }
+
+  .btn-publication {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-accent-strong);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-publication :global(svg) {
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.2s ease;
+  }
+
+  .btn-publication:hover {
+    color: var(--color-accent-strong);
+    border-bottom-color: var(--color-accent-strong);
+  }
+
+  .btn-publication:hover :global(svg) {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (max-width: 768px) {
+    .publication-card {
+      padding: 22px 20px;
+    }
+
+    .publication-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .publication-card__header h3 {
+      font-size: 18px;
+    }
+
+    .publication-card__year {
+      top: 15px;
+      right: 15px;
+      font-size: 14px;
+    }
+
+    .btn-publication {
+      min-height: 44px;
+      padding: 8px 4px;
+    }
+  }
+</style>

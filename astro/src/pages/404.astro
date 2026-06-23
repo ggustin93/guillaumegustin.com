@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { en } from '../data/en';
+import { ui } from '../i18n/ui';
+
+const t = ui.en;
+---
+
+<BaseLayout lang="en" title={`404 — ${t.notFoundTitle}`} description={en.head.description}>
+  <Header lang="en" nav={en.nav} />
+  <main id="main" class="four-o-four">
+    <div class="container-site">
+      <h1>404</h1>
+      <p class="lead">{t.notFoundText}</p>
+      <p class="lead" lang="fr">{ui.fr.notFoundText}</p>
+      <a href="/" class="btn btn-primary">{t.notFoundCta}</a>
+    </div>
+  </main>
+  <Footer lang="en" copyright={en.footer.copyright} carbonText={en.footer.carbonText} nav={en.footer.nav} />
+</BaseLayout>
+
+<style>
+  .four-o-four {
+    display: flex;
+    align-items: center;
+    min-height: 70vh;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    text-align: center;
+  }
+
+  .four-o-four h1 {
+    font-size: 96px;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+  }
+
+  .four-o-four .lead {
+    margin-bottom: 12px;
+  }
+
+  .four-o-four .btn {
+    margin-top: 24px;
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import type { AboutData } from '../data/types';
+
+interface Props {
+  index: number;
+  label: string;
+  data: AboutData;
+}
+
+const { index, label, data } = Astro.props;
+---
+
+<section class="section about" id="about" aria-labelledby="about-heading">
+  <div class="container-site reveal about__grid">
+    <div class="about__text">
+      <SectionLabel index={index} label={label} />
+      <h2 id="about-heading">{data.title}</h2>
+      <Fragment set:html={data.contentHtml} />
+    </div>
+    <aside class="about__facts" aria-label={data.focusTitle}>
+      <p class="about__facts-title">{data.focusTitle}</p>
+      <ul class="about__focus-rail">
+        {data.focus.map((item) => <li>{item}</li>)}
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding-bottom: 0;
+  }
+
+  /* Narrative + an "at a glance" facts rail. Single column on mobile; two
+     columns from md up so the right side no longer reads as empty. */
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .about__grid {
+      grid-template-columns: minmax(0, 1fr) 260px;
+      gap: var(--space-8);
+      align-items: start;
+    }
+  }
+
+  /* Constrain the narrative to a comfortable reading measure. */
+  .about__text {
+    max-width: 65ch;
+  }
+
+  /* "Where I focus" rail — sits beside the narrative on the right (md+).
+     Mirrors the quiet accent-dot idiom used in the Experience timeline. */
+  .about__facts {
+    border-top: 1px solid var(--color-border-section);
+    padding-top: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .about__facts {
+      position: sticky;
+      top: 110px;
+    }
+  }
+
+  .about__facts-title {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+  }
+
+  .about__focus-rail {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .about__focus-rail li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    color: var(--color-body);
+  }
+
+  .about__focus-rail li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent-strong);
+  }
+</style>

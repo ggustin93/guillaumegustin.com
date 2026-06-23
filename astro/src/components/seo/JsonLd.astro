@@ -1,0 +1,106 @@
+---
+/**
+ * JSON-LD structured data — Person + WebSite.
+ * Field-for-field parity with the Hugo head.html.
+ */
+interface Props {
+  lang: 'en' | 'fr';
+  title: string;
+  description: string;
+  ogImageUrl: string;
+}
+
+const { lang, title, description, ogImageUrl } = Astro.props;
+const siteUrl = Astro.site!.href;
+
+const personId = `${siteUrl}#guillaume-gustin`;
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': personId,
+  name: 'Guillaume Gustin',
+  url: siteUrl,
+  image: ogImageUrl,
+  jobTitle: lang === 'fr' ? 'Architecte de solutions & Ingénieur logiciel' : 'Solutions Architect & Software Engineer',
+  description,
+  email: 'guillaume@pwablo.be',
+  telephone: '+32494878936',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Brussels',
+    addressCountry: 'BE',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/guillaume-gustin/',
+    'https://github.com/ggustin93',
+    'https://scholar.google.fr/citations?user=PaToxwcAAAAJ',
+    'https://www.pwablo.be/',
+  ],
+  alumniOf: [
+    { '@type': 'EducationalOrganization', name: 'Louvain School of Engineering (UCLouvain)' },
+    { '@type': 'EducationalOrganization', name: 'MIT Global Startup Labs' },
+  ],
+  knowsAbout: [
+    'Full-Stack Web Development',
+    'React',
+    'Angular',
+    'Python',
+    'Node.js',
+    'PostgreSQL',
+    'Firebase',
+    'Ionic',
+    'Sustainable Web Design',
+    'Digital Health',
+    'Patient-Reported Outcomes',
+    'GIS',
+    'Retrieval-Augmented Generation',
+    'Agentic AI',
+    'Biomedical Engineering',
+  ],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: lang === 'fr' ? 'Ingénieur logiciel' : 'Software Engineer',
+    occupationLocation: { '@type': 'City', name: 'Brussels' },
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Pwablo',
+    url: 'https://www.pwablo.be/',
+  },
+};
+
+const profilePage = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: siteUrl,
+  inLanguage: lang === 'fr' ? 'fr-BE' : 'en',
+  name: title,
+  mainEntity: { '@id': personId },
+};
+
+const scholarlyArticle = {
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  name: 'Empowerment of diabetic patients through mHealth technologies and education: Development of a pilot self-management application',
+  author: { '@id': personId },
+  datePublished: '2017',
+  publisher: { '@type': 'Organization', name: 'SIPAIM — International Conference on Medical Information Processing and Analysis' },
+  url: 'https://dial.uclouvain.be/pr/boreal/object/boreal%3A192456/datastream/PDF_01/view',
+  isPartOf: { '@type': 'Periodical', name: '13th International Conference on Medical Information Processing and Analysis (SIPAIM 2017)' },
+};
+
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: title,
+  url: siteUrl,
+  description,
+  inLanguage: ['en', 'fr'],
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(person)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(profilePage)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(scholarlyArticle)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(website)} />

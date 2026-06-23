@@ -1,0 +1,90 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import type { EducationItem } from '../data/types';
+
+interface Props {
+  index: number;
+  label: string;
+  title: string;
+  items: EducationItem[];
+}
+
+const { index, label, title, items } = Astro.props;
+---
+
+<section class="section section--border-bottom" id="education" aria-labelledby="education-heading">
+  <div class="container-site reveal">
+    <SectionLabel index={index} label={label} />
+    <h2 id="education-heading">{title}</h2>
+    <div class="education-grid">
+      {
+        items.map((item) => (
+          <div class="education">
+            <div class="education__date">{item.year}</div>
+            <div class="education__title">{item.school}</div>
+            <div class="education__degree">
+              {item.degree}
+              {item.badge && <span class="badge badge--red">{item.badge}</span>}
+              {item.noteHtml && (
+                <>
+                  <br />
+                  <Fragment set:html={item.noteHtml} />
+                </>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .education-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 24px;
+  }
+
+  @media (min-width: 576px) {
+    .education-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 30px;
+    }
+  }
+
+  .education {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-section);
+  }
+
+  .education__date {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--color-muted);
+  }
+
+  .education__title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .education__degree {
+    font-size: 14px;
+    font-weight: 300;
+    color: #333;
+  }
+
+  .education__degree :global(a) {
+    color: var(--color-accent-strong);
+    text-decoration: underline;
+  }
+</style>

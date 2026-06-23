@@ -1,0 +1,365 @@
+---
+import Icon from './icons/Icon.astro';
+import SectionLabel from './SectionLabel.astro';
+import { ui, type Lang } from '../i18n/ui';
+import type { ContactData } from '../data/types';
+
+interface Props {
+  lang: Lang;
+  index: number;
+  label: string;
+  data: ContactData;
+}
+
+const { lang, index, label, data } = Astro.props;
+const t = ui[lang];
+
+// Interim: the form opens the visitor's mail client with a pre-filled message
+// (no backend, works immediately). Once the Mailjet account is unblocked, switch
+// back to the async POST to /api/contact (the Pages Function is ready).
+const CONTACT_EMAIL = 'guillaume@pwablo.be';
+
+const mailtoStrings =
+  lang === 'fr'
+    ? {
+        subject: 'Prise de contact via le site',
+        opening: '✉ Votre messagerie va s’ouvrir avec le message pré-rempli.',
+        fallback: `Rien ne s’ouvre ? Écrivez-moi à ${CONTACT_EMAIL}.`,
+      }
+    : {
+        subject: 'Contact via your website',
+        opening: '✉ Your email app will open with the message ready to send.',
+        fallback: `Nothing opened? Email me at ${CONTACT_EMAIL}.`,
+      };
+---
+
+<section class="section contact" id="contact" aria-labelledby="contact-heading">
+  <div class="container-site contact__card reveal">
+    <SectionLabel index={index} label={label} />
+    <h2 id="contact-heading" class="contact__title">{data.title}</h2>
+    <p class="contact__subtitle">{data.subtitle}</p>
+
+    <div class="contact__grid">
+      <form
+        id="contact-form"
+        action={`mailto:${CONTACT_EMAIL}`}
+        method="POST"
+        enctype="text/plain"
+        aria-label={t.contactFormAriaLabel}
+        data-recipient={CONTACT_EMAIL}
+        data-subject={mailtoStrings.subject}
+        data-opening={mailtoStrings.opening}
+        data-fallback={mailtoStrings.fallback}
+      >
+        <div class="contact__form-row">
+          <div>
+            <label class="sr-only" for="full_name">{data.form.namePlaceholder}</label>
+            <input
+              type="text"
+              name="name"
+              id="full_name"
+              placeholder={data.form.namePlaceholder}
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div>
+            <label class="sr-only" for="email">{data.form.emailPlaceholder}</label>
+            <input
+              type="email"
+              name="_replyto"
+              id="email"
+              placeholder={data.form.emailPlaceholder}
+              required
+              autocomplete="email"
+            />
+          </div>
+        </div>
+        <div>
+          <label class="sr-only" for="message">{data.form.messagePlaceholder}</label>
+          <textarea name="message" id="message" rows="3" placeholder={data.form.messagePlaceholder} required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="contact-submit">
+          <Icon name="mail" />
+          {data.form.submitText}
+        </button>
+        <p class="contact__status" id="contact-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      </form>
+
+      <div class="contact-list" role="list">
+        <div class="contact-item" role="listitem">
+          <a href="tel:+32494878936" class="contact-link" aria-label="Call +32 494 87 89 36">
+            <span class="contact-icon" aria-hidden="true"><Icon name="phone" size={18} /></span>
+            <span class="contact-text">+32 494 87 89 36</span>
+          </a>
+        </div>
+        <div class="contact-item" role="listitem">
+          <a href="mailto:guillaume@pwablo.be" class="contact-link" aria-label="Send email to guillaume@pwablo.be">
+            <span class="contact-icon" aria-hidden="true"><Icon name="mail" size={18} /></span>
+            <span class="contact-text">guillaume@pwablo.be</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const btn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+  const statusEl = document.getElementById('contact-status');
+
+  if (form && btn && statusEl) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.classList.add('is-loading');
+      statusEl.textContent = '';
+      statusEl.className = 'contact__status';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          statusEl.textContent = form.dataset.success ?? 'Message sent.';
+          statusEl.classList.add('is-success');
+          form.reset();
+        } else {
+          throw new Error('request failed');
+        }
+      } catch {
+        statusEl.textContent = form.dataset.error ?? 'Something went wrong.';
+        statusEl.classList.add('is-error');
+      } finally {
+        btn.disabled = false;
+        btn.classList.remove('is-loading');
+      }
+    });
+  }
+</script>
+
+<style>
+  .contact {
+    position: relative;
+    background-color: #fff;
+  }
+
+  .contact__card {
+    background-color: #fff;
+    border-top: 1px solid var(--color-border-section);
+    padding-top: 48px;
+  }
+
+  /* Inherits --text-h2 / weight / tracking from the base h2 rule so the
+     section heading matches every other section instead of being smaller. */
+  .contact__title {
+    margin-bottom: var(--space-4);
+  }
+
+  .contact__subtitle {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--color-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .contact__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  @media (min-width: 992px) {
+    .contact__grid {
+      grid-template-columns: 7fr 5fr;
+      align-items: start;
+    }
+  }
+
+  .contact__form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 576px) {
+    .contact__form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  input,
+  textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-body);
+    background-color: #fff;
+    border: 0;
+    border-bottom: 1px solid var(--color-border-section);
+    padding: 12px 2px;
+    width: 100%;
+    margin-bottom: 16px;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-bottom-color: var(--color-accent);
+    box-shadow: 0 1px 0 0 var(--color-accent);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #888;
+  }
+
+  textarea {
+    min-height: 160px;
+    resize: vertical;
+  }
+
+  button[type='submit'] {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 32px;
+    margin-top: 8px;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  button[type='submit'].is-loading {
+    opacity: 0.7;
+    cursor: progress;
+  }
+
+  .contact__status {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 12px 0 0;
+    min-height: 1.4em;
+    color: transparent;
+    transition: color 0.2s ease;
+  }
+
+  .contact__status.is-success {
+    color: #166534;
+  }
+
+  .contact__status.is-error {
+    color: #991b1b;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 10px;
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--color-accent-strong);
+    background-color: var(--color-accent-tint);
+  }
+
+  .contact-link:hover .contact-text {
+    border-bottom: 1px solid var(--color-accent-strong);
+  }
+
+  /* Flat line icons in a neutral tone at rest — accent only appears on hover,
+     so the contact block no longer concentrates more accent than the rest of
+     the page. */
+  .contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-right: var(--space-3);
+    color: var(--color-muted);
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+  }
+
+  .contact-link:hover .contact-icon {
+    color: var(--color-accent-strong);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 1199px) {
+    .contact::before,
+    .contact::after {
+      left: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact__subtitle {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    input,
+    textarea {
+      padding: 12px 14px;
+      font-size: 16px; /* prevents iOS zoom-on-focus */
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button[type='submit'] {
+      width: 100%;
+      padding: 12px 24px;
+    }
+
+    .contact-list {
+      gap: 12px;
+    }
+
+    .contact-link {
+      min-height: 44px;
+      padding: 6px 8px;
+      font-size: 0.95rem;
+    }
+
+    .contact-icon {
+      width: 22px;
+      height: 22px;
+      margin-right: var(--space-2);
+    }
+  }
+</style>

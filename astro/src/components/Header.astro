@@ -1,0 +1,221 @@
+---
+import { Image } from 'astro:assets';
+import { ui, type Lang } from '../i18n/ui';
+import { logoImage } from '../data/images';
+
+interface Props {
+  lang: Lang;
+  nav: { label: string; href: string }[];
+}
+
+const { lang, nav } = Astro.props;
+const t = ui[lang];
+const homeHref = lang === 'fr' ? '/fr' : '/';
+---
+
+<header id="header" class="header animate-hero" role="banner">
+  <div class="container-site">
+    <nav class="header__nav" aria-label={t.navAriaLabel}>
+      <a class="header__brand" href={homeHref} aria-label={t.homeAriaLabel}>
+        <Image src={logoImage} alt="Guillaume Gustin" height={56} class="header__logo" loading="eager" />
+      </a>
+
+      <button class="nav-toggler" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label={t.toggleMenu}>
+        <svg viewBox="0 0 30 30" width="24" height="24" aria-hidden="true">
+          <path stroke="rgba(0,0,0,0.5)" stroke-width="2" stroke-linecap="round" d="M4 7h22M4 15h22M4 23h22"></path>
+        </svg>
+      </button>
+
+      <ul id="nav-menu" class="nav-menu">
+        {
+          nav.map((item) => (
+            <li>
+              <a class="nav-link" href={item.href}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+        <li class="lang-switcher">
+          <a class="nav-link" href={t.langSwitchHref} aria-label={t.langSwitchLabel}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path
+                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              ></path></svg
+            >{t.langSwitchText}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    padding-block: 20px 8px;
+    transition:
+      padding 0.35s ease,
+      background-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  @media (min-width: 992px) {
+    .header {
+      padding-top: 35px;
+    }
+  }
+
+  .header.header--scrolled {
+    padding-block: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  /* Hand-script wordmark logo (the original "Guillaume" red + "Gustin" script). */
+  .header__brand {
+    display: inline-flex;
+    text-decoration: none;
+  }
+
+  .header__logo {
+    height: 42px;
+    width: auto;
+    display: block;
+  }
+
+  @media (min-width: 992px) {
+    .header__logo {
+      height: 56px;
+    }
+  }
+
+  /* Slightly smaller once the header condenses on scroll. */
+  .header--scrolled .header__logo {
+    height: 38px;
+  }
+
+  @media (min-width: 992px) {
+    .header--scrolled .header__logo {
+      height: 46px;
+    }
+  }
+
+  .nav-toggler {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-basis: 100%;
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 20px 15px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .nav-menu.is-open {
+    display: block;
+  }
+
+  .nav-link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    padding: 12px 0;
+  }
+
+  @media (min-width: 992px) {
+    .nav-toggler {
+      display: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      flex-basis: auto;
+      align-items: center;
+      margin: 0 0 0 auto;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      padding: 12px 20px;
+    }
+
+    /* Underline grows from the left on hover */
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      bottom: 5px;
+      height: 1px;
+      width: calc(100% - 40px);
+      background-color: rgba(0, 0, 0, 0.6);
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .lang-switcher .nav-link {
+      font-weight: 600;
+      opacity: 0.7;
+      border-left: 1px solid rgba(0, 0, 0, 0.15);
+      margin-left: 5px;
+    }
+
+    .lang-switcher .nav-link:hover {
+      opacity: 1;
+    }
+
+    .lang-switcher .nav-link::after {
+      content: none;
+    }
+  }
+</style>

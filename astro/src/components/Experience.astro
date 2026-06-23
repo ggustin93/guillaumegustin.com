@@ -1,0 +1,349 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './icons/Icon.astro';
+import SectionLabel from './SectionLabel.astro';
+import { companyLogos } from '../data/images';
+import type { ExperienceData } from '../data/types';
+
+interface Props {
+  index: number;
+  label: string;
+  data: ExperienceData;
+}
+
+const { index, label, data } = Astro.props;
+---
+
+<section class="section section--border-bottom" id="experience" aria-labelledby="experience-heading">
+  <div class="container-site">
+    <div class="experience-header reveal">
+      <SectionLabel index={index} label={label} />
+      <h2 id="experience-heading">{data.title}</h2>
+      <div class="experience-header__body">
+        <p class="experience-header__text">{data.description}</p>
+        <div class="experience-header__actions">
+          <a href={data.linkedin.url} class="btn-dark" target="_blank" rel="noopener">
+            <Icon name="linkedin" />
+            {data.linkedin.text}
+          </a>
+          <a href={data.resume.url} class="btn-ghost" target="_blank" rel="noopener">
+            <Icon name="download" />
+            {data.resume.text}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience-badges reveal">
+      {data.badges.map((badge) => <span class="badge badge--neutral">{badge}</span>)}
+    </div>
+
+    <div class="experience-grid reveal">
+      {
+        data.items.map((item) => (
+          <div class="experience-card">
+            {item.logo && companyLogos[item.logo] && (
+              <div class="experience-card__logo">
+                <Image src={companyLogos[item.logo]} alt={`${item.company} logo`} width={152} height={152} class="company-logo" />
+              </div>
+            )}
+            <div class="experience-card__info">
+              <div class="experience-card__title">{item.title}</div>
+              <div class="experience-card__company">{item.company}</div>
+              <div class="experience-card__date">{item.duration}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  .experience-header__body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .experience-header__text {
+    max-width: 75ch;
+    line-height: 1.7;
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 0;
+    font-weight: 300;
+  }
+
+  .experience-header__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+
+  .btn-dark,
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .btn-dark {
+    background: #222;
+    color: #fff;
+    border: 1.5px solid #222;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .btn-dark:hover {
+    background: #000;
+    border-color: #000;
+  }
+
+  .btn-ghost {
+    color: #777;
+    font-size: 0.82rem;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+  }
+
+  .btn-ghost:hover {
+    color: #333;
+  }
+
+  .experience-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 4px;
+    margin-bottom: var(--space-6);
+  }
+
+  /* Two-column timeline with a center line and chevron markers */
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 32px 1fr;
+    gap: 14px 0;
+    position: relative;
+    align-items: stretch;
+  }
+
+  .experience-grid::before {
+    content: '';
+    position: absolute;
+    left: calc(50% - 1px);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e0e0e0;
+    z-index: 0;
+  }
+
+  .experience-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 10px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+  }
+
+  .experience-card:nth-child(odd) {
+    grid-column: 1;
+  }
+
+  .experience-card:nth-child(even) {
+    grid-column: 3;
+  }
+
+  /* Quiet uniform marker: one dot centered on the rail, identical on every
+     card. No directional chevrons. Only the current (first) role is accented. */
+  .experience-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #cfcfcf;
+    box-shadow: 0 0 0 3px #fff;
+  }
+
+  .experience-card:nth-child(odd)::after {
+    right: -21px;
+  }
+
+  .experience-card:nth-child(even)::after {
+    left: -21px;
+  }
+
+  .experience-card:first-child::after {
+    background: var(--color-accent-strong);
+  }
+
+  .experience-card__logo {
+    flex: 0 0 76px;
+  }
+
+  .company-logo {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 4px;
+  }
+
+  .experience-card__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .experience-card__title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+    color: #222;
+  }
+
+  .experience-card__company {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-muted);
+    font-weight: 600;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+
+  .experience-card__company::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--color-border-section);
+    flex-shrink: 0;
+  }
+
+  /* Current role: accent the company marker */
+  .experience-card:first-child .experience-card__company {
+    color: var(--color-accent-strong);
+  }
+
+  .experience-card:first-child .experience-card__company::before {
+    background-color: var(--color-accent);
+  }
+
+  .experience-card__date {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    color: #999;
+    font-size: 0.72rem;
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 991px) {
+    .experience-header__body {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .experience-header__actions {
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+    }
+
+    .btn-dark,
+    .btn-ghost {
+      flex: 1;
+      justify-content: center;
+    }
+
+    .experience-grid {
+      grid-template-columns: 16px 1fr;
+      gap: 10px 0;
+    }
+
+    .experience-grid::before {
+      left: 7px;
+    }
+
+    .experience-card:nth-child(odd),
+    .experience-card:nth-child(even) {
+      grid-column: 2;
+      margin-left: 12px;
+    }
+
+    .experience-card:nth-child(odd)::after,
+    .experience-card:nth-child(even)::after {
+      left: -25px;
+      right: auto;
+    }
+
+    .experience-card__date {
+      position: static;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .experience-card {
+      padding: 14px 16px;
+      gap: 12px;
+    }
+
+    .experience-card__logo {
+      flex: 0 0 48px;
+    }
+
+    .company-logo {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .experience-card {
+      padding: 12px 14px;
+      gap: 10px;
+    }
+
+    .experience-card__logo {
+      flex: 0 0 40px;
+    }
+
+    .company-logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .experience-card__title {
+      font-size: 0.88rem;
+    }
+  }
+</style>
