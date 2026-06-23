@@ -14,7 +14,11 @@ export type IconName =
   | 'mail'
   | 'award'
   | 'book'
-  | 'globe';
+  | 'globe'
+  | 'cpu'
+  | 'code'
+  | 'bar-chart'
+  | 'leaf';
 
 export interface LinkButton {
   text: string;
@@ -45,13 +49,18 @@ export interface ShowcaseData {
   links: HeroLink[];
 }
 
+export interface FocusItem {
+  icon: IconName;
+  label: string;
+}
+
 export interface AboutData {
   title: string;
   /** Trusted HTML narrative paragraph(s) (author-owned content) */
   contentHtml: string;
   /** Right-rail "focus areas" list shown beside the narrative (md+) */
   focusTitle: string;
-  focus: string[];
+  focus: FocusItem[];
 }
 
 export interface EducationItem {
@@ -96,6 +105,8 @@ export interface ClientLogo {
   /** Key into clientLogos image map */
   image: string;
   alt: string;
+  /** Set to true for logos that are already light/white (skips CSS invert) */
+  noInvert?: boolean;
 }
 
 export interface WorkItem {
@@ -106,6 +117,8 @@ export interface WorkItem {
   button?: LinkButton;
   /** Key into workImages image map */
   image: string;
+  /** Optional extra captures shown as a navigable lightbox gallery (featured rows). The card image is prepended automatically. */
+  gallery?: { image: string; alt: string }[];
   /** Text on the left, image on the right (md+) — used by featured rows only */
   isEven: boolean;
   /** Shown as a large featured row; otherwise rendered in the compact grid */

@@ -1,5 +1,6 @@
 ---
 import SectionLabel from './SectionLabel.astro';
+import Icon from './icons/Icon.astro';
 import type { AboutData } from '../data/types';
 
 interface Props {
@@ -21,7 +22,14 @@ const { index, label, data } = Astro.props;
     <aside class="about__facts" aria-label={data.focusTitle}>
       <p class="about__facts-title">{data.focusTitle}</p>
       <ul class="about__focus-rail">
-        {data.focus.map((item) => <li>{item}</li>)}
+        {data.focus.map((item) => (
+          <li>
+            <span class="about__focus-icon" aria-hidden="true">
+              <Icon name={item.icon} size={15} />
+            </span>
+            <span>{item.label}</span>
+          </li>
+        ))}
       </ul>
     </aside>
   </div>
@@ -85,21 +93,18 @@ const { index, label, data } = Astro.props;
   }
 
   .about__focus-rail li {
-    position: relative;
-    padding-left: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
     font-size: 0.9375rem;
     line-height: 1.45;
     color: var(--color-body);
   }
 
-  .about__focus-rail li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5em;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--color-accent-strong);
+  .about__focus-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    color: var(--color-accent-strong);
   }
 </style>

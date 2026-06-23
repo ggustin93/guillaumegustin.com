@@ -17,7 +17,14 @@ const homeHref = lang === 'fr' ? '/fr' : '/';
   <div class="container-site">
     <nav class="header__nav" aria-label={t.navAriaLabel}>
       <a class="header__brand" href={homeHref} aria-label={t.homeAriaLabel}>
-        <Image src={logoImage} alt="Guillaume Gustin" height={56} class="header__logo" loading="eager" />
+        <Image
+          src={logoImage}
+          alt="Guillaume Gustin"
+          height={56}
+          densities={[1.5, 2]}
+          class="header__logo"
+          loading="eager"
+        />
       </a>
 
       <button class="nav-toggler" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label={t.toggleMenu}>
@@ -158,7 +165,10 @@ const homeHref = lang === 'fr' ? '/fr' : '/';
     align-items: center;
     gap: 3px;
     font-size: 1rem;
-    font-weight: 700;
+    /* Lighter, letter-spaced caps read as more editorial than the old heavy
+       700 weight — quiet navigation that doesn't compete with the wordmark. */
+    font-weight: 500;
+    letter-spacing: 0.04em;
     color: #000;
     text-decoration: none;
     padding: 12px 0;
