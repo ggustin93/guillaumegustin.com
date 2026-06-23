@@ -11,6 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
+    "deploy": "astro build && wrangler pages deploy dist --project-name=guillaumegustin-be --branch=main --commit-dirty=true",
     "test:a11y": "node tests/a11y.mjs"
   },
   "dependencies": {
