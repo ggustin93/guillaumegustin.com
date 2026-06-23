@@ -60,6 +60,12 @@ const t = ui[lang];
 
 <style>
   .hero {
+    /* Portrait size + gap are tokens so the link hub can offset itself by the
+       exact same amount to share a top grid line with the name. --row-pad-y is
+       the link rows' vertical padding, reused in the offset maths below. */
+    --portrait-size: 160px;
+    --portrait-gap: 28px;
+    --row-pad-y: 22px;
     padding-top: clamp(120px, 18vh, 200px);
     padding-bottom: clamp(48px, 8vh, 96px);
   }
@@ -72,12 +78,21 @@ const t = ui[lang];
 
   /* Identity column */
   .hero__portrait {
-    width: 160px;
+    width: var(--portrait-size);
     aspect-ratio: 1;
     border-radius: 9999px;
     overflow: hidden;
-    margin-bottom: 28px;
+    margin-bottom: var(--portrait-gap);
     background-color: var(--color-card-bg);
+    /* Quiet at rest; a thin brand-red ring blooms in on hover alongside the
+       colour reveal, so the photo earns its accent through interaction rather
+       than carrying a second permanent red against the title. */
+    box-shadow: 0 0 0 0 var(--color-accent);
+    transition: box-shadow 0.4s ease;
+  }
+
+  .hero__portrait:hover {
+    box-shadow: 0 0 0 3px var(--color-accent);
   }
 
   /* Grayscale at rest, reveals colour on hover — same treatment as the About
@@ -94,22 +109,31 @@ const t = ui[lang];
     filter: grayscale(0);
   }
 
+  /* Name sits a tier below the display scale so it frames the role rather than
+     shouting over it — the title is the headline here, not the name. */
   .hero__name {
-    font-size: var(--text-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
     font-weight: 300;
     line-height: var(--leading-tight);
     letter-spacing: -0.03em;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
 
+  /* The role is the thesis of the hero — heavy, and carrying the one brand-red
+     accent (the exact logo red) on the primary role. Sized to sit on a single
+     line at desktop widths; secondary role stays muted. text-wrap: balance keeps
+     it tidy if a long localisation does wrap on a narrow column. */
   .hero__positioning {
-    font-size: clamp(1.05rem, 2vw, 1.4rem);
-    font-weight: 400;
-    color: var(--color-body);
-    line-height: 1.3;
+    font-size: clamp(1.25rem, 2.1vw, 1.6rem);
+    font-weight: 600;
+    color: var(--color-accent);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
   }
 
   .hero__positioning span {
+    font-weight: 500;
     color: var(--color-muted);
   }
 
@@ -127,19 +151,20 @@ const t = ui[lang];
     max-width: 48ch;
   }
 
-  /* Link-hub column — numbered rows separated by hairlines */
+  /* Link-hub column — numbered rows each closed by a hairline below. No top
+     rule: the first row (LinkedIn) is the top element so it lines up cleanly
+     with the name instead of a floating hairline sitting above the headline. */
   .hero__links ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--color-border-section);
   }
 
   .hero__link {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 18px 4px;
+    padding: var(--row-pad-y) 4px;
     border-bottom: 1px solid var(--color-border-section);
     color: var(--color-ink);
     text-decoration: none;
@@ -199,20 +224,25 @@ const t = ui[lang];
   }
 
   @media (min-width: 860px) {
+    .hero {
+      --portrait-size: 200px;
+    }
+
     .hero__grid {
-      grid-template-columns: 1.1fr 1fr;
+      /* Identity column is wider so the (longer, French) role title has room to
+         stay on one line; the link hub keeps plenty of width for its rows. */
+      grid-template-columns: 1.35fr 1fr;
     }
 
-    .hero__portrait {
-      width: 200px;
-    }
-
-    /* The identity column is much taller than the 4-row link hub. Top-aligning
-       both left a large dead gap below the links, making the right column look
-       like it floated. Centre the link block against the identity column so the
-       hero reads as a deliberately balanced two-column composition. */
+    /* Align the first link row's text with the name instead of floating the hub
+       in dead-centre. Offset = portrait height + gap (lands the row's top at the
+       name's line box) minus the row's own top padding (so the LinkedIn text,
+       not the row's invisible top edge, sits on the name's line). The portrait
+       overhangs above this shared line as a deliberate editorial device. */
     .hero__links {
-      align-self: center;
+      padding-top: calc(
+        var(--portrait-size) + var(--portrait-gap) - var(--row-pad-y)
+      );
     }
   }
 </style>

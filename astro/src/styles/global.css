@@ -4,12 +4,12 @@
    Design tokens — extracted from the Hugo site (main.css / custom.css)
    ============================================================ */
 @theme {
-  /* Single editorial accent (consolidates the two former reds #e05d44 / #e93e34).
-     --color-primary is kept as a deprecated alias pointing at the same value so
-     existing references don't break while sections migrate to --color-accent. */
-  --color-accent: #d6452c;
-  --color-primary: #d6452c;
-  --color-accent-strong: #b5371f; /* accent text on white (AA for small text) */
+  /* Single editorial accent — the exact red sampled from the wordmark logo so
+     the brand red is identical everywhere (logo, hero title, UI accents).
+     --color-primary is a deprecated alias pointing at the same value. */
+  --color-accent: #ea3d38; /* logo red — large text / UI fills (4.02:1 on white) */
+  --color-primary: #ea3d38;
+  --color-accent-strong: #d73834; /* same hue, darkened to clear AA (4.66:1) for small text */
   --color-accent-tint: #fbeae6; /* tinted backgrounds (replaces #fef2f2 / rgba reds) */
 
   --color-ink: #000000;
