@@ -46,7 +46,7 @@ eco-conscious web design, biomedical engineering.
 ## Contact & links
 
 - Website: https://guillaumegustin.be
-- Email: hello@pwablo.be
+- Email: guillaume@pwablo.be
 - LinkedIn: https://www.linkedin.com/in/guillaume-gustin/
 - GitHub: https://github.com/ggustin93
 - Google Scholar: https://scholar.google.fr/citations?user=PaToxwcAAAAJ

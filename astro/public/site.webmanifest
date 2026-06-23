@@ -1,6 +1,9 @@
 {
     "name": "Guillaume Gustin",
     "short_name": "Guillaume Gustin",
+    "description": "Solutions Architect & Software Engineer based in Brussels",
+    "start_url": "/",
+    "lang": "en",
     "icons": [
         {
             "src": "/android-chrome-144x144.png",

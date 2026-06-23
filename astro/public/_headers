@@ -1,23 +1,25 @@
-# Cloudflare Pages headers — replicates firebase.json cache rules.
-# Specific asset rules first, catch-all (HTML) last. Astro hashes asset
-# filenames, so `immutable` is safe. Does NOT apply to Function responses.
+# Cloudflare Pages headers — cache policy by path.
+#
+# IMPORTANT: Cloudflare Pages APPENDS every matching rule's headers (it does
+# not override). A broad `/*` Cache-Control rule therefore merges into and
+# corrupts the asset rules (e.g. `immutable, no-store` on the same response).
+# So we ONLY scope long-cache rules to content-hashed asset directories and
+# leave HTML to the Pages default (revalidated each request; edge cache is
+# purged on every deploy, so HTML is always fresh).
 
-/*.css
-  Cache-Control: public, max-age=2592000, immutable
-/*.js
-  Cache-Control: public, max-age=2592000, immutable
-/*.woff2
-  Cache-Control: public, max-age=2592000, immutable
-/*.avif
-  Cache-Control: public, max-age=2592000, immutable
-/*.webp
-  Cache-Control: public, max-age=2592000, immutable
-/*.png
-  Cache-Control: public, max-age=2592000, immutable
-/*.jpg
-  Cache-Control: public, max-age=2592000, immutable
-/*.svg
-  Cache-Control: public, max-age=2592000, immutable
-
+# Security headers for all responses.
 /*
-  Cache-Control: no-cache, no-store, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Astro emits content-hashed filenames here — safe to cache forever.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static media that is not content-hashed — moderate cache.
+/img/*
+  Cache-Control: public, max-age=2592000
