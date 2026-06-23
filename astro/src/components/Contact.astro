@@ -95,9 +95,9 @@ const mailtoStrings =
           </a>
         </div>
         <div class="contact-item" role="listitem">
-          <a href="mailto:guillaume@pwablo.be" class="contact-link" aria-label="Send email to guillaume@pwablo.be">
+          <a href={`mailto:${CONTACT_EMAIL}`} class="contact-link" aria-label={`Send email to ${CONTACT_EMAIL}`}>
             <span class="contact-icon" aria-hidden="true"><Icon name="mail" size={18} /></span>
-            <span class="contact-text">guillaume@pwablo.be</span>
+            <span class="contact-text">{CONTACT_EMAIL}</span>
           </a>
         </div>
       </div>
@@ -120,7 +120,7 @@ const mailtoStrings =
       const email = (form.elements.namedItem('_replyto') as HTMLInputElement)?.value.trim() ?? '';
       const message = (form.elements.namedItem('message') as HTMLTextAreaElement)?.value.trim() ?? '';
 
-      const body = `${message}\n\n— ${name} <${email}>`;
+      const body = `${message}\n\n${name}\n${email}`;
       const href =
         `mailto:${recipient}` +
         `?subject=${encodeURIComponent(subject)}` +
