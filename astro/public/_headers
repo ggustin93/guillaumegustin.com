@@ -1,0 +1,23 @@
+# Cloudflare Pages headers — replicates firebase.json cache rules.
+# Specific asset rules first, catch-all (HTML) last. Astro hashes asset
+# filenames, so `immutable` is safe. Does NOT apply to Function responses.
+
+/*.css
+  Cache-Control: public, max-age=2592000, immutable
+/*.js
+  Cache-Control: public, max-age=2592000, immutable
+/*.woff2
+  Cache-Control: public, max-age=2592000, immutable
+/*.avif
+  Cache-Control: public, max-age=2592000, immutable
+/*.webp
+  Cache-Control: public, max-age=2592000, immutable
+/*.png
+  Cache-Control: public, max-age=2592000, immutable
+/*.jpg
+  Cache-Control: public, max-age=2592000, immutable
+/*.svg
+  Cache-Control: public, max-age=2592000, immutable
+
+/*
+  Cache-Control: no-cache, no-store, must-revalidate

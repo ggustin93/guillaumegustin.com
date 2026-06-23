@@ -1,0 +1,54 @@
+# Guillaume Gustin
+
+> Full-Stack Developer & Biomedical Engineer based in Brussels, Belgium. Builds web
+> applications for healthcare, urban mobility, and impact-driven organisations, with a
+> focus on sustainable, performance-oriented web design.
+
+Guillaume Gustin trained as a biomedical engineer at UCLouvain (2016) and works as a
+software engineer across digital health, public-sector services, and sustainable web.
+This site is his personal CV / portfolio. Pwablo is his separate sustainable web agency.
+
+## Current role
+
+- Software Engineer at Gate 16 (2026–present) — GIS web solutions for Brussels Mobility;
+  R&D on RAG systems and agentic AI.
+
+## Background
+
+- Research Software Engineer, Vrije Universiteit Brussel (2025) — analytics dashboard for
+  the Ghostly rehabilitation study.
+- Founder & Web Designer, Pwablo (2022–present) — sustainable web agency.
+- Digital Transformation Advisor, BRUXEO (2022–2024) — supporting non-profits.
+- Co-founder & Lead Developer, MedC2 / The Medical Cloud Company (2019–2021) — ePRO
+  platforms and patient decision aids for cancer care; later acquired by Comunicare.
+- Research & Teaching Assistant, UCLouvain Telecommunication Lab (2017–2019) — diabetes
+  remote monitoring system (FEDER-funded).
+
+## Notable contributions
+
+- First author, "Empowerment of diabetic patients through mHealth technologies and
+  education" (SIPAIM 2017) — cited 9 times.
+- Contributed to the DRAGON EU grant application that secured €860,000 from the European
+  Commission for MedC2 (COVID-19 AI tools, 2020).
+
+## Expertise
+
+Full-stack web development (React, Angular, Astro, Ionic, Node.js, Python), digital
+health and patient-reported outcomes, GIS platforms, RAG and agentic AI, sustainable /
+eco-conscious web design, biomedical engineering.
+
+## Education
+
+- Master in Biomedical Engineering (Bioinformatics), UCLouvain — Cum Laude (2016).
+- Bachelor in Biomedical & Computer Sciences, UCLouvain (2014).
+- MIT Global Startup Labs — Entrepreneurship & Innovation (2018).
+
+## Contact & links
+
+- Website: https://guillaumegustin.be
+- Email: hello@pwablo.be
+- LinkedIn: https://www.linkedin.com/in/guillaume-gustin/
+- GitHub: https://github.com/ggustin93
+- Google Scholar: https://scholar.google.fr/citations?user=PaToxwcAAAAJ
+- Book a call: https://cal.com/pwablo/30min
+- Pwablo (agency): https://www.pwablo.be/
