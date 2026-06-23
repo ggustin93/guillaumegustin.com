@@ -34,14 +34,27 @@ const pad = (n: number) => String(n).padStart(2, '0');
       {
         clients.map((client) => (
           <div class="clients__item">
-            <Image src={clientLogos[client.image]} alt={client.alt} height={60} class="clients__logo" />
+            <Image
+              src={clientLogos[client.image]}
+              alt={client.alt}
+              height={60}
+              class:list={['clients__logo', { 'clients__logo--no-invert': client.noInvert }]}
+            />
           </div>
         ))
       }
     </div>
 
     {
-      featured.map((work, i) => (
+      featured.map((work, i) => {
+        const galleryData = work.gallery
+          ? JSON.stringify([
+              { src: workImages[work.image].src, alt: work.title },
+              ...work.gallery.map((g) => ({ src: workImages[g.image].src, alt: g.alt })),
+            ])
+          : undefined;
+        const shotCount = work.gallery ? work.gallery.length + 1 : 0;
+        return (
         <article class:list={['work', 'reveal', { 'work--even': work.isEven }]}>
           <div class="work__text">
             <span class="work__index">{pad(i + 1)}</span>
@@ -67,6 +80,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
               role="button"
               tabindex="0"
               aria-label={`${work.title} — ${t.enlargeLabel}`}
+              data-gallery={galleryData}
             >
               <Picture
                 src={workImages[work.image]}
@@ -77,11 +91,13 @@ const pad = (n: number) => String(n).padStart(2, '0');
                 alt={work.title}
                 class="img-zoom"
               />
+              {shotCount > 1 && <span class="img-count" aria-hidden="true">{`1 / ${shotCount}`}</span>}
               <span class="img-zoom-btn" aria-hidden="true">&#x26F6;</span>
             </div>
           </div>
         </article>
-      ))
+        );
+      })
     }
 
     {
@@ -143,7 +159,10 @@ const pad = (n: number) => String(n).padStart(2, '0');
 <!-- Lightbox -->
 <dialog id="lightbox" class="lightbox" aria-label="Image preview">
   <button class="lightbox-close" aria-label={t.closePreview} type="button">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Previous image" type="button" hidden>&#10094;</button>
   <img src="" alt="" />
+  <button class="lightbox-nav lightbox-next" aria-label="Next image" type="button" hidden>&#10095;</button>
+  <div class="lightbox-dots" hidden></div>
 </dialog>
 
 <style>
@@ -155,16 +174,22 @@ const pad = (n: number) => String(n).padStart(2, '0');
     .clients {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
-      margin-top: 32px;
-      margin-bottom: 48px;
+      gap: var(--space-5);
+      /* Full-bleed dark band — breaks out of .container-site */
+      background: var(--color-dark-panel);
+      margin-inline: calc(50% - 50vw);
+      /* Align logo content with the container's inner edges */
+      padding: var(--space-6) max(15px, calc(50vw - 555px));
+      margin-top: var(--space-7);
+      margin-bottom: var(--space-7);
     }
   }
 
   .clients__item {
-    opacity: 0.5;
-    transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
   }
 
   .clients__item:hover {
@@ -172,8 +197,19 @@ const pad = (n: number) => String(n).padStart(2, '0');
   }
 
   .clients__logo {
-    height: 60px;
+    height: 44px;
     width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    /* grayscale → invert turns dark artwork white; brightness boosts to
+       near-pure white; screen blend-mode makes opaque backgrounds vanish */
+    filter: grayscale(1) invert(1) brightness(1.5);
+    mix-blend-mode: screen;
+  }
+
+  /* For logos already on a transparent/light background that are white — skip invert */
+  .clients__logo--no-invert {
+    filter: grayscale(1) brightness(1.5);
   }
 
   /* ---------- Featured rows ---------- */
@@ -415,6 +451,23 @@ const pad = (n: number) => String(n).padStart(2, '0');
     opacity: 1;
   }
 
+  /* "1 / N" badge hinting that the work has multiple screenshots */
+  .img-count {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    background: var(--color-accent);
+    border-radius: 6px;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    z-index: 2;
+    pointer-events: none;
+  }
+
   /* ---------- Fullscreen lightbox via native <dialog> ---------- */
   .lightbox {
     border: none;
@@ -465,5 +518,90 @@ const pad = (n: number) => String(n).padStart(2, '0');
   .lightbox-close:hover,
   .lightbox-close:focus-visible {
     background: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Gallery navigation (multi-screenshot works) */
+  .lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+    line-height: 1;
+  }
+
+  .lightbox-prev {
+    left: 16px;
+  }
+  .lightbox-next {
+    right: 16px;
+  }
+
+  .lightbox-nav:hover,
+  .lightbox-nav:focus-visible {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .lightbox-nav[hidden] {
+    display: none;
+  }
+
+  .lightbox-dots {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+
+  .lightbox-dots[hidden] {
+    display: none;
+  }
+
+  .lightbox-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .lightbox-dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .lightbox-dot.is-active {
+    background: #fff;
+    transform: scale(1.25);
+  }
+
+  @media (max-width: 768px) {
+    .lightbox-nav {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+    }
+    .lightbox-prev {
+      left: 8px;
+    }
+    .lightbox-next {
+      right: 8px;
+    }
   }
 </style>

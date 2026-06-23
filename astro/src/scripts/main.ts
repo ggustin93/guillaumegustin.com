@@ -29,15 +29,19 @@ if (header) {
 const toggler = document.querySelector<HTMLButtonElement>('.nav-toggler');
 const navMenu = document.getElementById('nav-menu');
 if (toggler && navMenu) {
+  const closeNav = () => {
+    navMenu.classList.remove('is-open');
+    toggler.setAttribute('aria-expanded', 'false');
+  };
   toggler.addEventListener('click', () => {
     const isOpen = navMenu.classList.toggle('is-open');
     toggler.setAttribute('aria-expanded', String(isOpen));
   });
   navMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('is-open');
-      toggler.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeNav);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('is-open')) closeNav();
   });
 }
 
@@ -61,22 +65,79 @@ if (reduceMotion) {
   revealNodes.forEach((el) => observer.observe(el));
 }
 
-/* ---------- Lightbox (portfolio images) ---------- */
+/* ---------- Lightbox (portfolio images, with optional gallery) ---------- */
 const lightbox = document.getElementById('lightbox') as HTMLDialogElement | null;
 if (lightbox) {
-  const lightboxImg = lightbox.querySelector('img')!;
-  const closeBtn = lightbox.querySelector<HTMLButtonElement>('.lightbox-close')!;
+  const lightboxImg = lightbox.querySelector('img');
+  const closeBtn = lightbox.querySelector<HTMLButtonElement>('.lightbox-close');
+  const prevBtn = lightbox.querySelector<HTMLButtonElement>('.lightbox-prev');
+  const nextBtn = lightbox.querySelector<HTMLButtonElement>('.lightbox-next');
+  const dotsEl = lightbox.querySelector<HTMLElement>('.lightbox-dots');
+  if (!lightboxImg || !closeBtn || !prevBtn || !nextBtn || !dotsEl) throw new Error('Lightbox DOM mismatch');
 
-  const open = (src: string, alt: string) => {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt;
+  type Shot = { src: string; alt: string };
+  let gallery: Shot[] = [];
+  let current = 0;
+  let returnFocusEl: HTMLElement | null = null;
+
+  const renderDots = () => {
+    dotsEl.innerHTML = '';
+    gallery.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'lightbox-dot';
+      dot.setAttribute('aria-label', `Go to image ${i + 1}`);
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        show(i);
+      });
+      dotsEl.appendChild(dot);
+    });
+  };
+
+  const show = (i: number) => {
+    if (!gallery.length) return;
+    current = (i + gallery.length) % gallery.length;
+    const shot = gallery[current];
+    lightboxImg.src = shot.src;
+    lightboxImg.alt = shot.alt;
+    const multi = gallery.length > 1;
+    prevBtn.hidden = !multi;
+    nextBtn.hidden = !multi;
+    dotsEl.hidden = !multi;
+    if (multi) {
+      dotsEl.querySelectorAll('.lightbox-dot').forEach((d, di) => {
+        d.classList.toggle('is-active', di === current);
+      });
+    }
+  };
+
+  const open = (shots: Shot[], startIndex = 0, trigger?: HTMLElement) => {
+    gallery = shots;
+    current = startIndex;
+    returnFocusEl = trigger ?? (document.activeElement as HTMLElement | null);
+    renderDots();
+    show(current);
     lightbox.showModal();
   };
 
   document.querySelectorAll<HTMLElement>('.img-zoom-wrapper').forEach((wrapper) => {
     const img = wrapper.querySelector('img');
     if (!img) return;
-    const trigger = () => open(img.currentSrc || img.src, img.alt);
+    const trigger = () => {
+      let shots: Shot[] | null = null;
+      if (wrapper.dataset.gallery) {
+        try {
+          shots = JSON.parse(wrapper.dataset.gallery) as Shot[];
+        } catch {
+          shots = null;
+        }
+      }
+      if (!shots || !shots.length) {
+        shots = [{ src: img.currentSrc || img.src, alt: img.alt }];
+      }
+      open(shots, 0, wrapper);
+    };
     wrapper.addEventListener('click', trigger);
     wrapper.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -86,13 +147,34 @@ if (lightbox) {
     });
   });
 
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    show(current - 1);
+  });
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    show(current + 1);
+  });
   closeBtn.addEventListener('click', () => lightbox.close());
   // Click on the backdrop (outside the image) closes the dialog
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) lightbox.close();
   });
+  lightbox.addEventListener('keydown', (e) => {
+    if (gallery.length < 2) return;
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      show(current - 1);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      show(current + 1);
+    }
+  });
   lightbox.addEventListener('close', () => {
     lightboxImg.src = '';
+    gallery = [];
+    returnFocusEl?.focus();
+    returnFocusEl = null;
   });
 }
 

@@ -7,20 +7,21 @@ import profile from '../assets/img/who-am-i/gustin-profile.avif';
 import logoGgustin from '../assets/img/general/logo_ggustin.webp';
 
 import clientBruxeo from '../assets/img/clients/bruxeo.webp';
-import clientDecide from '../assets/img/clients/decide_logo.webp';
 import clientMedC2 from '../assets/img/clients/medC2.webp';
-import clientDlab from '../assets/img/clients/logo_dlab.webp';
 import clientUcl from '../assets/img/clients/ucl.webp';
 import clientCusl from '../assets/img/clients/CUSL.webp';
+import clientBm from '../assets/img/clients/bm_bilingual.png';
 
-import companyGate16 from '../assets/img/companies/bm_logo.png';
+import companyBm from '../assets/img/companies/bm_logo_new.png';
 import companyVub from '../assets/img/companies/vub_logo_new.png';
 import companyPwablo from '../assets/img/companies/pwablo_logo.webp';
 import companyBruxeo from '../assets/img/companies/bruxeo.png';
 import companyMedC2 from '../assets/img/companies/medC2.webp';
 import companyUclouvain from '../assets/img/companies/logo_uclouvain.png';
 
-import workGhostly from '../assets/img/works/ghostly_dashboard.webp';
+import workGhostlyEmg from '../assets/img/works/ghostly_emg.webp';
+import workGhostlyPerf from '../assets/img/works/ghostly_perf.webp';
+import workGhostlySessions from '../assets/img/works/ghostly_sessions.webp';
 import workImmuno from '../assets/img/works/immuno_mock.webp';
 import workIpda from '../assets/img/works/ipda_mock.webp';
 import workDecide from '../assets/img/works/decide_mock.webp';
@@ -39,15 +40,15 @@ export const logoImage = logoGgustin;
 
 export const clientLogos: ImageMap = {
   bruxeo: clientBruxeo,
-  decide: clientDecide,
   medc2: clientMedC2,
-  dlab: clientDlab,
   ucl: clientUcl,
   cusl: clientCusl,
+  vub: companyVub,
+  bm: clientBm,
 };
 
 export const companyLogos: ImageMap = {
-  gate16: companyGate16,
+  bm: companyBm,
   vub: companyVub,
   pwablo: companyPwablo,
   bruxeo: companyBruxeo,
@@ -56,11 +57,12 @@ export const companyLogos: ImageMap = {
 };
 
 export const workImages: ImageMap = {
-  ghostly: workGhostly,
+  ghostlyEmg: workGhostlyEmg,
+  ghostlyPerf: workGhostlyPerf,
+  ghostlySessions: workGhostlySessions,
   immuno: workImmuno,
   ipda: workIpda,
   decide: workDecide,
-  'decide-logo': clientDecide,
   pwablo: workPwablo,
   mypc: workMypc,
   wadaff: workWadaff,

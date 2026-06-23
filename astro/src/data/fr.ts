@@ -4,7 +4,7 @@ export const fr = {
   head: {
     title: 'Guillaume Gustin - Architecte de solutions & Ingénieur logiciel | Bruxelles',
     description:
-      "Architecte de solutions et ingénieur logiciel basé à Bruxelles, de formation ingénieur biomédical. J'aide les organisations à impact à concevoir des solutions numériques efficaces et durables — de la santé aux plateformes du secteur public.",
+      "Architecte de solutions et ingénieur logiciel basé à Bruxelles, de formation ingénieur biomédical. Je travaille avec des organisations à impact sur des plateformes de santé, des applications web pour le secteur public et le design web durable.",
   },
 
   nav: [
@@ -16,10 +16,13 @@ export const fr = {
   ],
 
   showcase: {
-    title: 'Architecte de solutions',
-    subtitle: '& Ingénieur logiciel',
+    // Job title kept in English on both locales — a recognised, brand-level
+    // intitulé rather than content to translate (avoids the FR calque, keeps
+    // EN/FR parity). The rest of the FR showcase stays localised.
+    title: 'Solutions Architect',
+    subtitle: '& Software Engineer',
     description:
-      "Ingénieur logiciel de formation biomédicale — je développe des applications web pour la santé, la mobilité urbaine et les organisations à impact. Actif à Bruxelles sur des plateformes GIS, de la R&D en IA et du design web durable.",
+      "Ingénieur logiciel aux racines biomédicales, je conçois des applications web pour la santé, le secteur public et les organisations à impact. Je me concentre aujourd'hui sur les plateformes GIS et l'IA appliquée à la mobilité urbaine, et je porte une démarche de numérique responsable avec Pwablo.",
     location: 'Bruxelles, Belgique',
     links: [
       { label: 'LinkedIn', url: 'https://www.linkedin.com/in/guillaume-gustin/', icon: 'linkedin' as const, external: true },
@@ -31,7 +34,7 @@ export const fr = {
         primary: true,
         external: true,
       },
-      { label: 'Email', url: 'mailto:guillaume@pwablo.be', icon: 'mail' as const, primary: true },
+      { label: 'Contact', url: '#contact', icon: 'mail' as const, primary: true },
     ],
   },
 
@@ -39,14 +42,14 @@ export const fr = {
     title: 'Qui suis-je ?',
     contentHtml: `
       <p class="lead">
-      Ingénieur biomédical de formation (UCLouvain, 2016), je me suis progressivement tourné de la recherche en santé vers l'ingénierie logicielle. J'ai débuté par la recherche académique sur le suivi à distance des patients, cofondé la startup medtech MedC2, puis élargi vers la transformation numérique d'associations et, aujourd'hui, le secteur public chez Gate 16 — où je développe des plateformes GIS pour Bruxelles Mobilité et j'explore l'IA appliquée. En parallèle, je fais tourner Pwablo, une petite agence pour un web plus durable.
+      Ingénieur biomédical de formation (UCLouvain, 2016), je me suis progressivement tourné de la recherche en santé vers l'ingénierie logicielle. J'ai débuté par la recherche académique sur le suivi à distance des patients, cofondé la startup medtech MedC2, puis élargi vers la transformation numérique d'associations et, aujourd'hui, le secteur public chez Gate 16, où je développe des plateformes GIS pour Bruxelles Mobilité et j'explore l'IA appliquée. En parallèle, je pilote Pwablo, un studio numérique responsable.
       </p>`,
     focusTitle: 'Mes domaines',
     focus: [
-      'Plateformes de santé numérique et outils pour les patients',
-      'Applications web GIS et secteur public',
-      'R&D appliquée aux systèmes RAG et à l\'IA agentique',
-      'Design web durable et sobre',
+      { icon: 'cpu' as const, label: 'IA responsable' },
+      { icon: 'code' as const, label: 'Ingénierie logicielle' },
+      { icon: 'bar-chart' as const, label: 'Analyse fonctionnelle' },
+      { icon: 'leaf' as const, label: 'Éco-conception web' },
     ],
   },
 
@@ -86,13 +89,13 @@ export const fr = {
   experience: {
     title: 'Expérience',
     description:
-      "Un parcours entre santé numérique, services publics et web durable — d'assistant de recherche à ingénieur logiciel.",
+      "Un parcours entre santé numérique, services publics et web durable, d'assistant de recherche à ingénieur logiciel.",
     badges: [
-      'Développement Full-stack',
-      'Design Web Durable',
-      'Santé Numérique',
-      'Secteur Public & Associatif',
-      'Ingénierie Biomédicale',
+      'Développement full-stack',
+      'Design web durable',
+      'Santé numérique',
+      'Secteur public & associatif',
+      'Ingénierie biomédicale',
     ],
     linkedin: {
       text: 'LinkedIn',
@@ -106,37 +109,37 @@ export const fr = {
     },
     items: [
       {
-        title: 'Analyste Fonctionnel & Ingénieur Logiciel',
+        title: 'Analyste fonctionnel & ingénieur logiciel',
         company: 'Gate 16 · Bruxelles Mobilité',
         duration: 'Oct 2025 - Actuel',
-        logo: 'gate16',
+        logo: 'bm',
       },
       {
-        title: 'Chargé de Recherche en Ingénierie Logicielle',
+        title: 'Chargé de recherche en ingénierie logicielle',
         company: 'Vrije Universiteit Brussel · Ghostly+',
         duration: '2025 - 2026',
         logo: 'vub',
       },
       {
-        title: 'Fondateur & Web Designer',
+        title: 'Fondateur & web designer',
         company: 'Pwablo | Sustainable Web Agency',
         duration: 'Jan 2022 - Actuel',
         logo: 'pwablo',
       },
       {
-        title: 'Conseiller en Transformation Numérique',
+        title: 'Conseiller en transformation numérique',
         company: 'BRUXEO',
         duration: 'Nov 2022 - Oct 2024',
         logo: 'bruxeo',
       },
       {
-        title: 'Cofondateur & Développeur Principal',
+        title: 'Cofondateur & développeur principal',
         company: 'The Medical Cloud Company',
         duration: 'Fév 2019 - Jan 2021',
         logo: 'medc2',
       },
       {
-        title: "Assistant de Recherche & d'Enseignement",
+        title: "Assistant de recherche & d'enseignement",
         company: 'Catholic University of Louvain',
         duration: 'Jan 2017 - Jan 2019',
         logo: 'uclouvain',
@@ -163,7 +166,7 @@ export const fr = {
         },
       },
       {
-        title: 'Contribution à un Financement Européen',
+        title: 'Contribution à un financement européen',
         organization: 'DRAGON Project Consortium',
         year: '2020',
         descriptionHtml:
@@ -177,27 +180,31 @@ export const fr = {
   },
 
   portfolio: {
-    title: 'Travaux Sélectionnés',
+    title: 'Travaux sélectionnés',
     clients: [
       { image: 'bruxeo', alt: 'BRUXEO' },
-      { image: 'decide', alt: 'DEC!DE' },
       { image: 'medc2', alt: 'MedC2' },
-      { image: 'dlab', alt: 'Digital Lab' },
-      { image: 'ucl', alt: 'UCL' },
-      { image: 'cusl', alt: 'CUSL' },
+      { image: 'ucl', alt: 'UCLouvain' },
+      { image: 'cusl', alt: 'Cliniques Saint-Luc' },
+      { image: 'vub', alt: 'VUB' },
+      { image: 'bm', alt: 'Bruxelles Mobilité', noInvert: true },
     ],
     works: [
       {
         title: 'Tableau de bord GHOSTLY+',
         stack: ['React / TypeScript', 'FastAPI / Python', 'PostgreSQL / Supabase', 'NumPy / SciPy', 'Docker'],
         descriptionHtml:
-          'Tableau de bord clinique de recherche pour le projet de rééducation par jeu sérieux <a href="https://rere.research.vub.be/ghostly-project" target="_blank" rel="noopener noreferrer">GHOSTLY+</a> de la Vrije Universiteit Brussel. Il transforme les données d\'électromyographie (EMG) issues de fichiers C3D en mesures d\'activité musculaire, scores d\'adhérence et analyses de séance pour les thérapeutes — avec accès par rôles, données pseudonymisées et journalisation d\'audit. L\'étude de faisabilité de l\'essai a été publiée dans <a href="https://doi.org/10.2196/69400" target="_blank" rel="noopener noreferrer">JMIR Serious Games (2025)</a>. <a href="https://vimeo.com/1119476263" target="_blank" rel="noopener noreferrer">Voir la démo (2 min)</a>.',
-        image: 'ghostly',
+          'Tableau de bord clinique de recherche pour le projet de rééducation par jeu sérieux <a href="https://rere.research.vub.be/ghostly-project" target="_blank" rel="noopener noreferrer">GHOSTLY+</a> de la Vrije Universiteit Brussel. Il transforme les données d\'électromyographie (EMG) issues de fichiers C3D en mesures d\'activité musculaire, scores d\'adhérence et analyses de séance pour les thérapeutes, avec accès par rôles, données pseudonymisées et journalisation d\'audit. L\'étude de faisabilité de l\'essai a été publiée dans <a href="https://doi.org/10.2196/69400" target="_blank" rel="noopener noreferrer">JMIR Serious Games (2025)</a>. <a href="https://vimeo.com/1119476263" target="_blank" rel="noopener noreferrer">Voir la démo (2 min)</a>.',
+        image: 'ghostlyPerf',
+        gallery: [
+          { image: 'ghostlyEmg', alt: 'Analyse du signal EMG : détection des contractions et seuils MVC' },
+          { image: 'ghostlySessions', alt: 'Historique des sessions : navigateur de fichiers C3D et filtres avancés' },
+        ],
         isEven: true,
         featured: true,
       },
       {
-        title: 'Plateforme de Collecte ePRO',
+        title: 'Plateforme de collecte ePRO',
         stack: [
           'Progressive Web App',
           'Ionic 4',
@@ -209,13 +216,13 @@ export const fr = {
           'Cloud Storage',
         ],
         descriptionHtml:
-          "Plateforme de résultats rapportés par les patients (ePRO) développée pour l'essai clinique ImmunoSABR. Cette PWA mobile-first comprend une interface patient avec notifications push, un tableau de bord clinique et une génération sécurisée de rapports PDF — conçue pour répondre aux normes de conformité du secteur de la santé.",
+          "Plateforme de résultats rapportés par les patients (ePRO) développée pour l'essai clinique ImmunoSABR. Cette PWA mobile-first comprend une interface patient avec notifications push, un tableau de bord clinique et une génération sécurisée de rapports PDF, conçue pour répondre aux normes de conformité du secteur de la santé.",
         image: 'immuno',
         isEven: false,
         featured: true,
       },
       {
-        title: 'Aides à la Décision Patient',
+        title: 'Aides à la décision patient',
         stack: ['Progressive Web App', 'Ionic 4', 'Angular 8', 'Firestore', 'Cloud Functions', 'Cloud Storage'],
         descriptionHtml:
           "Une application d'aide à la décision qui accompagne les patients atteints de cancer dans leurs choix de traitement. Elle présente des informations médicales personnalisées via des modules interactifs et des questions de réflexion guidées, générant des rapports PDF pour soutenir les échanges médecin-patient. Développée dans le cadre d'un <a href=\"https://clinicaltrials.gov/ct2/show/NCT04375566\" target=\"_blank\" rel=\"noopener noreferrer\">essai clinique enregistré</a>.",
@@ -227,7 +234,7 @@ export const fr = {
         title: 'DEC!DE Design',
         stack: ['Figma'],
         descriptionHtml:
-          "Contribution bénévole en UX/UI pour l'association DEC!DE (2021), menée en collaboration avec le mouvement EPBL (Ensemble Biodiversité). Le projet proposait des outils numériques et des formats d'engagement culturel pour rendre les concepts écologiques plus accessibles au grand public. Un <a href=\"https://docs.google.com/presentation/d/1Op95pkfVlUjElU0VGjlVz5bk4xikbmNrjFCbzP92Ce8/edit?usp=sharing\" target=\"_blank\" rel=\"noopener noreferrer\">dossier conceptuel</a> a été soumis à un appel à projets Innoviris, sans avoir été retenu.",
+          "Contribution bénévole en UX/UI pour l'association DEC!DE (2021), menée en collaboration avec le mouvement EPBL (Ensemble Biodiversité). Le projet proposait des outils numériques et des formats d'engagement culturel pour rendre les concepts écologiques plus accessibles au grand public. Un dossier conceptuel a été soumis à un appel à projets Innoviris, sans avoir été retenu.",
         image: 'decide',
         isEven: false,
       },
@@ -235,7 +242,7 @@ export const fr = {
         title: 'Pwablo',
         stack: ['Web Durable', 'Astro', 'Figma', 'Éco-conception', 'Jamstack'],
         descriptionHtml:
-          "<a href=\"https://www.pwablo.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Pwablo</a> est une petite agence web durable qui crée des expériences numériques légères et performantes pour des organisations à impact, en parallèle d'ateliers sur l'empreinte environnementale du web.",
+          "<a href=\"https://www.pwablo.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Pwablo</a> est une petite agence web durable qui crée des sites web légers et rapides pour des organisations à impact, en parallèle d'ateliers sur l'empreinte environnementale du web.",
         image: 'pwablo',
         isEven: true,
       },

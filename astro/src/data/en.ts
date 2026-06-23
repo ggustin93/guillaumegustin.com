@@ -4,7 +4,7 @@ export const en = {
   head: {
     title: 'Guillaume Gustin - Solutions Architect & Software Engineer | Brussels',
     description:
-      'Solutions architect and software engineer based in Brussels, with a background in biomedical engineering. I help mission-driven organizations build effective, sustainable digital solutions — from health platforms to public-sector web applications.',
+      'Solutions architect and software engineer based in Brussels, with a background in biomedical engineering. I work with impact-driven organisations on healthcare platforms, public-sector web applications, and sustainable web design.',
   },
 
   nav: [
@@ -19,7 +19,7 @@ export const en = {
     title: 'Solutions Architect',
     subtitle: '& Software Engineer',
     description:
-      'Software engineer with roots in biomedical research — I develop web applications for healthcare, urban mobility, and impact-driven organisations. Active in Brussels across GIS platforms, AI research, and sustainable web design.',
+      'Software engineer with roots in biomedical research, I build web applications for healthcare, the public sector, and impact-driven organisations. My current focus is GIS platforms and applied AI for urban mobility, alongside a commitment to sustainable digital practices through Pwablo.',
     location: 'Brussels, Belgium',
     links: [
       { label: 'LinkedIn', url: 'https://www.linkedin.com/in/guillaume-gustin/', icon: 'linkedin' as const, external: true },
@@ -31,7 +31,7 @@ export const en = {
         primary: true,
         external: true,
       },
-      { label: 'Email', url: 'mailto:guillaume@pwablo.be', icon: 'mail' as const, primary: true },
+      { label: 'Contact', url: '#contact', icon: 'mail' as const, primary: true },
     ],
   },
 
@@ -39,14 +39,14 @@ export const en = {
     title: 'Who am I?',
     contentHtml: `
       <p class="lead">
-      A biomedical engineer by training (UCLouvain, 2016), I gradually moved from health research into software engineering. I began with academic research on remote patient monitoring, co-founded the medtech startup MedC2, then widened into digital transformation for non-profits and, today, public-sector work at Gate 16 — building GIS platforms for Brussels Mobility and exploring applied AI. On the side, I run Pwablo, a small agency for more sustainable web design.
+      A biomedical engineer by training (UCLouvain, 2016), I gradually moved from health research into software engineering. I began with academic research on remote patient monitoring, co-founded the medtech startup MedC2, then widened into digital transformation for non-profits and, today, public-sector work at Gate 16, building GIS platforms for Brussels Mobility and exploring applied AI. On the side, I run Pwablo, a sustainable digital studio.
       </p>`,
     focusTitle: 'Where I focus',
     focus: [
-      'Digital-health and patient-facing platforms',
-      'GIS and public-sector web applications',
-      'Applied R&D in RAG systems and agentic AI',
-      'Sustainable, low-footprint web design',
+      { icon: 'cpu' as const, label: 'Responsible AI' },
+      { icon: 'code' as const, label: 'Software Engineering' },
+      { icon: 'bar-chart' as const, label: 'Functional Analysis' },
+      { icon: 'leaf' as const, label: 'Web Eco-design' },
     ],
   },
 
@@ -86,7 +86,7 @@ export const en = {
   experience: {
     title: 'Experience',
     description:
-      'A path across digital health, public services, and sustainable web — from research assistant to software engineer.',
+      'A path across digital health, public services, and sustainable web, from research assistant to software engineer.',
     badges: [
       'Full-stack Software Engineering',
       'Sustainable Web Design',
@@ -109,7 +109,7 @@ export const en = {
         title: 'Functional Analyst & Software Engineer',
         company: 'Gate 16 · Brussels Mobility',
         duration: 'Oct 2025 - Current',
-        logo: 'gate16',
+        logo: 'bm',
       },
       {
         title: 'Research Software Engineer',
@@ -180,19 +180,23 @@ export const en = {
     title: 'Featured Works',
     clients: [
       { image: 'bruxeo', alt: 'BRUXEO' },
-      { image: 'decide', alt: 'DEC!DE' },
       { image: 'medc2', alt: 'MedC2' },
-      { image: 'dlab', alt: 'Digital Lab' },
-      { image: 'ucl', alt: 'UCL' },
-      { image: 'cusl', alt: 'CUSL' },
+      { image: 'ucl', alt: 'UCLouvain' },
+      { image: 'cusl', alt: 'Cliniques Saint-Luc' },
+      { image: 'vub', alt: 'VUB' },
+      { image: 'bm', alt: 'Brussels Mobility', noInvert: true },
     ],
     works: [
       {
         title: 'GHOSTLY+ Rehabilitation Dashboard',
         stack: ['React / TypeScript', 'FastAPI / Python', 'PostgreSQL / Supabase', 'NumPy / SciPy', 'Docker'],
         descriptionHtml:
-          'A clinical-research dashboard for the <a href="https://rere.research.vub.be/ghostly-project" target="_blank" rel="noopener noreferrer">GHOSTLY+</a> serious-game rehabilitation project at the Vrije Universiteit Brussel. It turns electromyography (EMG) data from C3D motion-capture files into muscle-activity metrics, adherence scores and session analytics for therapists — with role-based access, pseudonymised data and audit logging. The trial\'s feasibility study was published in <a href="https://doi.org/10.2196/69400" target="_blank" rel="noopener noreferrer">JMIR Serious Games (2025)</a>. <a href="https://vimeo.com/1119476263" target="_blank" rel="noopener noreferrer">Watch the 2-min demo</a>.',
-        image: 'ghostly',
+          'A clinical-research dashboard for the <a href="https://rere.research.vub.be/ghostly-project" target="_blank" rel="noopener noreferrer">GHOSTLY+</a> serious-game rehabilitation project at the Vrije Universiteit Brussel. It turns electromyography (EMG) data from C3D motion-capture files into muscle-activity metrics, adherence scores and session analytics for therapists, with role-based access, pseudonymised data and audit logging. The trial\'s feasibility study was published in <a href="https://doi.org/10.2196/69400" target="_blank" rel="noopener noreferrer">JMIR Serious Games (2025)</a>. <a href="https://vimeo.com/1119476263" target="_blank" rel="noopener noreferrer">Watch the 2-min demo</a>.',
+        image: 'ghostlyPerf',
+        gallery: [
+          { image: 'ghostlyEmg', alt: 'EMG signal analysis with contraction detection and MVC thresholds' },
+          { image: 'ghostlySessions', alt: 'Session history: C3D file browser with advanced filters' },
+        ],
         isEven: true,
         featured: true,
       },
@@ -209,7 +213,7 @@ export const en = {
           'Cloud Storage',
         ],
         descriptionHtml:
-          'Electronic patient-reported outcomes (ePRO) platform developed for the ImmunoSABR clinical trial. The mobile-first PWA includes a patient interface with push notifications, a clinical dashboard, and secure PDF report generation — designed to meet healthcare compliance standards.',
+          'Electronic patient-reported outcomes (ePRO) platform developed for the ImmunoSABR clinical trial. The mobile-first PWA includes a patient interface with push notifications, a clinical dashboard, and secure PDF report generation, designed to meet healthcare compliance standards.',
         image: 'immuno',
         isEven: false,
         featured: true,
@@ -218,7 +222,7 @@ export const en = {
         title: 'Patient Decision Aids',
         stack: ['Progressive Web App', 'Ionic 4', 'Angular 8', 'Firestore', 'Cloud Functions', 'Cloud Storage'],
         descriptionHtml:
-          'A decision-aid application that helps cancer patients make informed treatment choices. It presents personalized medical information through interactive modules and guided reflection questions, generating PDF reports to support doctor-patient discussions. Developed as part of a <a href="https://clinicaltrials.gov/ct2/show/NCT04375566" target="_blank" rel="noopener noreferrer">registered clinical trial</a>.',
+          'A decision-aid application that helps cancer patients make informed treatment choices. It presents personalised medical information through interactive modules and guided reflection questions, generating PDF reports to support doctor-patient discussions. Developed as part of a <a href="https://clinicaltrials.gov/ct2/show/NCT04375566" target="_blank" rel="noopener noreferrer">registered clinical trial</a>.',
         image: 'ipda',
         isEven: true,
         featured: true,
@@ -227,7 +231,7 @@ export const en = {
         title: 'DEC!DE Design',
         stack: ['Figma'],
         descriptionHtml:
-          'Volunteer UX/UI design contribution for the non-profit DEC!DE (2021), developed in collaboration with EPBL (Ensemble Biodiversité). The project proposed digital tools and cultural engagement formats to make ecological concepts more accessible to a broad public. A <a href="https://docs.google.com/presentation/d/1Op95pkfVlUjElU0VGjlVz5bk4xikbmNrjFCbzP92Ce8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">concept brief</a> was submitted to an Innoviris call for projects, though the application was not selected for funding.',
+          'Volunteer UX/UI design contribution for the non-profit DEC!DE (2021), developed in collaboration with EPBL (Ensemble Biodiversité). The project proposed digital tools and cultural engagement formats to make ecological concepts more accessible to a broad public. A concept brief was submitted to an Innoviris call for projects, though the application was not selected for funding.',
         image: 'decide',
         isEven: false,
       },
@@ -235,7 +239,7 @@ export const en = {
         title: 'Pwablo',
         stack: ['Sustainable Web Design', 'Astro', 'Figma', 'Eco-design', 'Jamstack'],
         descriptionHtml:
-          '<a href="https://www.pwablo.be/" target="_blank" rel="noopener noreferrer">Pwablo</a> is a small sustainable web agency building lightweight, performance-minded digital experiences for impact-driven organizations, alongside workshops on the environmental footprint of the web.',
+          '<a href="https://www.pwablo.be/" target="_blank" rel="noopener noreferrer">Pwablo</a> is a small sustainable web agency building lightweight, fast websites for impact-driven organisations, alongside workshops on the environmental footprint of the web.',
         image: 'pwablo',
         isEven: true,
       },
@@ -259,7 +263,7 @@ export const en = {
           'Facebook API',
         ],
         descriptionHtml:
-          'A prototype built with B. Vander Stappen that helps music enthusiasts discover local events through mapping, real-time ratings, and filtering. The concept explored digital promotion tools for event organizers and venues.',
+          'A prototype built with B. Vander Stappen that helps music enthusiasts discover local events through mapping, real-time ratings, and filtering. The concept explored digital promotion tools for event organisers and venues.',
         image: 'wadaff',
         isEven: true,
       },
