@@ -24,7 +24,17 @@
     "@astrojs/check": "^0.9.9",
     "@axe-core/playwright": "^4.11.3",
     "playwright": "^1.60.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.104.0"
   },
-  "description": "guillaumegustin.be — Astro 5 portfolio (EN/FR)"
+  "description": "guillaumegustin.be — Astro 5 portfolio (EN/FR)",
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "sharp@0.35.1": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.27.7": true,
+    "esbuild@0.28.1": true,
+    "workerd@1.20260623.1": true,
+    "wrangler@4.104.0": true
+  }
 }
