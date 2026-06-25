@@ -61,6 +61,8 @@ const mailtoStrings =
               placeholder={data.form.namePlaceholder}
               required
               autocomplete="name"
+              autocapitalize="words"
+              enterkeyhint="next"
             />
           </div>
           <div>
@@ -72,12 +74,14 @@ const mailtoStrings =
               placeholder={data.form.emailPlaceholder}
               required
               autocomplete="email"
+              inputmode="email"
+              enterkeyhint="next"
             />
           </div>
         </div>
         <div>
           <label class="sr-only" for="message">{data.form.messagePlaceholder}</label>
-          <textarea name="message" id="message" rows="3" placeholder={data.form.messagePlaceholder} required
+          <textarea name="message" id="message" rows="3" placeholder={data.form.messagePlaceholder} required enterkeyhint="send"
           ></textarea>
         </div>
         <button type="submit" class="btn btn-primary" id="contact-submit">

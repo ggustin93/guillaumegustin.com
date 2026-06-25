@@ -2,9 +2,9 @@ import type { HomepageData } from './types';
 
 export const fr = {
   head: {
-    title: 'Guillaume Gustin - Architecte de solutions & Ingénieur logiciel | Bruxelles',
+    title: 'Guillaume Gustin - Architecte de solutions & Ingénieur logiciel',
     description:
-      "Architecte de solutions et ingénieur logiciel basé à Bruxelles, de formation ingénieur biomédical. Je travaille avec des organisations à impact sur des plateformes de santé, des applications web pour le secteur public et le design web durable.",
+      "Je conçois des logiciels responsables pour organisations à impact : eSanté, plateformes publiques, GIS et IA responsable. Ingénieur biomédical UCLouvain.",
   },
 
   nav: [
@@ -22,7 +22,7 @@ export const fr = {
     title: 'Solutions Architect',
     subtitle: '& Software Engineer',
     description:
-      "Ingénieur logiciel aux racines biomédicales, je conçois des applications web pour la santé, le secteur public et les organisations à impact. Je me concentre aujourd'hui sur les plateformes GIS et l'IA appliquée à la mobilité urbaine, et je porte une démarche de numérique responsable avec Pwablo.",
+      "Ingénieur biomédical devenu architecte logiciel, je conçois des plateformes web responsables pour la santé, les services publics et les organisations à impact. Aujourd'hui, mon travail relie GIS pour la mobilité bruxelloise et ingénierie IA responsable, avec une même exigence : utilité, sobriété et confiance.",
     location: 'Bruxelles, Belgique',
     links: [
       { label: 'LinkedIn', url: 'https://www.linkedin.com/in/guillaume-gustin/', icon: 'linkedin' as const, external: true },
@@ -42,14 +42,14 @@ export const fr = {
     title: 'Qui suis-je ?',
     contentHtml: `
       <p class="lead">
-      Ingénieur biomédical de formation (UCLouvain, 2016), je me suis progressivement tourné de la recherche en santé vers l'ingénierie logicielle. J'ai débuté par la recherche académique sur le suivi à distance des patients, cofondé la startup medtech MedC2, puis élargi vers la transformation numérique d'associations et, aujourd'hui, le secteur public chez Gate 16, où je développe des plateformes GIS pour Bruxelles Mobilité et j'explore l'IA appliquée. En parallèle, je pilote Pwablo, un studio numérique responsable.
+      J'ai commencé par l'ingénierie biomédicale à l'UCLouvain, où le logiciel est devenu pour moi une manière de rendre les systèmes de santé plus utiles aux personnes. Depuis, j'ai construit des outils de suivi patient, cofondé la startup medtech MedC2, accompagné des associations dans leur transformation numérique et contribué à des plateformes pour le secteur public. Aujourd'hui chez Gate 16, je travaille sur des solutions GIS pour Bruxelles Mobilité et j'approfondis ma pratique de l'ingénierie IA responsable. En parallèle, je pilote Pwablo, un studio web durable pour les organisations à mission sociale.
       </p>`,
     focusTitle: 'Mes domaines',
     focus: [
-      { icon: 'cpu' as const, label: 'IA responsable' },
+      { icon: 'cpu' as const, label: 'Ingénierie IA responsable' },
       { icon: 'code' as const, label: 'Ingénierie logicielle' },
-      { icon: 'bar-chart' as const, label: 'Analyse fonctionnelle' },
-      { icon: 'leaf' as const, label: 'Éco-conception web' },
+      { icon: 'bar-chart' as const, label: 'Analyse métier IT' },
+      { icon: 'leaf' as const, label: 'Numérique responsable' },
     ],
   },
 
@@ -76,7 +76,7 @@ export const fr = {
         degree: 'Master en Ingénierie Biomédicale > Bio-informatique',
         badge: 'Cum Laude',
         noteHtml:
-          'Mémoire de master : "<i>Gestion du diabète par intelligence artificielle et gamification : Modèles de prédiction de la glycémie et considérations de conception mHealth.</i>" <a href="https://dial.uclouvain.be/memoire/ucl/fr/object/thesis:8111" target="_blank" rel="noopener">(Lire le mémoire)</a>',
+          'Mémoire de master : "<i>Gestion du diabète par intelligence artificielle et gamification : Modèles de prédiction de la glycémie et considérations de conception mHealth.</i>" <a href="https://thesis.dial.uclouvain.be/entities/masterthesis/4a51c593-7a6b-425a-ab4e-62482fe6cb34" target="_blank" rel="noopener">(Lire le mémoire)</a>',
       },
       {
         school: 'Louvain School of Engineering',
@@ -89,10 +89,10 @@ export const fr = {
   experience: {
     title: 'Expérience',
     description:
-      "Un parcours entre santé numérique, services publics et web durable, d'assistant de recherche à ingénieur logiciel.",
+      "Un parcours de terrain entre santé numérique, services publics, numérique responsable et IA appliquée.",
     badges: [
       'Développement full-stack',
-      'Design web durable',
+      'Ingénierie IA responsable',
       'Santé numérique',
       'Secteur public & associatif',
       'Ingénierie biomédicale',
@@ -216,7 +216,7 @@ export const fr = {
           'Cloud Storage',
         ],
         descriptionHtml:
-          "Plateforme de résultats rapportés par les patients (ePRO) développée pour l'essai clinique ImmunoSABR. Cette PWA mobile-first comprend une interface patient avec notifications push, un tableau de bord clinique et une génération sécurisée de rapports PDF, conçue pour répondre aux normes de conformité du secteur de la santé.",
+          "Plateforme de résultats rapportés par les patients (ePRO) développée pour l'essai clinique ImmunoSABR. Cette PWA mobile-first permettait aux patients de signaler leurs symptômes entre deux visites, offrait aux cliniciens un tableau de bord sécurisé et générait des rapports PDF pour les équipes de soins, avec authentification, notifications et flux de données adaptés au contexte médical.",
         image: 'immuno',
         isEven: false,
         featured: true,
@@ -225,7 +225,7 @@ export const fr = {
         title: 'Aides à la décision patient',
         stack: ['Progressive Web App', 'Ionic 4', 'Angular 8', 'Firestore', 'Cloud Functions', 'Cloud Storage'],
         descriptionHtml:
-          "Une application d'aide à la décision qui accompagne les patients atteints de cancer dans leurs choix de traitement. Elle présente des informations médicales personnalisées via des modules interactifs et des questions de réflexion guidées, générant des rapports PDF pour soutenir les échanges médecin-patient. Développée dans le cadre d'un <a href=\"https://clinicaltrials.gov/ct2/show/NCT04375566\" target=\"_blank\" rel=\"noopener noreferrer\">essai clinique enregistré</a>.",
+          "Application d'aide à la décision conçue pour soutenir la décision médicale partagée avec des patients atteints de cancer. Elle présente des informations de traitement personnalisées à travers des modules interactifs et des questions de réflexion guidées, puis génère des rapports PDF pour préparer des échanges plus clairs avec les cliniciens. Développée dans le cadre d'un <a href=\"https://clinicaltrials.gov/ct2/show/NCT04375566\" target=\"_blank\" rel=\"noopener noreferrer\">essai clinique enregistré</a>.",
         image: 'ipda',
         isEven: true,
         featured: true,
@@ -234,15 +234,15 @@ export const fr = {
         title: 'DEC!DE Design',
         stack: ['Figma'],
         descriptionHtml:
-          "Contribution bénévole en UX/UI pour l'association DEC!DE (2021), menée en collaboration avec le mouvement EPBL (Ensemble Biodiversité). Le projet proposait des outils numériques et des formats d'engagement culturel pour rendre les concepts écologiques plus accessibles au grand public. Un dossier conceptuel a été soumis à un appel à projets Innoviris, sans avoir été retenu.",
+          "Contribution bénévole en UX/UI pour l'association DEC!DE, menée avec le mouvement EPBL (Ensemble Biodiversité). Le travail traduisait des concepts écologiques en outils numériques accessibles et en formats d'engagement culturel, jusqu'à un dossier conceptuel soumis à un appel à projets Innoviris.",
         image: 'decide',
         isEven: false,
       },
       {
         title: 'Pwablo',
-        stack: ['Web Durable', 'Astro', 'Figma', 'Éco-conception', 'Jamstack'],
+        stack: ['Astro', 'Éco-conception (GR491)', 'n8n', 'IA', 'Figma'],
         descriptionHtml:
-          "<a href=\"https://www.pwablo.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Pwablo</a> est une petite agence web durable qui crée des sites web légers et rapides pour des organisations à impact, en parallèle d'ateliers sur l'empreinte environnementale du web.",
+          "<a href=\"https://www.pwablo.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Pwablo</a> est le studio numérique responsable que je pilote pour des organisations à impact : universités, équipes de santé, associations et projets d'intérêt public. Ses missions couvrent les applications web et mobiles, les sites en écoconception (GR491), l'automatisation et les flux IA avec n8n, ainsi que les ateliers sur l'empreinte environnementale des services numériques.",
         image: 'pwablo',
         isEven: true,
       },
@@ -250,7 +250,7 @@ export const fr = {
         title: 'MyPatientCheck',
         stack: ['Progressive Web App', 'Angular 9', 'Ionic 5', 'Ionic Storage', 'Cloud Functions'],
         descriptionHtml:
-          "Premier prototype développé pendant la pandémie de COVID-19 pour accompagner les professionnels de santé dans le triage des patients symptomatiques. L'application fournit des outils d'évaluation des risques et des simulations de modèles prédictifs pour aider à la prise de décision clinique dans des contextes à ressources limitées.",
+          "Prototype de triage COVID-19 conçu pour des professionnels de santé sous forte pression. L'application combinait parcours d'évaluation des risques et simulations de modèles prédictifs afin d'aider à prendre des décisions cliniques plus lisibles dans des contextes à ressources limitées.",
         image: 'mypc',
         isEven: false,
       },
@@ -266,7 +266,7 @@ export const fr = {
           'Facebook API',
         ],
         descriptionHtml:
-          "Un prototype développé avec B. Vander Stappen qui aide les passionnés de musique à découvrir des événements locaux grâce à la cartographie, aux évaluations en temps réel et au filtrage. Le concept explorait les outils de promotion numérique pour les organisateurs d'événements et les lieux de spectacle.",
+          "Prototype de découverte d'événements locaux développé avec B. Vander Stappen. Il combinait cartographie, évaluations en direct et filtres pour aider les passionnés de musique à trouver des événements proches, tout en explorant des outils de promotion numérique plus utiles pour les organisateurs et les lieux culturels.",
         image: 'wadaff',
         isEven: true,
       },
@@ -275,7 +275,7 @@ export const fr = {
 
   contact: {
     title: 'Me contacter',
-    subtitle: "Que vous ayez un projet en tête ou simplement envie d'échanger, c'est toujours un plaisir d'avoir de vos nouvelles.",
+    subtitle: "Je suis toujours ouvert aux collaborations où le logiciel peut rendre les services publics, la santé ou les organisations à impact plus utiles.",
     form: {
       action: '/api/contact',
       namePlaceholder: 'Votre Nom',

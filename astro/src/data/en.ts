@@ -2,9 +2,9 @@ import type { HomepageData } from './types';
 
 export const en = {
   head: {
-    title: 'Guillaume Gustin - Solutions Architect & Software Engineer | Brussels',
+    title: 'Guillaume Gustin - Solutions Architect & Software Engineer',
     description:
-      'Solutions architect and software engineer based in Brussels, with a background in biomedical engineering. I work with impact-driven organisations on healthcare platforms, public-sector web applications, and sustainable web design.',
+      'I craft responsible software for mission-driven organisations: eHealth, public-sector platforms, GIS and AI engineering. Biomedical engineer, UCLouvain.',
   },
 
   nav: [
@@ -19,7 +19,7 @@ export const en = {
     title: 'Solutions Architect',
     subtitle: '& Software Engineer',
     description:
-      'Software engineer with roots in biomedical research, I build web applications for healthcare, the public sector, and impact-driven organisations. My current focus is GIS platforms and applied AI for urban mobility, alongside a commitment to sustainable digital practices through Pwablo.',
+      'Biomedical engineer turned software architect, I design responsible web platforms for healthcare, public services, and mission-driven teams. My current work combines GIS for Brussels Mobility with practical AI engineering, always grounded in usefulness, sobriety, and trust.',
     location: 'Brussels, Belgium',
     links: [
       { label: 'LinkedIn', url: 'https://www.linkedin.com/in/guillaume-gustin/', icon: 'linkedin' as const, external: true },
@@ -39,14 +39,14 @@ export const en = {
     title: 'Who am I?',
     contentHtml: `
       <p class="lead">
-      A biomedical engineer by training (UCLouvain, 2016), I gradually moved from health research into software engineering. I began with academic research on remote patient monitoring, co-founded the medtech startup MedC2, then widened into digital transformation for non-profits and, today, public-sector work at Gate 16, building GIS platforms for Brussels Mobility and exploring applied AI. On the side, I run Pwablo, a sustainable digital studio.
+      I started in biomedical engineering at UCLouvain, where software first became a way to make health systems more useful to people. Since then, I have built patient-monitoring tools, co-founded the medtech startup MedC2, supported non-profits through digital transformation, and contributed to public-sector platforms. Today at Gate 16, I work on GIS solutions for Brussels Mobility and deepen my practice in responsible AI engineering. In parallel, I run Pwablo, a sustainable web studio for organisations with a social mission.
       </p>`,
     focusTitle: 'Where I focus',
     focus: [
-      { icon: 'cpu' as const, label: 'Responsible AI' },
+      { icon: 'cpu' as const, label: 'Responsible AI Engineering' },
       { icon: 'code' as const, label: 'Software Engineering' },
-      { icon: 'bar-chart' as const, label: 'Functional Analysis' },
-      { icon: 'leaf' as const, label: 'Web Eco-design' },
+      { icon: 'bar-chart' as const, label: 'IT Business Analysis' },
+      { icon: 'leaf' as const, label: 'Responsible IT' },
     ],
   },
 
@@ -73,7 +73,7 @@ export const en = {
         degree: 'Master in Biomedical Engineering > Bioinformatics',
         badge: 'Cum Laude',
         noteHtml:
-          'Master thesis: "<i>Diabetes management through artificial intelligence and gamification: Blood glucose prediction models and mHealth design considerations.</i>" <a href="https://dial.uclouvain.be/memoire/ucl/fr/object/thesis:8111" target="_blank" rel="noopener">(Read thesis)</a>',
+          'Master thesis: "<i>Diabetes management through artificial intelligence and gamification: Blood glucose prediction models and mHealth design considerations.</i>" <a href="https://thesis.dial.uclouvain.be/entities/masterthesis/4a51c593-7a6b-425a-ab4e-62482fe6cb34" target="_blank" rel="noopener">(Read thesis)</a>',
       },
       {
         school: 'Louvain School of Engineering',
@@ -86,10 +86,10 @@ export const en = {
   experience: {
     title: 'Experience',
     description:
-      'A path across digital health, public services, and sustainable web, from research assistant to software engineer.',
+      'A hands-on path through digital health, public services, responsible IT, and applied AI.',
     badges: [
       'Full-stack Software Engineering',
-      'Sustainable Web Design',
+      'Responsible AI Engineering',
       'Digital Health',
       'Public & Non-profit Sector',
       'Biomedical Engineering',
@@ -213,7 +213,7 @@ export const en = {
           'Cloud Storage',
         ],
         descriptionHtml:
-          'Electronic patient-reported outcomes (ePRO) platform developed for the ImmunoSABR clinical trial. The mobile-first PWA includes a patient interface with push notifications, a clinical dashboard, and secure PDF report generation, designed to meet healthcare compliance standards.',
+          'An electronic patient-reported outcomes (ePRO) platform developed for the ImmunoSABR clinical trial. The mobile-first PWA helped patients report symptoms between visits, gave clinicians a secure dashboard, and generated PDF reports for care teams, with authentication, notifications, and healthcare-grade data flows.',
         image: 'immuno',
         isEven: false,
         featured: true,
@@ -222,7 +222,7 @@ export const en = {
         title: 'Patient Decision Aids',
         stack: ['Progressive Web App', 'Ionic 4', 'Angular 8', 'Firestore', 'Cloud Functions', 'Cloud Storage'],
         descriptionHtml:
-          'A decision-aid application that helps cancer patients make informed treatment choices. It presents personalised medical information through interactive modules and guided reflection questions, generating PDF reports to support doctor-patient discussions. Developed as part of a <a href="https://clinicaltrials.gov/ct2/show/NCT04375566" target="_blank" rel="noopener noreferrer">registered clinical trial</a>.',
+          'A cancer patient decision-aid application built to support shared medical decision-making. It presents personalised treatment information through interactive modules and guided reflection questions, then generates PDF reports that help patients prepare clearer conversations with their clinicians. Developed as part of a <a href="https://clinicaltrials.gov/ct2/show/NCT04375566" target="_blank" rel="noopener noreferrer">registered clinical trial</a>.',
         image: 'ipda',
         isEven: true,
         featured: true,
@@ -231,15 +231,15 @@ export const en = {
         title: 'DEC!DE Design',
         stack: ['Figma'],
         descriptionHtml:
-          'Volunteer UX/UI design contribution for the non-profit DEC!DE (2021), developed in collaboration with EPBL (Ensemble Biodiversité). The project proposed digital tools and cultural engagement formats to make ecological concepts more accessible to a broad public. A concept brief was submitted to an Innoviris call for projects, though the application was not selected for funding.',
+          'Volunteer UX/UI contribution for the non-profit DEC!DE, developed with EPBL (Ensemble Biodiversité). The work translated ecological concepts into approachable digital tools and cultural engagement formats, culminating in a concept brief submitted to an Innoviris call for projects.',
         image: 'decide',
         isEven: false,
       },
       {
         title: 'Pwablo',
-        stack: ['Sustainable Web Design', 'Astro', 'Figma', 'Eco-design', 'Jamstack'],
+        stack: ['Astro', 'Eco-design (GR491)', 'n8n', 'AI', 'Figma'],
         descriptionHtml:
-          '<a href="https://www.pwablo.be/" target="_blank" rel="noopener noreferrer">Pwablo</a> is a small sustainable web agency building lightweight, fast websites for impact-driven organisations, alongside workshops on the environmental footprint of the web.',
+          '<a href="https://www.pwablo.be/" target="_blank" rel="noopener noreferrer">Pwablo</a> is the responsible-digital studio I run for mission-driven organisations: universities, healthcare teams, non-profits, and public-interest projects. Its work spans web and mobile apps, eco-designed websites (GR491), automation and AI workflows with n8n, and workshops on the environmental footprint of digital services.',
         image: 'pwablo',
         isEven: true,
       },
@@ -247,7 +247,7 @@ export const en = {
         title: 'MyPatientCheck',
         stack: ['Progressive Web App', 'Angular 9', 'Ionic 5', 'Ionic Storage', 'Cloud Functions'],
         descriptionHtml:
-          'First prototype developed during the COVID-19 pandemic to support healthcare professionals in triaging symptomatic patients. The application provides risk assessment tools and predictive model simulations to assist clinical decision-making in resource-constrained settings.',
+          'An early COVID-19 triage prototype for healthcare professionals working under pressure. The application combined risk-assessment flows with predictive-model simulations to support clearer clinical decisions in resource-constrained settings.',
         image: 'mypc',
         isEven: false,
       },
@@ -263,7 +263,7 @@ export const en = {
           'Facebook API',
         ],
         descriptionHtml:
-          'A prototype built with B. Vander Stappen that helps music enthusiasts discover local events through mapping, real-time ratings, and filtering. The concept explored digital promotion tools for event organisers and venues.',
+          'A local-events discovery prototype built with B. Vander Stappen. It combined mapping, live ratings, and filters to help music enthusiasts find nearby events, while exploring more useful digital promotion tools for organisers and venues.',
         image: 'wadaff',
         isEven: true,
       },
@@ -272,7 +272,7 @@ export const en = {
 
   contact: {
     title: 'Get in touch',
-    subtitle: 'Whether you have a project in mind or simply want to exchange ideas, I am always glad to hear from you.',
+    subtitle: 'I am always open to thoughtful collaborations where software can make public services, healthcare, or mission-driven work more useful.',
     form: {
       action: '/api/contact',
       namePlaceholder: 'Your Name',

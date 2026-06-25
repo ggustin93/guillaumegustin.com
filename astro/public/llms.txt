@@ -1,12 +1,19 @@
 # Guillaume Gustin
 
-> Full-Stack Developer & Biomedical Engineer based in Brussels, Belgium. Builds web
-> applications for healthcare, urban mobility, and impact-driven organisations, with a
-> focus on sustainable, performance-oriented web design.
+> Guillaume Gustin crafts responsible software for mission-driven organisations:
+> eHealth platforms, public-sector services, GIS tools, and practical AI engineering.
+> He is a Brussels-based Solutions Architect, IT Business Analyst, Software Engineer,
+> and biomedical engineer trained at UCLouvain.
 
-Guillaume Gustin trained as a biomedical engineer at UCLouvain (2016) and works as a
-software engineer across digital health, public-sector services, and sustainable web.
-This site is his personal CV / portfolio. Pwablo is his separate sustainable web agency.
+Guillaume Gustin is a solutions architect, IT business analyst and software engineer
+based in Brussels, Belgium. He began in biomedical engineering at UCLouvain, where
+software became a way to make health systems more useful to people. Over 10+ years,
+he has built patient-monitoring tools, co-founded the medtech startup MedC2, supported
+non-profits through digital transformation, and contributed to public-sector platforms.
+His current focus is responsible AI engineering, GIS, sustainable web design, and
+software that creates measurable social value.
+
+He runs Pwablo (https://pwablo.be), a sustainable web studio.
 
 ## Current role
 
@@ -33,9 +40,19 @@ This site is his personal CV / portfolio. Pwablo is his separate sustainable web
 
 ## Expertise
 
-Full-stack web development (React, Angular, Astro, Ionic, Node.js, Python), digital
-health and patient-reported outcomes, GIS platforms, RAG and agentic AI, sustainable /
-eco-conscious web design, biomedical engineering.
+Solutions architecture, IT business analysis, full-stack web development (React, Astro,
+Ionic, Tailwind CSS, shadcn/ui, Node.js, Python, n8n, PostgreSQL, Supabase), AI
+engineering (RAG systems, agentic AI, LLM integration, AI governance), responsible IT
+(eco-design, digital sobriety, GDPR), digital health and patient-reported outcomes,
+GIS platforms, public-sector services, non-profit digital transformation, and
+biomedical engineering.
+
+## Published Research
+
+- "GHOSTLY+ Serious Game-Based Exercise for Upper Limb Rehabilitation After Stroke:
+  Feasibility Study" — JMIR Serious Games (2025). https://doi.org/10.2196/69400
+- "Empowerment of diabetic patients through mHealth technologies and education"
+  — SIPAIM 2017. Cited 9 times.
 
 ## Education
 

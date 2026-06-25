@@ -91,9 +91,18 @@ const pad = (n: number) => String(n).padStart(2, '0');
                 alt={work.title}
                 class="img-zoom"
               />
-              {shotCount > 1 && <span class="img-count" aria-hidden="true">{`1 / ${shotCount}`}</span>}
               <span class="img-zoom-btn" aria-hidden="true">&#x26F6;</span>
             </div>
+            {shotCount > 1 && (
+              <div class="gallery-hint" aria-hidden="true">
+                <span class="gallery-dots">
+                  {Array.from({ length: shotCount }).map((_, i) => (
+                    <span class:list={['gallery-dot', { 'gallery-dot--active': i === 0 }]} />
+                  ))}
+                </span>
+                <span class="gallery-count">{`1 / ${shotCount}`}</span>
+              </div>
+            )}
           </div>
         </article>
         );
@@ -273,21 +282,24 @@ const pad = (n: number) => String(n).padStart(2, '0');
 
   /* Clean framed image (no slanted clip-path) */
   .work__image .img-zoom-wrapper {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    aspect-ratio: 16 / 10;
     background: var(--color-card-bg);
     border: 1px solid var(--color-card-border);
     border-radius: 12px;
     padding: 20px;
+    overflow: hidden;
   }
 
   .work__image :global(.img-zoom) {
-    display: block;
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
-    max-height: 380px;
     object-fit: contain;
-    margin-inline: auto;
   }
 
   /* ---------- Compact grid (more projects) ---------- */
@@ -319,7 +331,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
   .more-card {
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: var(--color-card-bg);
     border: 1px solid var(--color-card-border);
     border-radius: 12px;
     overflow: hidden;
@@ -451,21 +463,36 @@ const pad = (n: number) => String(n).padStart(2, '0');
     opacity: 1;
   }
 
-  /* "1 / N" badge hinting that the work has multiple screenshots */
-  .img-count {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    padding: 4px 10px;
+  /* Gallery indicator below the image — dots ("multiple shots") + exact count */
+  .gallery-hint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .gallery-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .gallery-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-card-border);
+  }
+
+  .gallery-dot--active {
     background: var(--color-accent);
-    border-radius: 6px;
-    color: #fff;
+  }
+
+  .gallery-count {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 0.04em;
+    color: var(--color-muted);
     line-height: 1;
-    z-index: 2;
-    pointer-events: none;
   }
 
   /* ---------- Fullscreen lightbox via native <dialog> ---------- */
