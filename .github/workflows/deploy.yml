@@ -1,31 +1,67 @@
-name: Astro Build Check
+name: CI & Deploy
 
 on:
   push:
-    branches: [main, redesign/**]
+    branches: [main, 'redesign/**']
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   build:
-    name: Build (astro/)
+    name: Build & typecheck
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: 'npm'
           cache-dependency-path: astro/package-lock.json
 
-      - name: Install dependencies
+      - name: Install
         working-directory: astro
         run: npm ci
+
+      - name: Typecheck
+        working-directory: astro
+        run: npm run check
 
       - name: Build
         working-directory: astro
         run: npm run build
+
+      - name: Upload build output
+        # Only upload on main pushes — deploy job needs it
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: astro/dist
+          retention-days: 1
+
+  deploy:
+    name: Deploy to Cloudflare Pages
+    needs: build
+    # Only deploy on push to main (never on PRs or other branches)
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4   # wrangler needs astro/functions/ to bundle /api/contact
+
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: astro/dist
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: astro
+          command: pages deploy dist --project-name=guillaumegustin-be --branch=main --commit-dirty=true
