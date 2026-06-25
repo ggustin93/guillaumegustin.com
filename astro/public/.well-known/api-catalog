@@ -1,0 +1,28 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://guillaumegustin.be/api/contact",
+      "service-desc": [
+        {
+          "href": "https://guillaumegustin.be/openapi.json",
+          "type": "application/openapi+json",
+          "title": "OpenAPI description for the contact endpoint"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://guillaumegustin.be/llms.txt",
+          "type": "text/markdown",
+          "title": "Agent-readable site overview"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://guillaumegustin.be/",
+          "type": "text/html",
+          "title": "Public website"
+        }
+      ]
+    }
+  ]
+}

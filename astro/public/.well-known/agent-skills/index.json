@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agentskills.io/schemas/agent-skills-index-v0.2.json",
+  "skills": [
+    {
+      "name": "contact-guillaume",
+      "type": "codex-skill",
+      "description": "Read Guillaume Gustin's public profile and prepare contact messages for explicit user approval.",
+      "url": "https://guillaumegustin.be/.well-known/agent-skills/contact-guillaume/SKILL.md",
+      "sha256": "a9cdf69ecb9bb6fbbfdcfa269940c787655bd6af5589371de43332bc742bd33f"
+    }
+  ]
+}

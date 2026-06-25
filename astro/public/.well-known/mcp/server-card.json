@@ -1,0 +1,35 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
+  "serverInfo": {
+    "name": "guillaumegustin.be WebMCP",
+    "version": "1.0.0"
+  },
+  "description": "Public browser-exposed tools for learning about Guillaume Gustin and preparing contact messages. This site does not expose a remote MCP server endpoint.",
+  "transports": [
+    {
+      "type": "webmcp",
+      "url": "https://guillaumegustin.be/",
+      "description": "Load the homepage and inspect navigator.modelContext tool registrations."
+    }
+  ],
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "get_profile_summary",
+      "description": "Return a concise Markdown profile summary for Guillaume Gustin."
+    },
+    {
+      "name": "prepare_contact_message",
+      "description": "Prepare a contact message payload for the public contact form."
+    }
+  ],
+  "links": {
+    "site": "https://guillaumegustin.be/",
+    "agentSummary": "https://guillaumegustin.be/llms.txt",
+    "apiCatalog": "https://guillaumegustin.be/.well-known/api-catalog"
+  }
+}

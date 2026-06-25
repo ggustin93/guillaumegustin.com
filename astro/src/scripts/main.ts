@@ -195,3 +195,76 @@ document.querySelectorAll<HTMLButtonElement>('.more-card__toggle').forEach((btn)
     btn.textContent = expanded ? (btn.dataset.less ?? 'Read less') : (btn.dataset.more ?? 'Read more');
   });
 });
+
+/* ---------- WebMCP discovery ---------- */
+type WebMcpTool = {
+  name: string;
+  description: string;
+  inputSchema: Record<string, unknown>;
+  execute: (input?: unknown) => Promise<unknown> | unknown;
+};
+
+type WebMcpNavigator = Navigator & {
+  modelContext?: {
+    provideContext?: (context: { tools: WebMcpTool[] }) => Promise<unknown> | unknown;
+  };
+};
+
+const modelContext = (navigator as WebMcpNavigator).modelContext;
+if (modelContext?.provideContext) {
+  const profileSummary = `# Guillaume Gustin
+
+Solutions Architect, IT Business Analyst and Software Engineer based in Brussels.
+Focus areas include responsible AI, software engineering, functional analysis,
+web eco-design, GIS platforms, digital health, and mission-driven public-sector
+or non-profit work.
+
+Primary resources:
+- Site summary: https://guillaumegustin.be/llms.txt
+- Website: https://guillaumegustin.be/
+- LinkedIn: https://www.linkedin.com/in/guillaume-gustin/
+- GitHub: https://github.com/ggustin93`;
+
+  const tools: WebMcpTool[] = [
+    {
+      name: 'get_profile_summary',
+      description: 'Return a concise Markdown profile summary for Guillaume Gustin.',
+      inputSchema: {
+        type: 'object',
+        properties: {},
+        additionalProperties: false,
+      },
+      execute: () => ({ markdown: profileSummary }),
+    },
+    {
+      name: 'prepare_contact_message',
+      description: 'Validate and prepare a contact message payload for the public contact form.',
+      inputSchema: {
+        type: 'object',
+        required: ['name', 'email', 'message'],
+        properties: {
+          name: { type: 'string', minLength: 2 },
+          email: { type: 'string', format: 'email' },
+          message: { type: 'string', minLength: 10, maxLength: 2000 },
+        },
+        additionalProperties: false,
+      },
+      execute: (input) => {
+        const payload = input as { name?: string; email?: string; message?: string } | undefined;
+        return {
+          method: 'POST',
+          url: '/api/contact',
+          contentType: 'multipart/form-data',
+          fields: {
+            name: payload?.name ?? '',
+            _replyto: payload?.email ?? '',
+            message: payload?.message ?? '',
+          },
+          requiresUserConfirmation: true,
+        };
+      },
+    },
+  ];
+
+  void modelContext.provideContext({ tools });
+}
