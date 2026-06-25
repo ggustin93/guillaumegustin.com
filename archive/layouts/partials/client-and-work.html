@@ -23,6 +23,12 @@
       </div>
     </div>
     {{ range $index, $element := $d.client_and_work.works }}
+    {{- $galleryAttr := "" -}}
+    {{- with .gallery -}}
+      {{- $items := slice -}}
+      {{- range . -}}{{- $items = $items | append (dict "src" (.src | relURL) "alt" .alt) -}}{{- end -}}
+      {{- $galleryAttr = $items | jsonify -}}
+    {{- end -}}
     <div
       class="row row--padded rad-animation-group rad-fade-down {{ if .is_even }}flex-column-reverse flex-md-row{{ end }}"
     >
@@ -46,7 +52,7 @@
         {{ end }}
       </div>
       <div class="col-12 col-md-7 pl-md-0 text-right">
-        <div class="img-zoom-wrapper" role="button" tabindex="0" aria-label="{{ .title }} — click to enlarge">
+        <div class="img-zoom-wrapper" role="button" tabindex="0" aria-label="{{ .title }} — click to enlarge"{{ with $galleryAttr }} data-gallery="{{ . }}"{{ end }}>
           {{ partial "responsive-image.html" (dict
             "src" .image.original
             "alt" .title
@@ -58,7 +64,7 @@
       </div>
       {{ else }}
       <div class="col-12 col-md-7 pl-md-0 text-right">
-        <div class="img-zoom-wrapper" role="button" tabindex="0" aria-label="{{ .title }} — click to enlarge">
+        <div class="img-zoom-wrapper" role="button" tabindex="0" aria-label="{{ .title }} — click to enlarge"{{ with $galleryAttr }} data-gallery="{{ . }}"{{ end }}>
           {{ partial "responsive-image.html" (dict
             "src" .image.original
             "alt" .title
@@ -100,7 +106,10 @@
 <!-- Lightbox overlay -->
 <div class="lightbox-overlay" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
   <button class="lightbox-close" aria-label="Close preview" type="button">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Previous image" type="button" hidden>&#10094;</button>
   <img src="" alt="">
+  <button class="lightbox-nav lightbox-next" aria-label="Next image" type="button" hidden>&#10095;</button>
+  <div class="lightbox-dots" hidden></div>
 </div>
 
 <script>
@@ -109,10 +118,48 @@
   if (!overlay) return;
   var overlayImg = overlay.querySelector('img');
   var closeBtn = overlay.querySelector('.lightbox-close');
+  var prevBtn = overlay.querySelector('.lightbox-prev');
+  var nextBtn = overlay.querySelector('.lightbox-next');
+  var dotsEl = overlay.querySelector('.lightbox-dots');
 
-  function openLightbox(src, alt) {
-    overlayImg.src = src;
-    overlayImg.alt = alt || '';
+  var gallery = [];
+  var current = 0;
+
+  function renderDots() {
+    dotsEl.innerHTML = '';
+    gallery.forEach(function (item, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'lightbox-dot';
+      dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+      dot.addEventListener('click', function (e) { e.stopPropagation(); show(i); });
+      dotsEl.appendChild(dot);
+    });
+  }
+
+  function show(i) {
+    if (!gallery.length) return;
+    current = (i + gallery.length) % gallery.length;
+    var item = gallery[current];
+    overlayImg.src = item.src;
+    overlayImg.alt = item.alt || '';
+    var multi = gallery.length > 1;
+    prevBtn.hidden = !multi;
+    nextBtn.hidden = !multi;
+    dotsEl.hidden = !multi;
+    if (multi) {
+      var dots = dotsEl.querySelectorAll('.lightbox-dot');
+      for (var d = 0; d < dots.length; d++) {
+        dots[d].classList.toggle('is-active', d === current);
+      }
+    }
+  }
+
+  function openLightbox(items, startIndex) {
+    gallery = items;
+    current = startIndex || 0;
+    renderDots();
+    show(current);
     overlay.classList.add('is-active');
     overlay.setAttribute('aria-hidden', 'false');
     closeBtn.focus();
@@ -122,13 +169,23 @@
     overlay.classList.remove('is-active');
     overlay.setAttribute('aria-hidden', 'true');
     overlayImg.src = '';
+    gallery = [];
   }
 
   document.querySelectorAll('.img-zoom-wrapper').forEach(function (wrapper) {
     var img = wrapper.querySelector('img');
     if (!img) return;
 
-    function open() { openLightbox(img.src, img.alt); }
+    function open() {
+      var items;
+      if (wrapper.dataset.gallery) {
+        try { items = JSON.parse(wrapper.dataset.gallery); } catch (e) { items = null; }
+      }
+      if (!items || !items.length) {
+        items = [{ src: img.src, alt: img.alt }];
+      }
+      openLightbox(items, 0);
+    }
 
     wrapper.addEventListener('click', open);
     wrapper.addEventListener('keydown', function (e) {
@@ -136,12 +193,17 @@
     });
   });
 
+  prevBtn.addEventListener('click', function (e) { e.stopPropagation(); show(current - 1); });
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); show(current + 1); });
   closeBtn.addEventListener('click', closeLightbox);
   overlay.addEventListener('click', function (e) {
     if (e.target === overlay) closeLightbox();
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('is-active')) closeLightbox();
+    if (!overlay.classList.contains('is-active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft' && gallery.length > 1) show(current - 1);
+    else if (e.key === 'ArrowRight' && gallery.length > 1) show(current + 1);
   });
 })();
 </script>

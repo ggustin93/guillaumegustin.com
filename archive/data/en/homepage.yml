@@ -211,6 +211,35 @@ client_and_work:
       alt: "CUSL"
 
   works:
+    - title: "Ghostly+ Rehabilitation Dashboard"
+      stack:
+        - name: "React"
+        - name: "TypeScript"
+        - name: "FastAPI"
+        - name: "Supabase"
+        - name: "Docker"
+        - name: "EMG Signal Processing"
+        - name: "C3D"
+      description: "Clinical-trial analytics dashboard for the <a href=\"https://researchportal.vub.be/en/projects/ghostly-targeting-muscle-strength-loss-due-to-hospitalization-in-/\" target=\"_blank\" rel=\"noopener noreferrer\">Ghostly+ rehabilitation study</a> at Vrije Universiteit Brussel. As lead developer, I built patient data management and EMG signal processing from C3D motion-capture files, with interactive visualization of muscle activity, contraction detection and MVC thresholds — giving rehabilitation therapists a clear view of therapeutic progress. Delivered end-to-end, from architecture to containerized production deployment."
+      button:
+        enabled: true
+        icon: "icon-arrow-right"
+        btnText: "Learn more"
+        URL: "https://researchportal.vub.be/en/projects/ghostly-targeting-muscle-strength-loss-due-to-hospitalization-in-/"
+      image:
+        x: "img/works/ghostly_dashboard.webp"
+        _2x: "img/works/ghostly_dashboard.webp"
+        original: "img/works/ghostly_dashboard.png"
+        avif: "img/works/ghostly_dashboard.avif"
+      gallery:
+        - src: "img/works/ghostly_dashboard.webp"
+          alt: "EMG signal analysis with contraction detection and MVC thresholds"
+        - src: "img/works/ghostly_performance.webp"
+          alt: "Performance scoring: per-muscle compliance gauges and breakdown"
+        - src: "img/works/ghostly_sessions.webp"
+          alt: "Session history with C3D file browser and advanced filters"
+      is_even: false
+      featured: true
     - title: "ePRO Collection Platform"
       stack:
         - name: "Progressive Web App"
@@ -222,10 +251,6 @@ client_and_work:
         - name: "Cloud Messaging"
         - name: "Cloud Storage"
       description: "Electronic patient-reported outcomes (ePRO) platform developed for the ImmunoSABR clinical trial. The mobile-first PWA includes a patient interface with push notifications, a clinical dashboard, and secure PDF report generation — designed to meet healthcare compliance standards."
-      button:
-        icon: "icon-arrow-right"
-        btnText: "User Guide"
-        URL: "https://docdro.id/GjujVEE"
       image:
         x: "img/works/immuno_mock.webp"
         _2x: "img/works/immuno_mock.webp"
@@ -241,11 +266,9 @@ client_and_work:
         - name: "Firestore"
         - name: "Cloud Functions"
         - name: "Cloud Storage"
-      description: "Decision aid application designed to support cancer patients in making informed treatment choices. The platform provides personalized medical information through interactive modules and guided reflection questions, generating PDF reports to facilitate doctor-patient discussions."
+      description: "Decision aid application designed to support cancer patients in making informed treatment choices. The platform provides personalized medical information through interactive modules and guided reflection questions, generating PDF reports to facilitate doctor-patient discussions. Developed as part of a <a href=\"https://clinicaltrials.gov/ct2/show/NCT04375566\" target=\"_blank\" rel=\"noopener noreferrer\">registered clinical trial</a>."
       button:
-        icon: "icon-arrow-right"
-        btnText: "Clinical Trial"
-        URL: "https://clinicaltrials.gov/ct2/show/NCT04375566"
+        enabled: false
       image:
         x: "img/works/ipda_mock.webp"
         _2x: "img/works/ipda_mock.webp"
@@ -256,16 +279,12 @@ client_and_work:
     - title: "DEC!DE Design"
       stack:
         - name: "Figma"
-      description: "Volunteer UX/UI contribution for the non-profit DEC!DE (2021), exploring how digital tools and cultural engagement could make ecological concepts more accessible. The project remained at the conceptual stage, though it illustrated the potential of thoughtful design in environmental education."
-      button:
-        icon: "icon-arrow-right"
-        btnText: "Presentation"
-        URL: "https://docs.google.com/presentation/d/1Op95pkfVlUjElU0VGjlVz5bk4xikbmNrjFCbzP92Ce8/edit?usp=sharing"
+      description: "Volunteer UX/UI design contribution for the non-profit DEC!DE (2021), developed in collaboration with EPBL (Ensemble Biodiversité). The project proposed digital tools and cultural engagement formats to make ecological concepts more accessible to a broad public. A <a href=\"https://docs.google.com/presentation/d/1Op95pkfVlUjElU0VGjlVz5bk4xikbmNrjFCbzP92Ce8/edit?usp=sharing\" target=\"_blank\" rel=\"noopener noreferrer\">concept brief</a> was submitted to an Innoviris call for projects, though the application was not selected for funding."
       image:
-        x: "img/works/decide_mock.webp"
-        _2x: "img/works/decide_mock.webp"
-        original: "img/works/decide_mock.png"
-        avif: "img/works/decide_mock.avif"
+        x: "img/clients/decide_logo.webp"
+        _2x: "img/clients/decide_logo.webp"
+        original: "img/clients/decide_logo.png"
+        avif: "img/clients/decide_logo.avif"
       is_even: true
       featured: false
     - title: "Pwablo"
@@ -276,10 +295,7 @@ client_and_work:
         - name: "Jamstack"
         - name: "Custom JS/HTML5/CSS3"
       button:
-        enabled: true
-        icon: ""
-        btnText: "Visit Pwablo"
-        URL: "https://www.pwablo.be/"
+        enabled: false
       image:
         x: "img/works/pwablo.webp"
         _2x: "img/works/pwablo.webp"
@@ -287,7 +303,7 @@ client_and_work:
         avif: "img/works/pwablo.avif"
       is_even: false
       featured: true
-      description: "Pwablo is a sustainable web agency focused on creating lightweight, performance-oriented digital experiences for impact-driven organizations. The practice combines sustainable web design principles with workshops on digital environmental footprint, supporting organizations in reducing their digital impact."
+      description: "<a href=\"https://www.pwablo.be/\" target=\"_blank\" rel=\"noopener noreferrer\">Pwablo</a> is a sustainable web agency focused on creating lightweight, performance-oriented digital experiences for impact-driven organizations. The practice combines sustainable web design principles with workshops on digital environmental footprint, supporting organizations in reducing their digital impact."
 
     - title: "MyPatientCheck"
       stack:

@@ -14,6 +14,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# local archived cleanup artifacts
+archive/
+
 
 # environment variables
 .env
